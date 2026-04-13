@@ -5,11 +5,16 @@ on:
     - cron: '0 6 * * *'   # Kjører kl. 06:00 UTC (08:00 norsk tid) hver dag
   workflow_dispatch:       # Kan også trigges manuelt
 
+permissions:
+  contents: write         # Tillat push tilbake til repoet
+
 jobs:
   uu-analyse:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Sett opp Node.js
         uses: actions/setup-node@v4
@@ -37,12 +42,9 @@ jobs:
           retention-days: 90
 
       - name: Publiser til GitHub Pages og commit
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config user.name "UU-tester bot"
           git config user.email "bot@github.com"
-          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/ummeark/uu-tester-KSDigital.git
 
           # Kopier siste rapport til docs/ (GitHub Pages)
           DATO=$(date +%Y-%m-%d)

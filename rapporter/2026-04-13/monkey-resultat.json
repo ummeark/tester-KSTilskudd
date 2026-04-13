@@ -3,16 +3,23 @@
   "dato": "2026-04-13",
   "totalt": {
     "iterasjoner": 60,
-    "siderBesøkt": 10,
-    "jsErrors": 0,
+    "siderBesøkt": 6,
+    "jsErrors": 1,
     "konsollFeil": 0,
     "nettverksFeil": 0,
     "kritiske": 2,
     "alvorlige": 0,
-    "varighet": 32
+    "varighet": 29
   },
-  "score": 60,
-  "jsErrors": [],
+  "score": 52,
+  "jsErrors": [
+    {
+      "melding": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+      "stack": "",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
+      "tid": "2026-04-13T11:28:28.462Z"
+    }
+  ],
   "konsollFeil": [],
   "nettverksFeil": [],
   "interaksjoner": [
@@ -20,31 +27,27 @@
       "type": "feilside",
       "alvorlighet": "kritisk",
       "melding": "Feilside etter klikk: inneholder \"500\"",
-      "url": "https://tilskudd.fiks.test.ks.no/ordninger/b39a60ca-08e4-476c-88a1-a78fe3cd7983",
-      "handling": "Klikket lenke: \"Punktlig Viktig Hund DaStimuleringsmidler til internasjonalt\"",
-      "skjermdump": "skjermbilder-monkey/monkey-feilside-4.png",
-      "tid": "2026-04-13T11:23:43.849Z"
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
+      "handling": "Klikket lenke: \"Skånsom Impulsiv Tiger AsForskning og innovasjon i bedrift\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-1.png",
+      "tid": "2026-04-13T11:28:28.329Z"
     },
     {
       "type": "feilside",
       "alvorlighet": "kritisk",
-      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "melding": "Feilside etter navigasjon: inneholder \"500\"",
       "url": "https://tilskudd.fiks.test.ks.no/ordninger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
-      "handling": "Klikket lenke: \"Skånsom Impulsiv Tiger AsForskning og innovasjon i bedrift\"",
-      "skjermdump": "skjermbilder-monkey/monkey-feilside-6.png",
-      "tid": "2026-04-13T11:23:51.015Z"
+      "handling": "Gikk tilbake (browser back)",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-2.png",
+      "tid": "2026-04-13T11:28:28.909Z"
     }
   ],
   "besøkte": [
     "https://tilskudd.fiks.test.ks.no/",
+    "about:blank",
     "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10",
-    "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10&searchString=pxqgl7u6lfm+gwfumcgorq9+vi1qw9i4itj+9w92x1hv6hg+56usmtnqiph+vyom36u3wj+swod70ju7y9+657hr0kxgps",
     "https://tilskudd.fiks.test.ks.no/ordninger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6",
-    "https://tilskudd.fiks.test.ks.no/ordninger?searchString=m4ekgzf780q+6bsu1ge5q4j+fua5jql2r96+01gm0ajvbsqx+nvr23cmi3zk+2u40eny7u92+e65jvk4chgk+lrhl8aprz2&currentPage=1&pageSize=10",
-    "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10&searchString=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10&searchString=%21%40%23%24%25%26*%28%29",
-    "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10&searchString=%C3%A6%C3%B8%C3%A5+%C3%86%C3%98%C3%85",
-    "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10&searchString=Test+bruker",
-    "https://login.test.idporten.no/authorize/selector"
+    "https://tilskudd.fiks.test.ks.no/ordninger?searchString=%3Cb%3Ebold%3C%2Fb%3E&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10&searchString=iwowna6bh3b+j1hfdos8k4+lf9gantxmq+k7s9xrjqva+a3hls9d7rlo+glrvj5rps9t+rp13dndyxib+9xnidronbxk"
   ]
 }

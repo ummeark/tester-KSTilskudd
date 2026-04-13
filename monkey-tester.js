@@ -431,6 +431,47 @@ const html = `<!DOCTYPE html>
     </div>
   </div>
 
+  <div class="seksjon" style="background:#f4ecdf;border-color:#e8dcc8;margin-bottom:1.5rem">
+    <div class="seksjon-tittel">Hva er monkey-testing?</div>
+    <p style="font-size:.88rem;line-height:1.7;color:#374151;margin-bottom:1rem">
+      Monkey-testing simulerer en uforutsigbar bruker som klikker og skriver tilfeldig i applikasjonen –
+      uten å følge en bestemt flyt. Formålet er å avdekke krasj, ubehandlede feil og uventet oppførsel
+      som ikke fanges opp av ordinære tester.
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem;font-size:.83rem">
+      <div>
+        <strong style="color:#0a1355;display:block;margin-bottom:.3rem">Hva testes</strong>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.25rem;color:#374151">
+          <li>🖱️ Tilfeldige knappeklikk</li>
+          <li>✏️ Ugyldig og tom skjemainput</li>
+          <li>📤 Skjemaer sendt ut av kontekst</li>
+          <li>⬅️ Uventet tilbake-navigasjon</li>
+          <li>🔗 Tilfeldige lenker innad på siden</li>
+        </ul>
+      </div>
+      <div>
+        <strong style="color:#0a1355;display:block;margin-bottom:.3rem">Hva måles</strong>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.25rem;color:#374151">
+          <li>⚡ Ubehandlede JavaScript-feil</li>
+          <li>🖥️ console.error()-kall</li>
+          <li>🌐 HTTP 4xx/5xx-svar fra API</li>
+          <li>💥 Feilsider og krasj</li>
+          <li>📄 Antall sider applikasjonen når</li>
+        </ul>
+      </div>
+      <div>
+        <strong style="color:#0a1355;display:block;margin-bottom:.3rem">Testdata brukt</strong>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.25rem;color:#374151">
+          <li>Tom streng og mellomrom</li>
+          <li>Spesialtegn (!@#$%&amp;)</li>
+          <li>Norske tegn (æøå ÆØÅ)</li>
+          <li>Veldig lang tekst (500 tegn)</li>
+          <li>Ugyldig e-postadresse</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <div class="kort-grid">
     <div class="kort ok"><div class="tall">${ITERASJONER}</div><div class="etikett">Iterasjoner</div></div>
     <div class="kort ok"><div class="tall">${besøkte.size}</div><div class="etikett">Sider besøkt</div></div>

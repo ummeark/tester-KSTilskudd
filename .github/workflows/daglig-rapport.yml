@@ -1,9 +1,11 @@
 name: Daglig UU-rapport
 
+# OBS: Selve testen kjøres LOKALT på Mac via launchd (run-rapport-lokalt.sh)
+# fordi tilskudd.fiks.test.ks.no ikke er tilgjengelig fra GitHub Actions (Azure).
+# Denne workflowen er beholdt for manuell kjøring hvis nettstedet gjøres offentlig.
+
 on:
-  schedule:
-    - cron: '0 6 * * *'   # Kjører kl. 06:00 UTC (08:00 norsk tid) hver dag
-  workflow_dispatch:       # Kan også trigges manuelt
+  workflow_dispatch:       # Kun manuell kjøring
 
 permissions:
   contents: write         # Tillat push tilbake til repoet
@@ -28,13 +30,28 @@ jobs:
       - name: Installer Playwright-nettlesere
         run: npx playwright install --with-deps chromium
 
+      - name: Sjekk om nettstedet er tilgjengelig
+        id: sjekk
+        run: |
+          STATUS=$(curl -s --max-time 10 -o /dev/null -w "%{http_code}" "https://tilskudd.fiks.test.ks.no/" || echo "000")
+          echo "status=$STATUS" >> $GITHUB_OUTPUT
+          echo "HTTP-status: $STATUS"
+          if [[ ! "$STATUS" =~ ^[23] ]]; then
+            echo "⚠️ Nettstedet ikke tilgjengelig fra GitHub Actions (status: $STATUS)"
+            echo "💡 Testen kjøres lokalt via launchd på Mac. Se run-rapport-lokalt.sh"
+            exit 1
+          fi
+
       - name: Kjør UU-analyse
+        if: steps.sjekk.outputs.status != '000'
         run: npm run rapport
 
       - name: Generer arkivoversikt
+        if: steps.sjekk.outputs.status != '000'
         run: npm run arkiv
 
       - name: Last opp rapport som artefakt
+        if: steps.sjekk.outputs.status != '000'
         uses: actions/upload-artifact@v4
         with:
           name: uu-rapport-${{ github.run_id }}
@@ -42,11 +59,11 @@ jobs:
           retention-days: 90
 
       - name: Publiser til GitHub Pages og commit
+        if: steps.sjekk.outputs.status != '000'
         run: |
           git config user.name "UU-tester bot"
           git config user.email "bot@github.com"
 
-          # Kopier siste rapport til docs/ (GitHub Pages)
           DATO=$(date +%Y-%m-%d)
           cp rapporter/${DATO}/rapport.html docs/rapport.html
           cp -r rapporter/${DATO}/skjermbilder docs/skjermbilder 2>/dev/null || true

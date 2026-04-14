@@ -7,6 +7,7 @@ import { exec } from 'child_process';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const START_URL = process.argv[2] || 'https://tilskudd.fiks.test.ks.no/';
 const dato = new Date().toISOString().slice(0, 10);
+const tidspunkt = new Date().toLocaleTimeString('no-NO', { hour: '2-digit', minute: '2-digit' });
 const rapportDir = path.join(__dirname, 'rapporter', dato);
 const skjermDir = path.join(rapportDir, 'skjermbilder-negativ');
 fs.mkdirSync(skjermDir, { recursive: true });
@@ -540,7 +541,7 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Negativ testrapport – ${dato}</title>
+<title>Negativ testrapport – ${dato} ${tidspunkt}</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:system-ui,-apple-system,sans-serif;background:#faf6f0;color:#0f0e17;display:flex;min-height:100vh}
@@ -606,7 +607,7 @@ const html = `<!DOCTYPE html>
 <nav class="sidemeny">
   <div class="sidemeny-header">
     <div class="sidemeny-logo">KS Tilskudd · Negativ testing</div>
-    <h1>Negativ testrapport <span>${dato} · ${tester.length} tester</span></h1>
+    <h1>Negativ testrapport <span>${dato} ${tidspunkt} · ${tester.length} tester</span></h1>
   </div>
   <ul>${sidenavigasjon}</ul>
 </nav>
@@ -614,7 +615,7 @@ const html = `<!DOCTYPE html>
   <div class="rapport-header">
     <div>
       <h1>Negativ testrapport</h1>
-      <div class="meta"><a href="${START_URL}" target="_blank">${START_URL}</a> · ${dato} · ${tester.length} tester · ${varighet}s</div>
+      <div class="meta"><a href="${START_URL}" target="_blank">${START_URL}</a> · ${dato} ${tidspunkt} · ${tester.length} tester · ${varighet}s</div>
     </div>
     <div class="nav-knapper">
       <a href="rapport.html" class="knapp sekundær">UU-rapport</a>
@@ -683,7 +684,7 @@ const html = `<!DOCTYPE html>
 
   ${seksjoner}
 
-  <footer>KS Tilskudd · Negativ testing · Playwright · ${dato}</footer>
+  <footer>KS Tilskudd · Negativ testing · Playwright · ${dato} ${tidspunkt}</footer>
 </div>
 </body>
 </html>`;

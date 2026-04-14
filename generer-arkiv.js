@@ -220,6 +220,8 @@ const arkivHTML = `<!DOCTYPE html>
   header { background: #0a1355; color: white; padding: 1.6rem 2.5rem; }
   .header-inner { max-width: 980px; margin: 0 auto; }
   .header-merkevare { font-size: 0.72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; opacity: 0.45; margin-bottom: .4rem; }
+  header h1 { font-size: 1.4rem; font-weight: 700; }
+  header p { opacity: 0.5; font-size: 0.82rem; margin-top: 0.3rem; }
 
   .rapport-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid #f4ecdf; flex-wrap: wrap; }
   .rapport-header h1 { font-size: 1.5rem; font-weight: 700; color: #0a1355; letter-spacing: -.01em; }
@@ -438,16 +440,14 @@ const dashboardHTML = `<!DOCTYPE html>
 <body>
 <header>
   <div class="header-inner">
-    <div class="header-merkevare">KS Tilskudd · Testdashboard</div>
+    <div class="header-merkevare">KS Tilskudd</div>
+    <h1>Testdashboard</h1>
+    <p>${new Date().toLocaleDateString('nb-NO', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
   </div>
 </header>
 <div class="container">
 
   <div class="rapport-header">
-    <div>
-      <h1>Testdashboard</h1>
-      <div class="meta">tilskudd.fiks.test.ks.no · ${new Date().toLocaleDateString('nb-NO', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</div>
-    </div>
     <div class="nav-knapper">
       <a href="rapport.html" class="knapp aktiv">Forside</a>
       <a href="uu-rapport.html" class="knapp sekundær">UU-rapport</a>

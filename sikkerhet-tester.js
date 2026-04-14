@@ -519,7 +519,8 @@ const html = `<!DOCTYPE html>
       <div class="meta"><a href="${START_URL}" target="_blank">${START_URL}</a> · ${dato} ${tidspunkt} · ${varighet}s</div>
     </div>
     <div class="nav-knapper">
-      <a href="rapport.html" class="knapp sekundær">UU-rapport</a>
+      <a href="rapport.html" class="knapp sekundær">Forside</a>
+      <a href="uu-rapport.html" class="knapp sekundær">UU-rapport</a>
       <a href="monkey-rapport.html" class="knapp sekundær">Monkey-test</a>
       <a href="sikkerhet-rapport.html" class="knapp aktiv">Sikkerhetstest</a>
       <a href="negativ-rapport.html" class="knapp sekundær">Negativ test</a>

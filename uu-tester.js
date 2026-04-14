@@ -339,7 +339,7 @@ const totalt = {
 fs.writeFileSync(path.join(rapportDir, 'resultat.json'), JSON.stringify({ url: START_URL, dato, totalt, sider: sideResultater.map(s => ({ ...s, wcag: { ...s.wcag, detaljer: s.wcag.detaljer.map(v => ({ ...v, bilder: v.bilder })) } })) }, null, 2));
 
 // Generer HTML
-fs.writeFileSync(path.join(rapportDir, 'rapport.html'), genererRapport(START_URL, dato, tidspunkt, totalt, sideResultater));
+fs.writeFileSync(path.join(rapportDir, 'uu-rapport.html'), genererRapport(START_URL, dato, tidspunkt, totalt, sideResultater));
 
 // Terminal
 console.log('\n' + '━'.repeat(60));
@@ -352,9 +352,9 @@ console.log(`🔘 Knapper testet:   ${totalt.knapper} (${farge(totalt.knappUtenL
 console.log(`🖼️  Bilder testet:    ${totalt.bilder} (${farge(totalt.bilderUtenAlt, 0, 1, 3)} uten alt)`);
 console.log(`📝 Skjemafelt:       ${totalt.skjemafelt} (${farge(totalt.feltUtenLabel, 0, 1, 3)} uten label)`);
 console.log('━'.repeat(60));
-console.log(`\n📁 HTML-rapport: ${path.join(rapportDir, 'rapport.html')}\n`);
+console.log(`\n📁 HTML-rapport: ${path.join(rapportDir, 'uu-rapport.html')}\n`);
 const { exec } = await import('child_process');
-exec(`open "${path.join(rapportDir, 'rapport.html')}"`);
+exec(`open "${path.join(rapportDir, 'uu-rapport.html')}"`);
 
 function farge(n, grønn, gul, rød) {
   if (n <= grønn) return `\x1b[32m${n}\x1b[0m`;
@@ -658,7 +658,8 @@ function genererRapport(url, dato, tidspunkt, totalt, sider) {
       <div class="meta"><a href="${url}" target="_blank">${url}</a> · ${dato} ${tidspunkt} · ${totalt.sider} sider testet</div>
     </div>
     <div class="nav-knapper">
-      <a href="rapport.html" class="knapp aktiv">UU-rapport</a>
+      <a href="rapport.html" class="knapp sekundær">Forside</a>
+      <a href="uu-rapport.html" class="knapp aktiv">UU-rapport</a>
       <a href="monkey-rapport.html" class="knapp sekundær">Monkey-test</a>
       <a href="sikkerhet-rapport.html" class="knapp sekundær">Sikkerhetstest</a>
       <a href="negativ-rapport.html" class="knapp sekundær">Negativ test</a>

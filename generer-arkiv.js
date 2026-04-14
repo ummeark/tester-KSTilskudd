@@ -68,7 +68,7 @@ const negativ = datoer.map(lesNegativ).filter(Boolean);
 const arkivDir = path.join(docsDir, 'arkiv');
 fs.mkdirSync(arkivDir, { recursive: true });
 
-const rapportFiler = ['rapport.html', 'monkey-rapport.html', 'sikkerhet-rapport.html', 'negativ-rapport.html'];
+const rapportFiler = ['uu-rapport.html', 'monkey-rapport.html', 'sikkerhet-rapport.html', 'negativ-rapport.html'];
 
 for (const dato of datoer) {
   const kildedir = path.join(rapportDir, dato);
@@ -269,7 +269,8 @@ const arkivHTML = `<!DOCTYPE html>
       <p>Historikk for alle testene</p>
     </div>
     <nav class="header-nav">
-      <a href="rapport.html">UU-rapport</a>
+      <a href="rapport.html">Forside</a>
+      <a href="uu-rapport.html">UU-rapport</a>
       <a href="monkey-rapport.html">Monkey-test</a>
       <a href="sikkerhet-rapport.html">Sikkerhetstest</a>
       <a href="negativ-rapport.html">Negativ test</a>
@@ -278,7 +279,7 @@ const arkivHTML = `<!DOCTYPE html>
 </header>
 <div class="container">
 
-  ${seksjonHTML('UU-test (WCAG / tilgjengelighet)', '♿', uu, 'rapport.html', 'rapport.html', uuNøkkel)}
+  ${seksjonHTML('UU-test (WCAG / tilgjengelighet)', '♿', uu, 'uu-rapport.html', 'uu-rapport.html', uuNøkkel)}
   ${seksjonHTML('Monkey-test', '🐒', monkey, 'monkey-rapport.html', 'monkey-rapport.html', monkeyNøkkel)}
   ${seksjonHTML('Sikkerhetstest', '🔐', sikkerhet, 'sikkerhet-rapport.html', 'sikkerhet-rapport.html', sikkerhetNøkkel)}
   ${seksjonHTML('Negativ test', '🧪', negativ, 'negativ-rapport.html', 'negativ-rapport.html', negativNøkkel)}
@@ -291,3 +292,167 @@ const arkivHTML = `<!DOCTYPE html>
 fs.writeFileSync(path.join(docsDir, 'arkiv.html'), arkivHTML);
 console.log(`✅ Arkiv generert → docs/arkiv.html`);
 console.log(`   UU: ${uu.length} | Monkey: ${monkey.length} | Sikkerhet: ${sikkerhet.length} | Negativ: ${negativ.length}`);
+
+// --- Generer dashboard (rapport.html) ---
+
+function dashboardKort(tittel, ikon, rapportFil, data, nøkkeltallFn) {
+  if (!data) {
+    return `
+    <div class="dash-kort ingen-data">
+      <div class="dash-ikon">${ikon}</div>
+      <div class="dash-tittel">${tittel}</div>
+      <div class="dash-ingen">Ingen data ennå</div>
+    </div>`;
+  }
+  const sk = scoreKlasse(data.score);
+  return `
+  <a class="dash-kort ${sk}" href="${rapportFil}">
+    <div class="dash-topp">
+      <span class="dash-ikon">${ikon}</span>
+      <span class="dash-tittel">${tittel}</span>
+    </div>
+    <div class="dash-score ${sk}">${data.score}<span class="dash-score-enhet">/100</span></div>
+    <div class="dash-dato">${norskDato(data.dato)}</div>
+    <div class="dash-nøkkel">${nøkkeltallFn(data)}</div>
+    <div class="dash-lenke">Se full rapport →</div>
+  </a>`;
+}
+
+const sisteUU       = uu[0]       || null;
+const sisteMonkey   = monkey[0]   || null;
+const sisteSikk     = sikkerhet[0] || null;
+const sisteNegativ  = negativ[0]  || null;
+
+const dashboardHTML = `<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KS Tilskudd – Testdashboard</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, sans-serif; background: #faf6f0; color: #0f0e17; min-height: 100vh; }
+
+  header { background: #0a1355; color: white; padding: 1.6rem 2.5rem; }
+  .header-inner { max-width: 980px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .header-merkevare { font-size: 0.72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; opacity: 0.45; margin-bottom: .4rem; }
+  header h1 { font-size: 1.4rem; font-weight: 700; }
+  header p { opacity: 0.5; font-size: 0.82rem; margin-top: 0.3rem; }
+  .header-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .header-nav a { display: inline-block; padding: .45rem 1.1rem; border: 1px solid rgba(255,255,255,.3); border-radius: 100px; color: rgba(255,255,255,.8); text-decoration: none; font-size: 0.82rem; transition: all .15s; white-space: nowrap; }
+  .header-nav a:hover { background: rgba(255,255,255,.1); color: white; border-color: rgba(255,255,255,.6); }
+  .header-nav a.aktiv { background: rgba(255,255,255,.15); color: white; border-color: rgba(255,255,255,.5); }
+
+  .container { max-width: 980px; margin: 2.5rem auto; padding: 0 1.5rem; }
+
+  /* Total score-rad */
+  .total-rad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+
+  /* Dashboard-kort */
+  .dash-kort { background: white; border: 1px solid #f1f0ee; border-top: 5px solid #e5e3de; padding: 1.6rem; box-shadow: 0 1px 4px rgba(10,19,85,.06); text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.7rem; transition: box-shadow .15s, transform .15s; }
+  .dash-kort:hover { box-shadow: 0 6px 20px rgba(10,19,85,.12); transform: translateY(-2px); }
+  .dash-kort.god { border-top-color: #07604f; }
+  .dash-kort.middels { border-top-color: #b8860b; }
+  .dash-kort.dårlig { border-top-color: #c53030; }
+  .dash-kort.ingen-data { opacity: 0.5; cursor: default; }
+
+  .dash-topp { display: flex; align-items: center; gap: 0.5rem; }
+  .dash-ikon { font-size: 1.3rem; }
+  .dash-tittel { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: #6b7280; }
+
+  .dash-score { font-size: 3rem; font-weight: 800; line-height: 1; color: #0a1355; }
+  .dash-score.god { color: #07604f; }
+  .dash-score.middels { color: #b8860b; }
+  .dash-score.dårlig { color: #c53030; }
+  .dash-score-enhet { font-size: 1rem; font-weight: 400; opacity: 0.4; margin-left: 2px; }
+
+  .dash-dato { font-size: 0.75rem; color: #9ca3af; }
+
+  .dash-nøkkel { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.78rem; color: #6b7280; border-top: 1px solid #f4f3f1; padding-top: 0.7rem; margin-top: auto; }
+  .dash-nøkkel .rød { color: #c53030; font-weight: 600; }
+  .dash-nøkkel .grønn { color: #07604f; }
+
+  .dash-lenke { font-size: 0.78rem; color: #07604f; font-weight: 600; }
+  .dash-ingen { font-size: 0.82rem; color: #9ca3af; }
+
+  /* Samlet score */
+  .samlet-seksjon { background: white; border: 1px solid #f1f0ee; padding: 1.6rem 2rem; margin-bottom: 2rem; box-shadow: 0 1px 4px rgba(10,19,85,.06); display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+  .samlet-score { font-size: 3.5rem; font-weight: 800; color: #0a1355; line-height: 1; }
+  .samlet-score.god { color: #07604f; }
+  .samlet-score.middels { color: #b8860b; }
+  .samlet-score.dårlig { color: #c53030; }
+  .samlet-tekst h2 { font-size: 1rem; font-weight: 700; color: #0a1355; }
+  .samlet-tekst p { font-size: 0.82rem; color: #6b7280; margin-top: 0.3rem; }
+
+  footer { text-align: center; padding: 2.5rem; color: #9ca3af; font-size: 0.78rem; border-top: 1px solid #f1f0ee; margin-top: 2rem; }
+
+  @media (max-width: 720px) {
+    .total-rad { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 420px) {
+    .total-rad { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="header-merkevare">KS Tilskudd</div>
+      <h1>Testdashboard</h1>
+      <p>${new Date().toLocaleDateString('nb-NO', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+    </div>
+    <nav class="header-nav">
+      <a href="rapport.html" class="aktiv">Forside</a>
+      <a href="uu-rapport.html">UU-rapport</a>
+      <a href="monkey-rapport.html">Monkey-test</a>
+      <a href="sikkerhet-rapport.html">Sikkerhetstest</a>
+      <a href="negativ-rapport.html">Negativ test</a>
+      <a href="arkiv.html">Arkiv</a>
+    </nav>
+  </div>
+</header>
+<div class="container">
+
+  ${(() => {
+    const scores = [sisteUU, sisteMonkey, sisteSikk, sisteNegativ].filter(Boolean).map(d => d.score);
+    if (scores.length === 0) return '';
+    const snitt = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
+    const sk = scoreKlasse(snitt);
+    const tekst = sk === 'god' ? 'Testene viser generelt god kvalitet.' : sk === 'middels' ? 'Det er forbedringspotensial — se detaljrapportene.' : 'Det er kritiske funn som bør fikses snarest.';
+    return `
+  <div class="samlet-seksjon">
+    <div class="samlet-score ${sk}">${snitt}</div>
+    <div class="samlet-tekst">
+      <h2>Samlet gjennomsnittsscore</h2>
+      <p>${tekst}</p>
+    </div>
+  </div>`;
+  })()}
+
+  <div class="total-rad">
+    ${dashboardKort('UU-test', '♿', 'uu-rapport.html', sisteUU, r => `
+      <span>${r.totalt.wcagBrudd > 0 ? `<b class="rød">${r.totalt.wcagBrudd} WCAG-brudd</b>` : '<span class="grønn">Ingen WCAG-brudd</span>'}</span>
+      <span>${r.totalt.dødelenker > 0 ? `<b class="rød">${r.totalt.dødelenker} døde lenker</b>` : '<span class="grønn">Ingen døde lenker</span>'}</span>
+      <span>${r.totalt.sider} sider analysert</span>`)}
+    ${dashboardKort('Monkey-test', '🐒', 'monkey-rapport.html', sisteMonkey, r => `
+      <span>${r.totalt.jsErrors > 0 ? `<b class="rød">${r.totalt.jsErrors} JS-feil</b>` : '<span class="grønn">Ingen JS-feil</span>'}</span>
+      <span>${r.totalt.kritiske > 0 ? `<b class="rød">${r.totalt.kritiske} kritiske funn</b>` : '<span class="grønn">Ingen kritiske funn</span>'}</span>
+      <span>${r.totalt.iterasjoner} iterasjoner</span>`)}
+    ${dashboardKort('Sikkerhetstest', '🔐', 'sikkerhet-rapport.html', sisteSikk, r => `
+      <span>${r.totalt.kritiske > 0 ? `<b class="rød">${r.totalt.kritiske} kritiske</b>` : '<span class="grønn">Ingen kritiske</span>'}</span>
+      <span>${r.totalt.alvorlige > 0 ? `<b class="rød">${r.totalt.alvorlige} alvorlige</b>` : '<span class="grønn">Ingen alvorlige</span>'}</span>
+      <span>${r.totalt.ok} sjekker bestått</span>`)}
+    ${dashboardKort('Negativ test', '🧪', 'negativ-rapport.html', sisteNegativ, r => `
+      <span><span class="grønn">${r.totalt.bestått} bestått</span></span>
+      <span>${r.totalt.advarsel > 0 ? `<b class="rød">${r.totalt.advarsel} advarsler</b>` : '<span class="grønn">Ingen advarsler</span>'}</span>
+      <span>${r.totalt.feil > 0 ? `<b class="rød">${r.totalt.feil} feil</b>` : '<span class="grønn">Ingen feil</span>'}</span>`)}
+  </div>
+
+</div>
+<footer>KS Tilskudd · Testdashboard · axe-core + Playwright</footer>
+</body>
+</html>`;
+
+fs.writeFileSync(path.join(docsDir, 'rapport.html'), dashboardHTML);
+console.log(`✅ Dashboard generert → docs/rapport.html`);

@@ -297,15 +297,13 @@ const arkivHTML = `<!DOCTYPE html>
 <header>
   <div class="header-inner">
     <div class="header-merkevare">KS Tilskudd · Testrapporter</div>
+    <h1>Arkiv</h1>
+    <p>Historikk for alle testene</p>
   </div>
 </header>
 <div class="container">
 
   <div class="rapport-header">
-    <div>
-      <h1>Arkiv</h1>
-      <div class="meta">Historikk for alle testene</div>
-    </div>
     <div class="nav-knapper">
       <a href="rapport.html" class="knapp sekundær">Forside</a>
       <a href="uu-rapport.html" class="knapp sekundær">UU-rapport</a>

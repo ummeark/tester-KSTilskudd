@@ -96,6 +96,32 @@ for (const dato of datoer) {
   }
 }
 
+// --- Kopier siste rapporter og skjermdumper til docs/ ---
+
+const sisteDato = datoer[0]; // Nyeste dato
+if (sisteDato) {
+  const kildedir = path.join(rapportDir, sisteDato);
+
+  // Kopier HTML-rapporter
+  for (const fil of rapportFiler) {
+    const src = path.join(kildedir, fil);
+    if (fs.existsSync(src)) {
+      fs.copyFileSync(src, path.join(docsDir, fil));
+    }
+  }
+
+  // Kopier skjermdumper
+  for (const skjermNavn of ['skjermbilder', 'skjermbilder-monkey', 'skjermbilder-negativ', 'skjermbilder-sikkerhet']) {
+    const src = path.join(kildedir, skjermNavn);
+    const mål = path.join(docsDir, skjermNavn);
+    if (fs.existsSync(src)) {
+      fs.mkdirSync(mål, { recursive: true });
+      fs.readdirSync(src).forEach(f => fs.copyFileSync(path.join(src, f), path.join(mål, f)));
+    }
+  }
+  console.log(`✅ Siste rapporter og skjermdumper kopiert til docs/ (${sisteDato})`);
+}
+
 // --- Hjelpefunksjoner ---
 
 function scoreKlasse(s) { return s >= 80 ? 'god' : s >= 50 ? 'middels' : 'dårlig'; }

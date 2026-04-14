@@ -449,12 +449,12 @@ const dashboardHTML = `<!DOCTYPE html>
       <div class="meta">tilskudd.fiks.test.ks.no · ${new Date().toLocaleDateString('nb-NO', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</div>
     </div>
     <div class="nav-knapper">
+      <a href="rapport.html" class="knapp aktiv">Forside</a>
       <a href="uu-rapport.html" class="knapp sekundær">UU-rapport</a>
       <a href="monkey-rapport.html" class="knapp sekundær">Monkey-test</a>
       <a href="sikkerhet-rapport.html" class="knapp sekundær">Sikkerhetstest</a>
       <a href="negativ-rapport.html" class="knapp sekundær">Negativ test</a>
       <a href="arkiv.html" class="knapp sekundær">Arkiv</a>
-      <a href="rapport.html" class="knapp aktiv">Forside</a>
     </div>
   </div>
 

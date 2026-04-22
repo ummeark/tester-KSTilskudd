@@ -499,7 +499,7 @@ const arkivHTML = `<!DOCTYPE html>
   ${seksjonHTML('Ytelsestest', '🚀', ytelse, 'ytelse-rapport.html', ytelseNøkkel)}
 
 </div>
-<footer>KS Tilskudd · Testrapporter · axe-core + Playwright</footer>
+<footer>KS Tilskudd · Testrapporter · axe-core + Playwright · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html" style="color:inherit">🗂️ Testdatahub</a></footer>
 </body>
 </html>`;
 
@@ -698,7 +698,7 @@ const dashboardHTML = `<!DOCTYPE html>
   </div>
 
 </div>
-<footer>KS Tilskudd · Testdashboard · axe-core + Playwright</footer>
+<footer>KS Tilskudd · Testdashboard · axe-core + Playwright · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html" style="color:inherit">🗂️ Testdatahub</a></footer>
 <script>
 (async () => {
   const velger = document.getElementById('dato-velger');

@@ -975,7 +975,7 @@ function genererRapport(url, dato, tidspunkt, totalt, sider, versjon = null, tas
       </div>
     </div>
   </details>
-  <footer>KS Tilskudd · UU-tester · axe-core + Playwright · ${dato} ${tidspunkt}</footer>
+  <footer>KS Tilskudd · UU-tester · axe-core + Playwright · ${dato} ${tidspunkt} · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html" style="color:inherit">🗂️ Testdatahub</a></footer>
 </div>
 </body>
 </html>`;

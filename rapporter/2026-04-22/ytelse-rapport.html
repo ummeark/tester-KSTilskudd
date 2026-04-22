@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ytelsesrapport 2026-04-22 – KS Tilskudd</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, sans-serif; background: #faf6f0; color: #0f0e17; min-height: 100vh; }
+
+  header { background: #0a1355; color: white; padding: 1.6rem 2.5rem; }
+  .header-inner { max-width: 1200px; margin: 0 auto; }
+  .header-merkevare { font-size: 0.72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; opacity: 0.45; margin-bottom: .4rem; }
+  .env-badge { display: inline-block; font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; background: rgba(255,255,255,.18); color: white; padding: .25rem .7rem; border-radius: 100px; margin-bottom: .4rem; }
+  header h1 { font-size: 1.4rem; font-weight: 700; }
+  header p { opacity: 0.5; font-size: 0.82rem; margin-top: 0.3rem; }
+
+  .container { max-width: 1200px; margin: 2.5rem auto; padding: 0 2rem; }
+
+  .nav-knapper { display: flex; gap: .6rem; flex-wrap: wrap; align-items: flex-start; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid #f4ecdf; }
+  .knapp { display: inline-block; padding: .5rem 1.2rem; background: #0a1355; color: white; border-radius: 100px; font-size: .82rem; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background .15s; }
+  .knapp:hover { background: #2b3285; }
+  .knapp.aktiv { background: #07604f; pointer-events: none; }
+  .knapp.sekundær { background: transparent; border: 1px solid #0a1355; color: #0a1355; }
+  .knapp.sekundær:hover { background: #f4ecdf; }
+
+  .samlet { background: white; border: 1px solid #f1f0ee; padding: 1.6rem 2rem; margin-bottom: 1.5rem; box-shadow: 0 1px 4px rgba(10,19,85,.06); display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+  .samlet-score { font-size: 3.5rem; font-weight: 800; line-height: 1; }
+  .samlet-score.god { color: #07604f; }
+  .samlet-score.middels { color: #b8860b; }
+  .samlet-score.dårlig { color: #c53030; }
+  .samlet-tekst h2 { font-size: 1rem; font-weight: 700; color: #0a1355; }
+  .samlet-tekst p { font-size: 0.82rem; color: #6b7280; margin-top: 0.3rem; }
+
+  .snitt-rad { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .snitt-kort { background: white; border: 1px solid #f1f0ee; padding: 1rem 1.4rem; flex: 1; min-width: 130px; box-shadow: 0 1px 4px rgba(10,19,85,.06); }
+  .snitt-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #9ca3af; margin-bottom: 0.4rem; }
+  .snitt-verdi { font-size: 1.3rem; font-weight: 700; }
+  .snitt-verdi.god { color: #07604f; }
+  .snitt-verdi.middels { color: #b8860b; }
+  .snitt-verdi.dårlig { color: #c53030; }
+
+  .tabell-wrapper { background: white; border: 1px solid #f1f0ee; box-shadow: 0 1px 4px rgba(10,19,85,.06); overflow-x: auto; margin-bottom: 1rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+  th { background: #0a1355; color: white; padding: .7rem 1rem; text-align: left; font-weight: 600; font-size: 0.75rem; white-space: nowrap; }
+  th small { display: block; font-weight: 400; opacity: 0.6; font-size: 0.65rem; margin-top: 1px; }
+  td { padding: .65rem 1rem; border-bottom: 1px solid #f4f3f1; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #faf6f0; }
+  td.url-col { max-width: 280px; }
+  td.url-col a { color: #0a1355; text-decoration: none; font-weight: 500; }
+  td.url-col a:hover { text-decoration: underline; }
+  td.url-col small { color: #9ca3af; font-size: 0.72rem; display: block; margin-top: 2px; word-break: break-all; }
+  td.score-col { font-weight: 700; font-size: 1rem; text-align: center; min-width: 60px; }
+  td.god { color: #07604f; font-weight: 600; }
+  td.middels { color: #b8860b; font-weight: 600; }
+  td.dårlig { color: #c53030; font-weight: 600; }
+  td.score-col.god { color: white; background: #07604f; }
+  td.score-col.middels { color: #0a1355; background: #f3dda2; }
+  td.score-col.dårlig { color: white; background: #c53030; }
+
+  .forklaring { font-size: 0.78rem; color: #6b7280; display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .forklaring .god::before    { content: '● '; color: #07604f; }
+  .forklaring .middels::before { content: '● '; color: #b8860b; }
+  .forklaring .dårlig::before  { content: '● '; color: #c53030; }
+
+  footer { text-align: center; padding: 2.5rem; color: #9ca3af; font-size: 0.78rem; border-top: 1px solid #f1f0ee; margin-top: 2rem; }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="header-merkevare">KS Tilskudd · Ytelsestest</div>
+    <div class="env-badge">TEST-MILJØ</div>
+    <h1>Ytelsesrapport</h1>
+    <p>2026-04-22 15:10 · https://tilskudd.fiks.test.ks.no/</p>
+  </div>
+</header>
+<div class="container">
+  <div class="nav-knapper">
+    <a href="rapport.html" class="knapp sekundær">Forside</a>
+    <a href="uu-rapport.html" class="knapp sekundær">UU-rapport</a>
+    <a href="monkey-rapport.html" class="knapp sekundær">Monkey-test</a>
+    <a href="sikkerhet-rapport.html" class="knapp sekundær">Sikkerhetstest</a>
+    <a href="negativ-rapport.html" class="knapp sekundær">Negativ test</a>
+    <a href="ytelse-rapport.html" class="knapp aktiv">Ytelsestest</a>
+    <a href="arkiv.html" class="knapp sekundær">Arkiv</a>
+  </div>
+
+  <div class="samlet">
+    <div class="samlet-score god">100</div>
+    <div class="samlet-tekst">
+      <h2>Ytelsesscore – https://tilskudd.fiks.test.ks.no/</h2>
+      <p>9 sider analysert · Vektet snitt: LCP 40 %, FCP 20 %, TTFB 20 %, Lastetid 20 %</p>
+    </div>
+  </div>
+
+  <div class="snitt-rad">
+    <div class="snitt-kort">
+      <div class="snitt-label">Snitt LCP</div>
+      <div class="snitt-verdi god">244 ms</div>
+    </div>
+    <div class="snitt-kort">
+      <div class="snitt-label">Snitt FCP</div>
+      <div class="snitt-verdi god">163 ms</div>
+    </div>
+    <div class="snitt-kort">
+      <div class="snitt-label">Snitt TTFB</div>
+      <div class="snitt-verdi god">91 ms</div>
+    </div>
+    <div class="snitt-kort">
+      <div class="snitt-label">Snitt lastetid</div>
+      <div class="snitt-verdi god">177 ms</div>
+    </div>
+    <div class="snitt-kort">
+      <div class="snitt-label">Total datastørrelse</div>
+      <div class="snitt-verdi middels">1.2 MB</div>
+    </div>
+    <div class="snitt-kort">
+      <div class="snitt-label">Totale forespørsler</div>
+      <div class="snitt-verdi dårlig">177</div>
+    </div>
+  </div>
+
+  <div class="tabell-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Side</th>
+          <th>Score</th>
+          <th>LCP<small>mål &lt; 2,5 s</small></th>
+          <th>FCP<small>mål &lt; 1,8 s</small></th>
+          <th>TTFB<small>mål &lt; 800 ms</small></th>
+          <th>Lastetid<small>mål &lt; 3 s</small></th>
+          <th>Størrelse<small>mål &lt; 1 MB</small></th>
+          <th>Forespørsler<small>mål &lt; 50</small></th>
+        </tr>
+      </thead>
+      <tbody>
+  <tr>
+    <td class="url-col">
+      <a href="https://tilskudd.fiks.test.ks.no/" target="_blank">KS Tilskudd - Hjem</a>
+      <small>https://tilskudd.fiks.test.ks.no/</small>
+    </td>
+    <td class="score-col god">100</td>
+    <td class="god">264 ms</td>
+    <td class="god">264 ms</td>
+    <td class="god">49 ms</td>
+    <td class="god">262 ms</td>
+    <td class="middels">1.1 MB</td>
+    <td class="god">18</td>
+  </tr>
+  <tr>
+    <td class="url-col">
+      <a href="https://tilskudd.fiks.test.ks.no/ordninger" target="_blank">KS Tilskudd - Ordninger</a>
+      <small>https://tilskudd.fiks.test.ks.no/ordninger</small>
+    </td>
+    <td class="score-col god">100</td>
+    <td class="god">620 ms</td>
+    <td class="god">188 ms</td>
+    <td class="god">120 ms</td>
+    <td class="god">204 ms</td>
+    <td class="god">14 KB</td>
+    <td class="god">23</td>
+  </tr>
+  <tr>
+    <td class="url-col">
+      <a href="https://tilskudd.fiks.test.ks.no/minside" target="_blank">ID-porten</a>
+      <small>https://tilskudd.fiks.test.ks.no/minside</small>
+    </td>
+    <td class="score-col god">100</td>
+    <td class="god">196 ms</td>
+    <td class="god">196 ms</td>
+    <td class="god">20 ms</td>
+    <td class="god">270 ms</td>
+    <td class="god">52 KB</td>
+    <td class="god">13</td>
+  </tr>
+  <tr>
+    <td class="url-col">
+      <a href="https://tilskudd.fiks.test.ks.no/ordninger/553b5d8c-209e-410e-88c6-a6cb79d714dc" target="_blank">KS Tilskudd</a>
+      <small>https://tilskudd.fiks.test.ks.no/ordninger/553b5d8c-209e-410e-88c6-a6cb79d714dc</small>
+    </td>
+    <td class="score-col god">100</td>
+    <td class="god">184 ms</td>
+    <td class="god">116 ms</td>
+    <td class="god">91 ms</td>
+    <td class="god">135 ms</td>
+    <td class="god">113 KB</td>
+    <td class="god">22</td>
+  </tr>
+  <tr>
+    <td class="url-col">
+      <a href="https://tilskudd.fiks.test.ks.no/ordninger/7082abd8-4f23-43e9-adce-c4762b848b81" target="_blank">KS Tilskudd</a>
+      <small>https://tilskudd.fiks.test.ks.no/ordninger/7082abd8-4f23-43e9-adce-c4762b848b81</small>
+    </td>
+    <td class="score-col god">100</td>
+    <td class="god">220 ms</td>
+    <td class="god">164 ms</td>
+    <td class="god">142 ms</td>
+    <td class="god">163 ms</td>
+    <td class="god">0 KB</td>
+    <td class="god">22</td>
+  </tr>
+  <tr>
+    <td class="url-col">
+      <a href="https://tilskudd.fiks.test.ks.no/ordninger/b39a60ca-08e4-476c-88a1-a78fe3cd7983" target="_blank">KS Tilskudd</a>
+      <small>https://tilskudd.fiks.test.ks.no/ordninger/b39a60ca-08e4-476c-88a1-a78fe3cd7983</small>
+    </td>
+    <td class="score-col god">100</td>
+    <td class="god">220 ms</td>
+    <td class="god">160 ms</td>
+    <td class="god">141 ms</td>
+    <td class="god">161 ms</td>
+    <td class="god">0 KB</td>
+    <td class="god">22</td>
+  </tr>
+  <tr>
+    <td class="url-col">
+      <a href="https://tilskudd.fiks.test.ks.no/ordninger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0" target="_blank">KS Tilskudd</a>
+      <small>https://tilskudd.fiks.test.ks.no/ordninger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0</small>
+    </td>
+    <td class="score-col god">100</td>
+    <td class="god">184 ms</td>
+    <td class="god">128 ms</td>
+    <td class="god">111 ms</td>
+    <td class="god">148 ms</td>
+    <td class="god">0 KB</td>
+    <td class="god">22</td>
+  </tr>
+  <tr>
+    <td class="url-col">
+      <a href="https://tilskudd.fiks.test.ks.no/ordninger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6" target="_blank">KS Tilskudd</a>
+      <small>https://tilskudd.fiks.test.ks.no/ordninger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6</small>
+    </td>
+    <td class="score-col god">100</td>
+    <td class="god">216 ms</td>
+    <td class="god">156 ms</td>
+    <td class="god">133 ms</td>
+    <td class="god">154 ms</td>
+    <td class="god">0 KB</td>
+    <td class="god">22</td>
+  </tr>
+  <tr>
+    <td class="url-col">
+      <a href="https://tilskudd.fiks.test.ks.no/soknad/opprett" target="_blank">ID-porten</a>
+      <small>https://tilskudd.fiks.test.ks.no/soknad/opprett</small>
+    </td>
+    <td class="score-col god">100</td>
+    <td class="god">92 ms</td>
+    <td class="god">92 ms</td>
+    <td class="god">13 ms</td>
+    <td class="god">94 ms</td>
+    <td class="god">0 KB</td>
+    <td class="god">13</td>
+  </tr></tbody>
+    </table>
+  </div>
+
+  <div class="forklaring">
+    <span class="god">God (innenfor mål)</span>
+    <span class="middels">Middels (nær grensen)</span>
+    <span class="dårlig">Bør forbedres (over grense)</span>
+  </div>
+</div>
+<footer>KS Tilskudd · Ytelsestest · Playwright Chromium</footer>
+</body>
+</html>

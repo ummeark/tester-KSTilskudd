@@ -389,6 +389,39 @@ const rapportHTML = `<!DOCTYPE html>
     <span class="dårlig">Bør forbedres (over grense)</span>
   </div>
 
+  <div class="seksjon" style="margin-top:2rem">
+    <div class="seksjon-tittel">Slik beregnes ytelsesscoren</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.3rem .8rem;font-size:.82rem;font-family:ui-monospace,monospace;margin-bottom:.9rem">
+      <span style="color:#374151">LCP</span><span style="color:#0a1355;font-weight:700">× 40 % av totalscoren</span>
+      <span style="color:#374151">FCP</span><span style="color:#0a1355;font-weight:700">× 20 % av totalscoren</span>
+      <span style="color:#374151">TTFB</span><span style="color:#0a1355;font-weight:700">× 20 % av totalscoren</span>
+      <span style="color:#374151">Lastetid</span><span style="color:#0a1355;font-weight:700">× 20 % av totalscoren</span>
+    </div>
+    <p style="font-size:.78rem;color:#6b7280;font-family:ui-monospace,monospace">Hver metrikk scores 0–100 basert på terskelverdiene &nbsp;·&nbsp; Score = vektet snitt per side &nbsp;·&nbsp; Totalscoren = snitt over alle sider &nbsp;·&nbsp; <span style="color:#07604f;font-weight:600">Grønn ≥ 80</span> &nbsp;·&nbsp; <span style="color:#b8860b;font-weight:600">Gul 50–79</span> &nbsp;·&nbsp; <span style="color:#c53030;font-weight:600">Rød &lt; 50</span></p>
+  </div>
+
+  <details style="margin-top:2rem;border:1px solid #e5e3de;border-radius:.5rem;padding:1rem 1.2rem;background:#fafaf9">
+    <summary style="cursor:pointer;font-size:.88rem;font-weight:600;color:#374151;user-select:none">Alle målinger som gjøres per side (6) ▾</summary>
+    <div style="margin-top:1rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.2rem;font-size:.82rem">
+      <div>
+        <div style="font-weight:600;color:#0a1355;margin-bottom:.4rem">Lastetidsmålinger</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.2rem">
+          <li style="color:#374151">· LCP – Largest Contentful Paint</li>
+          <li style="color:#374151">· FCP – First Contentful Paint</li>
+          <li style="color:#374151">· TTFB – Time To First Byte</li>
+          <li style="color:#374151">· Lastetid (load-event ferdig)</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-weight:600;color:#0a1355;margin-bottom:.4rem">Ressursmålinger</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.2rem">
+          <li style="color:#374151">· Total datastørrelse (transferSize)</li>
+          <li style="color:#374151">· Antall nettverksforespørsler</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
   <footer>KS Tilskudd · Ytelsestest · Playwright Chromium</footer>
 </div>
 </body>

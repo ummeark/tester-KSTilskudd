@@ -1,0 +1,82 @@
+{
+  "url": "https://tilskudd.fiks.test.ks.no/",
+  "dato": "2026-04-23",
+  "versjon": "v0.4.3",
+  "nettleser": "147.0.7727.15",
+  "totalt": {
+    "iterasjoner": 60,
+    "siderBesøkt": 4,
+    "jsErrors": 0,
+    "konsollFeil": 0,
+    "nettverksFeil": 0,
+    "kritiske": 6,
+    "alvorlige": 0,
+    "varighet": 32
+  },
+  "score": 0,
+  "jsErrors": [],
+  "konsollFeil": [],
+  "nettverksFeil": [],
+  "interaksjoner": [
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger/b39a60ca-08e4-476c-88a1-a78fe3cd7983",
+      "handling": "Klikket lenke: \"Punktlig Viktig Hund DaStimuleringsmidler til internasjonalt\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-1.png",
+      "tid": "2026-04-23T07:29:18.978Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
+      "handling": "Klikket lenke: \"Skånsom Impulsiv Tiger AsForskning og innovasjon i bedrift\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-2.png",
+      "tid": "2026-04-23T07:29:24.710Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0",
+      "handling": "Klikket lenke: \"Punktlig Viktig Hund DaKommunalt næringsfond Kristiansund 20\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-3.png",
+      "tid": "2026-04-23T07:29:31.424Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
+      "handling": "Klikket lenke: \"Skånsom Impulsiv Tiger AsForskning og innovasjon i bedrift\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-5.png",
+      "tid": "2026-04-23T07:29:38.075Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
+      "handling": "Klikket lenke: \"Skånsom Impulsiv Tiger AsForskning og innovasjon i bedrift\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-6.png",
+      "tid": "2026-04-23T07:29:40.422Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger/b39a60ca-08e4-476c-88a1-a78fe3cd7983",
+      "handling": "Klikket lenke: \"Punktlig Viktig Hund DaStimuleringsmidler til internasjonalt\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-8.png",
+      "tid": "2026-04-23T07:29:45.676Z"
+    }
+  ],
+  "besøkte": [
+    "https://tilskudd.fiks.test.ks.no/",
+    "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/ordninger?searchString=%220%22&currentPage=1&pageSize=10",
+    "https://login.test.idporten.no/authorize/selector"
+  ]
+}

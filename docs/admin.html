@@ -106,6 +106,24 @@
     .status-pågår     { background: #fef3c7; color: #92400e; }
     .status-planlagt  { background: #e0e7ff; color: #3730a3; }
 
+    .risiko-badge {
+      font-size: .65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .05em; padding: .2rem .55rem; border-radius: 100px;
+      white-space: nowrap;
+    }
+    .risiko-lav     { background: #dcfce7; color: #166534; }
+    .risiko-middels { background: #fef3c7; color: #92400e; }
+    .risiko-høy     { background: #fee2e2; color: #991b1b; }
+
+    .kort-risiko {
+      font-size: .78rem; color: #92400e; line-height: 1.5;
+      background: #fffbeb; border-left: 2px solid #d97706;
+      padding: .35rem .65rem; margin-top: .5rem;
+    }
+    .risiko-høy + .kort-risiko, .kort-risiko.høy {
+      color: #991b1b; background: #fff1f2; border-color: #ef4444;
+    }
+
     /* ── Type-farger ── */
     .type-refaktorering  { --c: #7c3aed; }
     .type-ny-funksjonalitet { --c: #0891b2; }
@@ -242,10 +260,12 @@ function byggInnhold(data) {
               <div>
                 <div class="kort-tittel">${item.tittel}</div>
                 <div class="kort-besk">${item.beskrivelse}</div>
+                ${item.risiko ? `<div class="kort-risiko${item.risiko.nivå === 'høy' ? ' høy' : ''}">⚠ ${item.risiko.beskrivelse}</div>` : ''}
                 ${item.filer?.length ? `<div class="kort-filer">${item.filer.map(f => `<span class="fil-tag">${f}</span>`).join('')}</div>` : ''}
               </div>
-              <div>
+              <div style="display:flex;flex-direction:column;gap:.4rem;align-items:flex-end">
                 <span class="status-badge status-${item.status}">${STATUS_ETIKETT[item.status] ?? item.status}</span>
+                ${item.risiko ? `<span class="risiko-badge risiko-${item.risiko.nivå}">${item.risiko.nivå} risiko</span>` : ''}
               </div>
             </div>
           `).join('')}

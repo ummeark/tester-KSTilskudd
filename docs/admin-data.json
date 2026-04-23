@@ -5,7 +5,11 @@
     "tittel": "Extraher lib/common.js med felles initialisering og hentVersjon()",
     "beskrivelse": "De fire testfilene inneholder identisk kode for initialisering (__dirname, dato, rapportDir) og hentVersjon()-funksjonen. Disse ekstraheres til lib/common.js slik at alle testfiler importerer fra én felles kilde. Eliminerer halvparten av all duplisert kode.",
     "filer": ["lib/common.js", "uu-tester.js", "monkey-tester.js", "sikkerhet-tester.js", "negativ-tester.js", "ytelse-tester.js"],
-    "status": "planlagt"
+    "status": "planlagt",
+    "risiko": {
+      "nivå": "middels",
+      "beskrivelse": "Berører alle 5 testfiler samtidig. En bug i common.js stopper alle tester. Krever at alle testtyper kjøres manuelt etter endringen for å verifisere at ingenting er brutt."
+    }
   },
   {
     "dato": "2026-04-23",
@@ -13,15 +17,23 @@
     "tittel": "Feilhåndtering i shell-skriptene (exit-kode-sjekk)",
     "beskrivelse": "run-rapport-lokalt.sh mangler sjekk av exit-kode per test, noe som gjør at neste test kjøres selv om forrige feilet – og at git push skjer med ufullstendige resultater. Legge til exit-kode-sjekk slik at skriptet stopper ved første feil.",
     "filer": ["run-rapport-lokalt.sh"],
-    "status": "planlagt"
+    "status": "planlagt",
+    "risiko": {
+      "nivå": "lav",
+      "beskrivelse": "Avgrenset endring i ett shell-skript. Endringen gjør skriptet strengere, ikke løsere. Enkelt å isolere og rulle tilbake."
+    }
   },
   {
     "dato": "2026-04-23",
     "type": "refaktorering",
     "tittel": "Normaliser mappestruktur for rapporter og skjermbilder",
-    "beskrivelse": "UU-testen bruker resultat.json og skjermbilder/, mens de andre bruker monkey-resultat.json og skjermbilder-monkey/ osv. Normaliser til results/uu.json og skjermbilder/uu/ for alle testtyper. Forenkler generer-arkiv.js. Høy risiko – bryter eksisterende arkivlenker.",
+    "beskrivelse": "UU-testen bruker resultat.json og skjermbilder/, mens de andre bruker monkey-resultat.json og skjermbilder-monkey/ osv. Normaliser til results/uu.json og skjermbilder/uu/ for alle testtyper. Forenkler generer-arkiv.js.",
     "filer": ["uu-tester.js", "monkey-tester.js", "sikkerhet-tester.js", "negativ-tester.js", "ytelse-tester.js", "generer-arkiv.js"],
-    "status": "planlagt"
+    "status": "planlagt",
+    "risiko": {
+      "nivå": "høy",
+      "beskrivelse": "Bryter alle eksisterende arkivlenker under docs/arkiv/YYYY-MM-DD/. Krever migrering av alle historiske rapporter og koordinert endring av 6 filer. Bør ikke gjøres uten dedikert testplan."
+    }
   },
   {
     "dato": "2026-04-23",
@@ -29,7 +41,11 @@
     "tittel": "Legg til ESLint + Prettier",
     "beskrivelse": "Ingen linting eller formatering i dag. Legge til ESLint og Prettier for konsistent kodestil på tvers av alle testfiler. Første kjøring med --fix retter opp eksisterende avvik.",
     "filer": [".eslintrc.json", ".prettierrc", "package.json"],
-    "status": "planlagt"
+    "status": "planlagt",
+    "risiko": {
+      "nivå": "lav",
+      "beskrivelse": "Berører kun konfigurasjonsfiler og package.json. Selve testlogikken røres ikke. Første --fix-kjøring gjør mange formaterings-endringer på én gang – anbefales gjennomgått i PR."
+    }
   },
   {
     "dato": "2026-04-23",

@@ -1,6 +1,6 @@
 {
   "url": "https://tilskudd.fiks.test.ks.no/",
-  "dato": "2026-04-22",
+  "dato": "2026-04-23",
   "versjon": "v0.4.3",
   "nettleser": "147.0.7727.15",
   "totalt": {
@@ -144,7 +144,7 @@
       "skjemafelt": [
         {
           "type": "search",
-          "id": ":moagmgqcrvz",
+          "id": ":mob3qtpb4x5",
           "navn": "search",
           "labelTekst": "Finn tilskuddsordning(er) ved å søke på navn, sted og type osv.",
           "påkrevd": false,
@@ -334,7 +334,7 @@
       "skjemafelt": [
         {
           "type": "search",
-          "id": ":moagmide5ja",
+          "id": ":mob3qv7miye",
           "navn": "",
           "labelTekst": "Finn tilskuddsordning(er) ved å søke på navn, sted og type osv.",
           "påkrevd": false,

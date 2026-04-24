@@ -151,6 +151,7 @@
     .commit-rad { display: flex; gap: .8rem; align-items: baseline; font-size: .82rem; padding: .45rem 0; border-bottom: 1px solid #f1f5f9; }
     .commit-rad:last-child { border-bottom: none; }
     .commit-sha { font-family: 'SF Mono', 'Fira Code', monospace; font-size: .72rem; color: #94a3b8; white-space: nowrap; }
+    .commit-tid { font-size: .72rem; color: #94a3b8; white-space: nowrap; }
     .commit-melding { color: #1e293b; flex: 1; }
     .commit-melding a { color: #1e293b; text-decoration: none; }
     .commit-melding a:hover { text-decoration: underline; }
@@ -377,6 +378,7 @@ init();
       <div class="commit-rad">
         <span class="commit-sha">${c.sha.slice(0, 7)}</span>
         <span class="commit-melding"><a href="${c.html_url}" target="_blank">${c.commit.message.split('\n')[0]}</a></span>
+        <span class="commit-tid">${new Date(c.commit.author.date).toLocaleTimeString('nb-NO', { hour: '2-digit', minute: '2-digit' })}</span>
       </div>`).join('')}</div>`;
   });
 })();

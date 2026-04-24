@@ -12,10 +12,14 @@
     "arkiv": "node generer-arkiv.js",
     "testdata": "node testdata/generer-testdata.js",
     "valider": "bash valider-miljø.sh",
-    "prepare": "git config core.hooksPath .githooks"
+    "prepare": "git config core.hooksPath .githooks",
+    "poc-uu": "playwright test --config poc.playwright.config.js && node generer-poc-uu-rapport.js"
   },
   "dependencies": {
     "@axe-core/playwright": "^4.10.1",
     "playwright": "^1.52.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1"
   }
 }

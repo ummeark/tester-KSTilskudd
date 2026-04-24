@@ -268,6 +268,13 @@ if (mixedContent.length > 0) {
 
 // ── Test 7: Input-refleksjon (XSS) ────────────────────────────────────────────
 
+// Naviger til kjent starttilstand før XSS-test for å unngå avhengighet av forrige testresultat
+try {
+  await page.goto(START_URL, { waitUntil: 'domcontentloaded', timeout: SIDE_TIMEOUT });
+} catch (e) {
+  console.log(`  ⚠️ Kunne ikke navigere til startside før XSS-test: ${e.message.slice(0, 80)}`);
+}
+
 console.log('💉 Sjekker input-refleksjon...');
 const søkefelt = page.locator('input[type=search], input[name*=søk], input[name*=search], input[placeholder*=øk]').first();
 if (await søkefelt.count() > 0) {

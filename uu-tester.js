@@ -174,22 +174,34 @@ async function analyserSide(url, indeks) {
     }
 
     // Finn interne lenker
-    const internelenker = await page.evaluate((origin) =>
-      Array.from(document.querySelectorAll('a[href]'))
-        .map(a => a.href)
-        .filter(href => href.startsWith(origin) && !href.includes('#'))
-        .map(href => href.split('?')[0].replace(/\/$/, '') || '/')
-    , baseOrigin);
+    const aLenkerLoc = page.locator('a[href]');
+    const aLenkerCount = await aLenkerLoc.count();
+    const internelenker = [];
+    for (let li = 0; li < aLenkerCount; li++) {
+      const href = await aLenkerLoc.nth(li).getAttribute('href') ?? '';
+      const fullHref = href.startsWith('http') ? href : (href.startsWith('/') ? baseOrigin + href : '');
+      if (fullHref.startsWith(baseOrigin) && !fullHref.includes('#')) {
+        internelenker.push(fullHref.split('?')[0].replace(/\/$/, '') || '/');
+      }
+    }
 
     // Lenkesjekk
-    const allelenker = await page.evaluate(() =>
-      Array.from(document.querySelectorAll('a[href]')).map(a => ({
-        tekst: a.innerText.trim() || a.getAttribute('aria-label') || '(ingen tekst)',
-        href: a.href,
-        intern: a.href.startsWith(window.location.origin),
-        harTekst: !!(a.innerText.trim() || a.getAttribute('aria-label'))
-      }))
-    );
+    const allelenker = [];
+    for (let li = 0; li < aLenkerCount; li++) {
+      const a = aLenkerLoc.nth(li);
+      const href = await a.getAttribute('href') ?? '';
+      const fullHref = href.startsWith('http') ? href : (href.startsWith('/') ? baseOrigin + href : href);
+      const innerTekst = (await a.innerText().catch(() => '')).trim();
+      const ariaLabel = await a.getAttribute('aria-label') ?? '';
+      const tekst = innerTekst || ariaLabel || '(ingen tekst)';
+      const harTekst = !!(innerTekst || ariaLabel);
+      allelenker.push({
+        tekst,
+        href: fullHref,
+        intern: fullHref.startsWith(baseOrigin),
+        harTekst
+      });
+    }
 
     const lenkeSjekk = await Promise.all(
       allelenker.map(async (l) => {
@@ -220,30 +232,44 @@ async function analyserSide(url, indeks) {
     }
 
     // Knapper
-    const knapper = await page.evaluate(() =>
-      Array.from(document.querySelectorAll('button, [role="button"], input[type="submit"], input[type="button"], input[type="reset"]'))
-        .map(el => ({
-          tag: el.tagName.toLowerCase(),
-          type: el.getAttribute('type') || '',
-          tekst: el.innerText?.trim() || el.getAttribute('value') || el.getAttribute('aria-label') || el.getAttribute('title') || '',
-          harLabel: !!(el.innerText?.trim() || el.getAttribute('aria-label') || el.getAttribute('title') || el.getAttribute('value')),
-          disabled: el.disabled || false
-        }))
-    );
+    const knapperLoc = page.locator('button, [role="button"], input[type="submit"], input[type="button"], input[type="reset"]');
+    const knapperCount = await knapperLoc.count();
+    const knapper = [];
+    for (let ki = 0; ki < knapperCount; ki++) {
+      const el = knapperLoc.nth(ki);
+      const tag = (await el.evaluate(n => n.tagName.toLowerCase()));
+      const type = await el.getAttribute('type') ?? '';
+      const innerTekst = (await el.innerText().catch(() => '')).trim();
+      const value = await el.getAttribute('value') ?? '';
+      const ariaLabel = await el.getAttribute('aria-label') ?? '';
+      const title = await el.getAttribute('title') ?? '';
+      const tekst = innerTekst || value || ariaLabel || title;
+      const harLabel = !!(innerTekst || ariaLabel || title || value);
+      const disabled = await el.isDisabled().catch(() => false);
+      knapper.push({ tag, type, tekst, harLabel, disabled });
+    }
 
     // Bilder
-    const bilder = await page.evaluate(() =>
-      Array.from(document.querySelectorAll('img')).map(img => ({
-        src: img.src.split('/').pop() || img.src,
-        fullSrc: img.src,
-        alt: img.getAttribute('alt') ?? null,
-        harAlt: img.hasAttribute('alt'),
-        altErTom: img.getAttribute('alt') === '',
-        rolle: img.getAttribute('role') || '',
-        bredde: img.naturalWidth,
-        høyde: img.naturalHeight
-      }))
-    );
+    const bilderLoc = page.locator('img');
+    const bilderCount = await bilderLoc.count();
+    const bilder = [];
+    for (let bi = 0; bi < bilderCount; bi++) {
+      const img = bilderLoc.nth(bi);
+      const fullSrc = await img.getAttribute('src') ?? '';
+      const alt = await img.getAttribute('alt');
+      const rolle = await img.getAttribute('role') ?? '';
+      const { naturalWidth, naturalHeight } = await img.evaluate(n => ({ naturalWidth: n.naturalWidth, naturalHeight: n.naturalHeight }));
+      bilder.push({
+        src: fullSrc.split('/').pop() || fullSrc,
+        fullSrc,
+        alt: alt ?? null,
+        harAlt: alt !== null,
+        altErTom: alt === '',
+        rolle,
+        bredde: naturalWidth,
+        høyde: naturalHeight
+      });
+    }
 
     // Skjemafelt
     const skjemafelt = await page.evaluate(() =>
@@ -365,9 +391,7 @@ async function kjørTastaturSjekker(ctx, url) {
 
     // 2.1.1 Tastaturrekkevidde
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: SIDE_TIMEOUT });
-    const interaktiveDOM = await page.evaluate(() =>
-      document.querySelectorAll('a[href]:not([tabindex="-1"]),button:not([tabindex="-1"]):not([disabled]),input:not([type=hidden]):not([tabindex="-1"])').length
-    );
+    const interaktiveDOM = await page.locator('a[href]:not([tabindex="-1"]),button:not([tabindex="-1"]):not([disabled]),input:not([type=hidden]):not([tabindex="-1"])').count();
     const nådd = new Set();
     for (let i = 0; i < 50; i++) {
       await page.keyboard.press('Tab');

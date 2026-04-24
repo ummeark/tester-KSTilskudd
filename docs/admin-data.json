@@ -2,6 +2,14 @@
   {
     "dato": "2026-04-24",
     "type": "refaktorering",
+    "tittel": "Fix stille feil, page.evaluate() og delt page-state",
+    "beskrivelse": "monkey-tester.js: alle .catch(() => {}) erstattet med loggFeil() som logger til console og stille_feil[]. uu-tester.js: 5 page.evaluate()-kall med querySelectorAll erstattet med Locator API (bilder, lenker, knapper, DOM-telling). sikkerhet-tester.js: eksplisitt goto() lagt til før XSS-sjekk for å sikre kjent sidestate.",
+    "filer": ["monkey-tester.js", "uu-tester.js", "sikkerhet-tester.js"],
+    "status": "ferdig"
+  },
+  {
+    "dato": "2026-04-24",
+    "type": "refaktorering",
     "tittel": "Erstatt page.$() og waitForTimeout() med moderne Playwright-API",
     "beskrivelse": "Alle 5 testfiler er oppdatert: page.$() og page.$$() (utdatert element handle-API) er erstattet med page.locator(), og hardkodede waitForTimeout()-kall (~33 totalt) er erstattet med waitForLoadState() og waitForFunction(). Alle tester ble kjørt og verifisert etter endringene.",
     "filer": ["uu-tester.js", "monkey-tester.js", "sikkerhet-tester.js", "negativ-tester.js", "ytelse-tester.js"],

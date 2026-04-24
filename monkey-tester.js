@@ -93,6 +93,13 @@ page.on('response', resp => {
 
 function nowStr() { return new Date().toISOString(); }
 
+// ── Stille-feil-logging ──────────────────────────────────────────────────────
+const stille_feil = [];
+function loggFeil(melding) {
+  stille_feil.push(melding);
+  console.log(`  ⚠️  ${melding}`);
+}
+
 async function taSkjermdump(prefix) {
   skjermTeller++;
   const filnavn = `monkey-${prefix}-${skjermTeller}.png`;
@@ -154,8 +161,8 @@ for (let i = 0; i < ITERASJONER; i++) {
         const tekst = (await el.textContent().catch(() => '')).trim().slice(0, 60);
         detalj = `Klikket: "${tekst || '(ingen tekst)'}"`;
         console.log(`  🖱️  [${i+1}] ${detalj}`);
-        await el.click({ timeout: 4000, force: false }).catch(() => {});
-        await page.waitForLoadState('domcontentloaded').catch(() => {});
+        await el.click({ timeout: 4000, force: false }).catch(e => loggFeil(`Klikk feilet: ${e.message.slice(0, 80)}`));
+        await page.waitForLoadState('domcontentloaded').catch(e => loggFeil(`waitForLoadState feilet etter klikk: ${e.message.slice(0, 80)})`));
       } else {
         // Prøv lenker
         const lenker = page.locator('a[href]:visible');
@@ -171,8 +178,8 @@ for (let i = 0; i < ITERASJONER; i++) {
           const tekst = (await el.textContent().catch(() => '')).trim().slice(0, 60);
           detalj = `Klikket lenke: "${tekst}"`;
           console.log(`  🔗 [${i+1}] ${detalj}`);
-          await el.click({ timeout: 4000 }).catch(() => {});
-          await page.waitForLoadState('domcontentloaded').catch(() => {});
+          await el.click({ timeout: 4000 }).catch(e => loggFeil(`Lenkeklikk feilet: ${e.message.slice(0, 80)}`));
+          await page.waitForLoadState('domcontentloaded').catch(e => loggFeil(`waitForLoadState feilet etter lenkeklikk: ${e.message.slice(0, 80)}`));
         }
       }
 
@@ -187,7 +194,7 @@ for (let i = 0; i < ITERASJONER; i++) {
         let verdi = inputType === 'email' ? tilfeldigEpost() : tilfeldigTekst();
         detalj = `Fylte "${verdi.slice(0, 40)}" i ${inputType}-felt`;
         console.log(`  ✏️  [${i+1}] ${detalj}`);
-        await inp.fill(verdi, { timeout: 3000 }).catch(() => {});
+        await inp.fill(verdi, { timeout: 3000 }).catch(e => loggFeil(`Skjemafyll feilet: ${e.message.slice(0, 80)}`));
       }
 
     } else if (handling < 0.70) {
@@ -201,8 +208,8 @@ for (let i = 0; i < ITERASJONER; i++) {
         detalj = `Send skjema: "${tekst}"`;
         console.log(`  📤 [${i+1}] ${detalj}`);
         skjerm = await taSkjermdump('pre-submit');
-        await btn.click({ timeout: 4000 }).catch(() => {});
-        await page.waitForLoadState('domcontentloaded').catch(() => {});
+        await btn.click({ timeout: 4000 }).catch(e => loggFeil(`Skjemasubmit feilet: ${e.message.slice(0, 80)}`));
+        await page.waitForLoadState('domcontentloaded').catch(e => loggFeil(`waitForLoadState feilet etter submit: ${e.message.slice(0, 80)}`));
       }
 
     } else if (handling < 0.82) {
@@ -210,8 +217,8 @@ for (let i = 0; i < ITERASJONER; i++) {
       type = 'navigasjon';
       detalj = 'Gikk tilbake (browser back)';
       console.log(`  ⬅️  [${i+1}] ${detalj}`);
-      await page.goBack({ timeout: 6000, waitUntil: 'domcontentloaded' }).catch(() => {});
-      await page.waitForLoadState('domcontentloaded').catch(() => {});
+      await page.goBack({ timeout: 6000, waitUntil: 'domcontentloaded' }).catch(e => loggFeil(`goBack feilet: ${e.message.slice(0, 80)}`));
+      await page.waitForLoadState('domcontentloaded').catch(e => loggFeil(`waitForLoadState feilet etter goBack: ${e.message.slice(0, 80)}`));
 
     } else {
       // Reset til start

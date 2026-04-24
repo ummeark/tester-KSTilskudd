@@ -2,6 +2,18 @@
   {
     "dato": "2026-04-24",
     "type": "refaktorering",
+    "tittel": "Migrer til @playwright/test med test()/expect()-blokker",
+    "beskrivelse": "Alle 5 testfiler skrives om til å bruke @playwright/test-rammeverket i stedet for rått playwright-bibliotek. Gir test()/describe()/expect()-blokker, automatisk side- og kontekstisolasjon per test, beforeEach/afterEach-hooks og parallelkjøring. HTML-rapportgenereringen må tilpasses siden @playwright/test har sin egen rapporteringsmodell.",
+    "filer": ["uu-tester.js", "monkey-tester.js", "sikkerhet-tester.js", "negativ-tester.js", "ytelse-tester.js", "package.json"],
+    "status": "planlagt",
+    "risiko": {
+      "nivå": "høy",
+      "beskrivelse": "Krever full omskriving av alle 5 testfiler og tilpasning av rapportgenereringen. Eksisterende JSON/HTML-output-format må bevares for at generer-arkiv.js og dashboardet skal fungere. Bør gjøres i én dedikert branch med grundig testing."
+    }
+  },
+  {
+    "dato": "2026-04-24",
+    "type": "refaktorering",
     "tittel": "Fix stille feil, page.evaluate() og delt page-state",
     "beskrivelse": "monkey-tester.js: alle .catch(() => {}) erstattet med loggFeil() som logger til console og stille_feil[]. uu-tester.js: 5 page.evaluate()-kall med querySelectorAll erstattet med Locator API (bilder, lenker, knapper, DOM-telling). sikkerhet-tester.js: eksplisitt goto() lagt til før XSS-sjekk for å sikre kjent sidestate.",
     "filer": ["monkey-tester.js", "uu-tester.js", "sikkerhet-tester.js"],

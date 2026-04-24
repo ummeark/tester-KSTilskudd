@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { START_URL, ITERASJONER, VIEWPORT, SIDE_TIMEOUT, IDLE_TIMEOUT, KRASJ_ORD } from './config.js';
+import { hentVersjon } from './lib/common.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dato = new Date().toISOString().slice(0, 10);
@@ -58,17 +59,7 @@ const context = await browser.newContext({
   viewport: VIEWPORT,
 });
 
-// Hent versjonsnummer fra siden
-async function hentVersjon(ctx) {
-  const p = await ctx.newPage();
-  try {
-    await p.goto(START_URL, { waitUntil: 'domcontentloaded', timeout: SIDE_TIMEOUT });
-    const tekst = await p.evaluate(() => document.body.innerText);
-    const match = tekst.match(/v\d+\.\d+\.\d+/);
-    return match ? match[0] : null;
-  } catch { return null; } finally { await p.close(); }
-}
-const versjon = await hentVersjon(context);
+const versjon = await hentVersjon(context, START_URL);
 
 const page = await context.newPage();
 

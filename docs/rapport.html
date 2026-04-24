@@ -69,8 +69,29 @@
 
   footer { text-align: center; padding: 2.5rem; color: #9ca3af; font-size: 0.78rem; border-top: 1px solid #f1f0ee; margin-top: 2rem; }
 
+  /* Om testsystemet */
+  .om-tester { background: white; border: 1px solid #f1f0ee; box-shadow: 0 1px 4px rgba(10,19,85,.06); margin-top: 1.5rem; }
+  .om-tester summary { padding: 1rem 1.5rem; font-size: 0.85rem; font-weight: 600; color: #6b7280; cursor: pointer; user-select: none; display: flex; align-items: center; gap: 0.5rem; list-style: none; }
+  .om-tester summary::-webkit-details-marker { display: none; }
+  .om-tester summary::after { content: '▸'; margin-left: auto; font-size: 0.75rem; transition: transform .2s; }
+  .om-tester[open] summary::after { transform: rotate(90deg); }
+  .om-tester summary:hover { color: #0a1355; }
+  .om-tester-innhold { padding: 0 1.5rem 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .om-seksjon h3 { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: #9ca3af; margin-bottom: 0.7rem; }
+  .om-tabell { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+  .om-tabell td { padding: 0.35rem 0.5rem; vertical-align: top; color: #374151; }
+  .om-tabell tr { border-bottom: 1px solid #f4f3f1; }
+  .om-tabell tr:last-child { border-bottom: none; }
+  .om-tabell td:first-child { white-space: nowrap; padding-right: 0.75rem; }
+  .om-tabell td:nth-child(2) { font-family: monospace; font-size: 0.75rem; color: #6b7280; white-space: nowrap; padding-right: 0.75rem; }
+  .flyt-liste { font-size: 0.8rem; color: #374151; display: flex; flex-direction: column; gap: 0.3rem; }
+  .flyt-rad { display: flex; align-items: baseline; gap: 0.5rem; }
+  .flyt-rad::before { content: '→'; color: #9ca3af; font-size: 0.7rem; flex-shrink: 0; }
+  .flyt-note { font-size: 0.75rem; color: #9ca3af; margin-top: 0.75rem; line-height: 1.5; border-top: 1px solid #f4f3f1; padding-top: 0.75rem; }
+
   @media (max-width: 700px) {
     .total-rad { grid-template-columns: 1fr; }
+    .om-tester-innhold { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -179,6 +200,35 @@
   </a>
   </div>
 
+  <details class="om-tester">
+    <summary>ℹ️ Slik er testene organisert</summary>
+    <div class="om-tester-innhold">
+      <div class="om-seksjon">
+        <h3>Testtyper</h3>
+        <table class="om-tabell">
+          <tr><td>♿ UU-test</td><td>npm run rapport</td><td>WCAG/axe-core, reflow og tekstmellomrom, opptil 20 sider</td></tr>
+          <tr><td>🐒 Monkey-test</td><td>npm run monkey</td><td>60 tilfeldige handlinger, fanger JS-feil og krasj</td></tr>
+          <tr><td>🔐 Sikkerhetstest</td><td>npm run sikkerhet</td><td>HTTP-hoder, cookies, CORS, eksponerte stier</td></tr>
+          <tr><td>🧪 Negativ test</td><td>npm run negativ</td><td>Ugyldig input, URL-manipulering, tilgangskontroll</td></tr>
+          <tr><td>🚀 Ytelsestest</td><td>npm run ytelse</td><td>LCP og FCP per side</td></tr>
+        </table>
+      </div>
+      <div class="om-seksjon">
+        <h3>Kjøreflyt</h3>
+        <div class="flyt-liste">
+          <div class="flyt-rad">launchd starter <code>sjekk-og-kjoer.sh</code> hvert 30. min (hverdager)</div>
+          <div class="flyt-rad">avbryter stille hvis alle 5 resultatfiler finnes for dagen</div>
+          <div class="flyt-rad"><code>run-rapport-lokalt.sh</code> kjører alle 5 tester i rekkefølge</div>
+          <div class="flyt-rad"><code>npm run arkiv</code> kopierer resultater til <code>docs/</code> og genererer denne siden</div>
+          <div class="flyt-rad"><code>git push</code> publiserer til GitHub Pages</div>
+        </div>
+        <div class="flyt-note">
+          Alle tester importerer <code>START_URL</code> og grenseverdier fra <code>config.js</code>.<br>
+          Resultater lagres i <code>rapporter/YYYY-MM-DD/</code> og arkiveres under <code>docs/arkiv/</code>.
+        </div>
+      </div>
+    </div>
+  </details>
 
 </div>
 <footer>KS Tilskudd · Testdashboard · axe-core + Playwright · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html" style="color:inherit">🗂️ Testdatahub</a> · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/admin.html" style="color:inherit">⚙️ Admin</a></footer>

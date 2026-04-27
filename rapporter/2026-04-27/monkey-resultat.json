@@ -1,0 +1,40 @@
+{
+  "url": "https://tilskudd.fiks.test.ks.no/",
+  "dato": "2026-04-27",
+  "versjon": "v0.4.3",
+  "nettleser": "147.0.7727.15",
+  "totalt": {
+    "iterasjoner": 60,
+    "siderBesøkt": 6,
+    "jsErrors": 0,
+    "konsollFeil": 2,
+    "nettverksFeil": 0,
+    "kritiske": 0,
+    "alvorlige": 0,
+    "varighet": 2122
+  },
+  "score": 94,
+  "jsErrors": [],
+  "konsollFeil": [
+    {
+      "melding": "TRPCClientError: network error\n    at Ql.from (https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:4077)\n    at https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:14325",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-04-27T04:03:12.640Z"
+    },
+    {
+      "melding": "TRPCClientError: Failed to fetch\n    at Ql.from (https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:4077)\n    at https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:14325",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10",
+      "tid": "2026-04-27T04:03:13.112Z"
+    }
+  ],
+  "nettverksFeil": [],
+  "interaksjoner": [],
+  "besøkte": [
+    "https://tilskudd.fiks.test.ks.no/",
+    "https://tilskudd.fiks.test.ks.no/ordninger?searchString=&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/ordninger?searchString=%C3%A6%C3%B8%C3%A5+%C3%86%C3%98%C3%85&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/ordninger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6",
+    "https://tilskudd.fiks.test.ks.no/ordninger?searchString=Test+bruker&currentPage=1&pageSize=10"
+  ]
+}

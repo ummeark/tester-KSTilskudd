@@ -392,22 +392,53 @@ Returner som tabell med kolonnene:
 </main>
 
 <script>
-const RADER = [
-  { forvalter:'KUD',  ordningsnavn:'Kulturminnevern',         kode:'KULTMINE', år:2024, nr:'KUD-KULTMINE-2024-100001',  type:'stat' },
-  { forvalter:'46',   ordningsnavn:'BIO-midlar Vestland',      kode:'BIOMIDVL', år:2026, nr:'46-BIOMIDVL-2026-100002',   type:'fylke' },
-  { forvalter:'NFR',  ordningsnavn:'Nanoteknologi forskning',  kode:'NANOFORS', år:2025, nr:'NFR-NANOFORS-2025-100003',  type:'stat' },
-  { forvalter:'32',   ordningsnavn:'Forskning i bedrift',      kode:'FORINNBE', år:2026, nr:'32-FORINNBE-2026-100004',   type:'fylke' },
-  { forvalter:'1505', ordningsnavn:'Kommunalt næringsfond',    kode:'KOMMNAER', år:2026, nr:'1505-KOMMNAER-2026-100005', type:'kommune' },
-  { forvalter:'NFD',  ordningsnavn:'Havbruk 2030',             kode:'HAVBR030', år:2024, nr:'NFD-HAVBR030-2024-100006',  type:'stat' },
-  { forvalter:'15',   ordningsnavn:'Regional innovasjon',      kode:'REGINOVA', år:2025, nr:'15-REGINOVA-2025-100007',   type:'fylke' },
-  { forvalter:'KDD',  ordningsnavn:'Boligutvikling distrikt',  kode:'BOLIGUDK', år:2023, nr:'KDD-BOLIGUDK-2023-100008',  type:'stat' },
-  { forvalter:'5001', ordningsnavn:'Næringsfond Trondheim',    kode:'NAERFOND', år:2026, nr:'5001-NAERFOND-2026-100009', type:'kommune' },
-  { forvalter:'LMD',  ordningsnavn:'Landbruk klimatiltak',     kode:'LANDBKLI', år:2025, nr:'LMD-LANDBKLI-2025-100010', type:'stat' },
+const POOL = [
+  // Stat
+  { forvalter:'KUD',  ordningsnavn:'Kulturminnevern',           kode:'KULTMINE', år:2024, nr:'KUD-KULTMINE-2024-100001',  type:'stat' },
+  { forvalter:'NFD',  ordningsnavn:'Havbruk 2030',              kode:'HAVBR030', år:2024, nr:'NFD-HAVBR030-2024-100002',  type:'stat' },
+  { forvalter:'KDD',  ordningsnavn:'Boligutvikling distrikt',   kode:'BOLIGUDK', år:2023, nr:'KDD-BOLIGUDK-2023-100003',  type:'stat' },
+  { forvalter:'LMD',  ordningsnavn:'Landbruk klimatiltak',      kode:'LANDBKLI', år:2025, nr:'LMD-LANDBKLI-2025-100004',  type:'stat' },
+  { forvalter:'NFR',  ordningsnavn:'Nanoteknologi forskning',   kode:'NANOFORS', år:2025, nr:'NFR-NANOFORS-2025-100005',  type:'stat' },
+  { forvalter:'IMD',  ordningsnavn:'Inkludering arbeidsliv',    kode:'INKLUARB', år:2026, nr:'IMD-INKLUARB-2026-100006',  type:'stat' },
+  { forvalter:'BUF',  ordningsnavn:'Barnefattigdom tiltak',     kode:'BARNFATT', år:2024, nr:'BUF-BARNFATT-2024-100007',  type:'stat' },
+  { forvalter:'ENV',  ordningsnavn:'Naturrestaurering fond',    kode:'NATURFON', år:2025, nr:'ENV-NATURFON-2025-100008',  type:'stat' },
+  { forvalter:'INN',  ordningsnavn:'Gründerstøtte startup',     kode:'GRUNSTAR', år:2026, nr:'INN-GRUNSTAR-2026-100009',  type:'stat' },
+  { forvalter:'DIR',  ordningsnavn:'Digital helseløsning',      kode:'DIGIHELØ', år:2023, nr:'DIR-DIGIHELØ-2023-100010',  type:'stat' },
+  // Fylke
+  { forvalter:'46',   ordningsnavn:'BIO-midlar Vestland',       kode:'BIOMIDVL', år:2026, nr:'46-BIOMIDVL-2026-100011',   type:'fylke' },
+  { forvalter:'32',   ordningsnavn:'Forskning i bedrift',       kode:'FORINNBE', år:2026, nr:'32-FORINNBE-2026-100012',   type:'fylke' },
+  { forvalter:'15',   ordningsnavn:'Regional innovasjon',       kode:'REGINOVA', år:2025, nr:'15-REGINOVA-2025-100013',   type:'fylke' },
+  { forvalter:'11',   ordningsnavn:'Energiomstilling RFylke',   kode:'ENERGOMR', år:2025, nr:'11-ENERGOMR-2025-100014',   type:'fylke' },
+  { forvalter:'31',   ordningsnavn:'Internasjonalt samarbeid',  kode:'INTSAMAR', år:2026, nr:'31-INTSAMAR-2026-100015',   type:'fylke' },
+  { forvalter:'33',   ordningsnavn:'Næringsutvikling Buskerud', kode:'NAERVBUS', år:2024, nr:'33-NAERVBUS-2024-100016',   type:'fylke' },
+  { forvalter:'42',   ordningsnavn:'Kompetanseløft Agder',      kode:'KOMPLAGD', år:2025, nr:'42-KOMPLAGD-2025-100017',   type:'fylke' },
+  { forvalter:'54',   ordningsnavn:'Reiselivsmidler Innlandet', kode:'REISLIVM', år:2026, nr:'54-REISLIVM-2026-100018',   type:'fylke' },
+  { forvalter:'55',   ordningsnavn:'Arktis 2030',               kode:'ARKT2030', år:2026, nr:'55-ARKT2030-2026-100019',   type:'fylke' },
+  { forvalter:'18',   ordningsnavn:'Ungdomstiltak Nordland',    kode:'UNGDNORL', år:2023, nr:'18-UNGDNORL-2023-100020',   type:'fylke' },
+  // Kommune
+  { forvalter:'1505', ordningsnavn:'Kommunalt næringsfond',     kode:'KOMMNAER', år:2026, nr:'1505-KOMMNAER-2026-100021', type:'kommune' },
+  { forvalter:'5001', ordningsnavn:'Næringsfond Trondheim',     kode:'NAERFOND', år:2026, nr:'5001-NAERFOND-2026-100022', type:'kommune' },
+  { forvalter:'0301', ordningsnavn:'Gründerhus Oslo',           kode:'GRUNDHUS', år:2025, nr:'0301-GRUNDHUS-2025-100023', type:'kommune' },
+  { forvalter:'4601', ordningsnavn:'Klimafond Bergen',          kode:'KLIMFBER', år:2024, nr:'4601-KLIMFBER-2024-100024', type:'kommune' },
+  { forvalter:'1103', ordningsnavn:'Havneutvikling Stavanger',  kode:'HAVNUTST', år:2025, nr:'1103-HAVNUTST-2025-100025', type:'kommune' },
+  { forvalter:'3005', ordningsnavn:'Stedsutvikling Drammen',    kode:'STEDSUDR', år:2026, nr:'3005-STEDSUDR-2026-100026', type:'kommune' },
+  { forvalter:'5501', ordningsnavn:'Næringsutvikling Tromsø',   kode:'NAERTROM', år:2024, nr:'5501-NAERTROM-2024-100027', type:'kommune' },
+  { forvalter:'3807', ordningsnavn:'Kulturmidler Sandefjord',   kode:'KULTMSND', år:2025, nr:'3807-KULTMSND-2025-100028', type:'kommune' },
+  { forvalter:'3403', ordningsnavn:'Grønn omstilling Hamar',    kode:'GRONOSHA', år:2026, nr:'3403-GRONOSHA-2026-100029', type:'kommune' },
+  { forvalter:'1507', ordningsnavn:'Fiskeri Ålesund',           kode:'FISKALES', år:2023, nr:'1507-FISKALES-2023-100030', type:'kommune' },
 ];
 
 const typeLabel = { stat: 'Stat', fylke: 'Fylke', kommune: 'Kommune' };
+let gjeldende = [];
+
+function trekkUtvalg() {
+  const blandet = [...POOL].sort(() => Math.random() - 0.5);
+  return blandet.slice(0, 10);
+}
 
 function kjorDemo() {
+  gjeldende = trekkUtvalg();
+
   const btn = document.getElementById('btn-run');
   btn.disabled = true;
   btn.textContent = '⏳ Genererer …';
@@ -420,7 +451,7 @@ function kjorDemo() {
 
   const tbody = document.getElementById('tabell-body');
   tbody.innerHTML = '';
-  RADER.forEach(r => {
+  gjeldende.forEach(r => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td><span class="type-badge type-${r.type}">${typeLabel[r.type]}</span> ${r.forvalter}</td>
@@ -431,7 +462,6 @@ function kjorDemo() {
     tbody.appendChild(tr);
   });
 
-  // Vis rader én etter én
   const rader = tbody.querySelectorAll('tr');
   const DELAY_START = 900;
   const DELAY_PER_ROW = 280;
@@ -458,7 +488,7 @@ function kjorDemo() {
 
 function lastNed() {
   const header = ['Forvalter', 'Ordningsnavn', 'Ordningskode', 'År', 'Søknadsnummer'];
-  const linjer = RADER.map(r => [r.forvalter, r.ordningsnavn, r.kode, r.år, r.nr].join(';'));
+  const linjer = gjeldende.map(r => [r.forvalter, r.ordningsnavn, r.kode, r.år, r.nr].join(';'));
   const csv = [header.join(';'), ...linjer].join('\n');
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
   const a = document.createElement('a');

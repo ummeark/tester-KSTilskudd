@@ -256,3 +256,17 @@
  create mode 100644 rapporter/2026-04-27/uu-rapport.html
  create mode 100644 rapporter/2026-04-27/ytelse-rapport.html
  create mode 100644 rapporter/2026-04-27/ytelse-resultat.json
+[main d3f89aa] Daglig UU-rapport 2026-04-28 [skip ci]
+ 70 files changed, 12673 insertions(+), 293 deletions(-)
+ create mode 100644 docs/arkiv/2026-04-28/monkey-rapport-08-32.html
+ create mode 100644 docs/arkiv/2026-04-28/negativ-rapport-08-32.html
+ create mode 100644 docs/arkiv/2026-04-28/sikkerhet-rapport-08-32.html
+ create mode 100644 docs/arkiv/2026-04-28/uu-rapport-08-31.html
+ create mode 100644 rapporter/2026-04-28/monkey-rapport-08-32.html
+ create mode 100644 rapporter/2026-04-28/monkey-resultat-08-32.json
+ create mode 100644 rapporter/2026-04-28/negativ-rapport-08-32.html
+ create mode 100644 rapporter/2026-04-28/negativ-resultat-08-32.json
+ create mode 100644 rapporter/2026-04-28/resultat-08-31.json
+ create mode 100644 rapporter/2026-04-28/sikkerhet-rapport-08-32.html
+ create mode 100644 rapporter/2026-04-28/sikkerhet-resultat-08-32.json
+ create mode 100644 rapporter/2026-04-28/uu-rapport-08-31.html

@@ -190,7 +190,7 @@
       "skjemafelt": [
         {
           "type": "search",
-          "id": ":moiv3ip0h6f",
+          "id": ":moiv1n8ntrm",
           "navn": "search",
           "labelTekst": "Finn tilskuddsordning(er) ved å søke på navn, sted og type osv.",
           "påkrevd": false,
@@ -380,7 +380,7 @@
       "skjemafelt": [
         {
           "type": "search",
-          "id": ":moiv3jmqdke",
+          "id": ":moiv1o27csd",
           "navn": "",
           "labelTekst": "Finn tilskuddsordning(er) ved å søke på navn, sted og type osv.",
           "påkrevd": false,

@@ -1,0 +1,44 @@
+{
+  "url": "https://tilskudd.fiks.test.ks.no/",
+  "dato": "2026-04-29",
+  "versjon": "v0.4.3",
+  "nettleser": "147.0.7727.15",
+  "totalt": {
+    "iterasjoner": 60,
+    "siderBesøkt": 5,
+    "jsErrors": 0,
+    "konsollFeil": 3,
+    "nettverksFeil": 0,
+    "kritiske": 0,
+    "alvorlige": 0,
+    "varighet": 7
+  },
+  "score": 91,
+  "jsErrors": [],
+  "konsollFeil": [
+    {
+      "melding": "TRPCClientError: network error\n    at Ql.from (https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:4077)\n    at https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:14325",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-04-29T06:48:22.975Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at Ql.from (https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:4077)\n    at https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:14325",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-04-29T06:48:23.107Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at Ql.from (https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:4077)\n    at https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:14325",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-04-29T06:48:23.475Z"
+    }
+  ],
+  "nettverksFeil": [],
+  "interaksjoner": [],
+  "besøkte": [
+    "https://tilskudd.fiks.test.ks.no/",
+    "https://tilskudd.fiks.test.ks.no/ordninger?searchString=&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/ordninger?searchString=Test+bruker&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/ordninger/7082abd8-4f23-43e9-adce-c4762b848b81"
+  ]
+}

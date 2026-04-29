@@ -500,7 +500,7 @@ const arkivHTML = `<!DOCTYPE html>
   ${seksjonHTML('Ytelsestest', '🚀', ytelse, 'ytelse-rapport.html', ytelseNøkkel)}
 
 </div>
-<footer>KS Tilskudd · Testrapporter · axe-core + Playwright · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html" style="color:inherit">🗂️ Testdatahub</a> · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/admin.html" style="color:inherit">⚙️ Admin</a></footer>
+<footer>KS Tilskudd · Testrapporter · axe-core + Playwright · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html" style="color:inherit">🗂️ Testdatahub</a> · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html" style="color:inherit">🤖 Testdatagenerator</a> · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/admin.html" style="color:inherit">⚙️ Admin</a></footer>
 </body>
 </html>`;
 
@@ -730,7 +730,7 @@ const dashboardHTML = `<!DOCTYPE html>
   </details>
 
 </div>
-<footer>KS Tilskudd · Testdashboard · axe-core + Playwright · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html" style="color:inherit">🗂️ Testdatahub</a> · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/admin.html" style="color:inherit">⚙️ Admin</a></footer>
+<footer>KS Tilskudd · Testdashboard · axe-core + Playwright · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html" style="color:inherit">🗂️ Testdatahub</a> · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html" style="color:inherit">🤖 Testdatagenerator</a> · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/admin.html" style="color:inherit">⚙️ Admin</a></footer>
 </body>
 </html>`;
 

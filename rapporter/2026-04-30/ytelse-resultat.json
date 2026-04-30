@@ -1,116 +1,105 @@
 {
   "url": "https://tilskudd.fiks.test.ks.no/",
   "dato": "2026-04-30",
-  "tidspunkt": "08:31",
+  "tidspunkt": "01:01",
   "score": 100,
   "totalt": {
-    "sider": 9,
-    "snittLCP": 405,
-    "snittFCP": 316,
+    "sider": 8,
+    "snittLCP": 430,
+    "snittFCP": 357,
     "snittTTFB": 81,
-    "snittLoad": 377,
-    "totalSizeKB": 1347,
-    "totalRequests": 179
+    "snittLoad": 421,
+    "totalSizeKB": 1345,
+    "totalRequests": 135
   },
   "sider": [
     {
       "url": "https://tilskudd.fiks.test.ks.no/",
       "tittel": "KS Tilskudd - Hjem",
       "score": 100,
-      "ttfb": 46,
-      "load": 820,
-      "sizeKB": 1097,
-      "requests": 18,
-      "lcp": 840,
-      "fcp": 840
+      "ttfb": 39,
+      "load": 805,
+      "sizeKB": 1098,
+      "requests": 12,
+      "lcp": 824,
+      "fcp": 824
     },
     {
-      "url": "https://tilskudd.fiks.test.ks.no/ordninger",
-      "tittel": "KS Tilskudd - Ordninger",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger",
+      "tittel": "KS Tilskudd - Utlysinger",
       "score": 100,
-      "ttfb": 79,
-      "load": 189,
+      "ttfb": 72,
+      "load": 173,
       "sizeKB": 14,
-      "requests": 23,
-      "lcp": 612,
-      "fcp": 172
+      "requests": 19,
+      "lcp": 464,
+      "fcp": 156
     },
     {
       "url": "https://tilskudd.fiks.test.ks.no/minside",
       "tittel": "ID-porten",
       "score": 100,
-      "ttfb": 19,
-      "load": 1572,
+      "ttfb": 27,
+      "load": 1542,
       "sizeKB": 123,
       "requests": 14,
-      "lcp": 1016,
-      "fcp": 1016
+      "lcp": 1036,
+      "fcp": 1036
     },
     {
-      "url": "https://tilskudd.fiks.test.ks.no/ordninger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
       "tittel": "KS Tilskudd",
       "score": 100,
-      "ttfb": 95,
-      "load": 148,
-      "sizeKB": 113,
-      "requests": 22,
-      "lcp": 272,
-      "fcp": 132
+      "ttfb": 105,
+      "load": 189,
+      "sizeKB": 110,
+      "requests": 19,
+      "lcp": 276,
+      "fcp": 172
     },
     {
-      "url": "https://tilskudd.fiks.test.ks.no/ordninger/7082abd8-4f23-43e9-adce-c4762b848b81",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/7082abd8-4f23-43e9-adce-c4762b848b81",
       "tittel": "KS Tilskudd",
       "score": 100,
       "ttfb": 110,
-      "load": 123,
+      "load": 130,
       "sizeKB": 0,
-      "requests": 22,
+      "requests": 19,
       "lcp": 192,
       "fcp": 132
     },
     {
-      "url": "https://tilskudd.fiks.test.ks.no/ordninger/b39a60ca-08e4-476c-88a1-a78fe3cd7983",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0",
       "tittel": "KS Tilskudd",
       "score": 100,
-      "ttfb": 117,
-      "load": 138,
+      "ttfb": 150,
+      "load": 173,
       "sizeKB": 0,
-      "requests": 22,
-      "lcp": 196,
-      "fcp": 140
+      "requests": 19,
+      "lcp": 232,
+      "fcp": 176
     },
     {
-      "url": "https://tilskudd.fiks.test.ks.no/ordninger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6",
       "tittel": "KS Tilskudd",
       "score": 100,
-      "ttfb": 105,
-      "load": 125,
+      "ttfb": 113,
+      "load": 133,
       "sizeKB": 0,
-      "requests": 22,
-      "lcp": 180,
-      "fcp": 128
-    },
-    {
-      "url": "https://tilskudd.fiks.test.ks.no/ordninger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6",
-      "tittel": "KS Tilskudd",
-      "score": 100,
-      "ttfb": 134,
-      "load": 156,
-      "sizeKB": 0,
-      "requests": 22,
-      "lcp": 212,
-      "fcp": 156
+      "requests": 19,
+      "lcp": 192,
+      "fcp": 136
     },
     {
       "url": "https://tilskudd.fiks.test.ks.no/soknad/opprett",
       "tittel": "ID-porten",
       "score": 100,
-      "ttfb": 27,
-      "load": 124,
+      "ttfb": 31,
+      "load": 222,
       "sizeKB": 0,
       "requests": 14,
-      "lcp": 128,
-      "fcp": 128
+      "lcp": 224,
+      "fcp": 224
     }
   ]
 }

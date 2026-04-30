@@ -1,0 +1,77 @@
+{
+  "url": "https://tilskudd.fiks.test.ks.no/",
+  "dato": "2026-04-30",
+  "versjon": "v0.4.3",
+  "nettleser": "147.0.7727.15",
+  "totalt": {
+    "iterasjoner": 60,
+    "siderBesøkt": 3,
+    "jsErrors": 0,
+    "konsollFeil": 10,
+    "nettverksFeil": 0,
+    "kritiske": 0,
+    "alvorlige": 0,
+    "varighet": 5
+  },
+  "score": 70,
+  "jsErrors": [],
+  "konsollFeil": [
+    {
+      "melding": "TRPCClientError: network error\n    at Ql.from (https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:4077)\n    at https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:14325",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-04-30T06:30:30.252Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at Ql.from (https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:4077)\n    at https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:14325",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-04-30T06:30:30.559Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at Ql.from (https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:4077)\n    at https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:14325",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-04-30T06:30:30.829Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at Ql.from (https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:4077)\n    at https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:14325",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-04-30T06:30:31.469Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at Ql.from (https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:4077)\n    at https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:14325",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-04-30T06:30:31.539Z"
+    },
+    {
+      "melding": "TRPCClientError: Failed to fetch\n    at Ql.from (https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:4077)\n    at https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:14325",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10",
+      "tid": "2026-04-30T06:30:32.098Z"
+    },
+    {
+      "melding": "TRPCClientError: Failed to fetch\n    at Ql.from (https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:4077)\n    at https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:14325",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10",
+      "tid": "2026-04-30T06:30:32.547Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at Ql.from (https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:4077)\n    at https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:14325",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-04-30T06:30:32.856Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at Ql.from (https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:4077)\n    at https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:14325",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-04-30T06:30:33.052Z"
+    },
+    {
+      "melding": "TRPCClientError: Failed to fetch\n    at Ql.from (https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:4077)\n    at https://tilskudd.fiks.test.ks.no/assets/main-ZpYEru-o.js:19:14325",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-04-30T06:30:33.157Z"
+    }
+  ],
+  "nettverksFeil": [],
+  "interaksjoner": [],
+  "besøkte": [
+    "https://tilskudd.fiks.test.ks.no/",
+    "https://tilskudd.fiks.test.ks.no/ordninger?searchString=&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10"
+  ]
+}

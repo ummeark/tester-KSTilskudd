@@ -421,3 +421,20 @@
  create mode 100644 rapporter/2026-04-29/sikkerhet-rapport-01-04.html
  create mode 100644 rapporter/2026-04-29/sikkerhet-resultat-01-04.json
  create mode 100644 rapporter/2026-04-29/uu-rapport-00-39.html
+[main db92bee] Daglig UU-rapport 2026-05-01 [skip ci]
+ 97 files changed, 12320 insertions(+), 3866 deletions(-)
+ create mode 100644 docs/arkiv/2026-04-30/monkey-rapport-01-00.html
+ create mode 100644 docs/arkiv/2026-04-30/negativ-rapport-01-00.html
+ create mode 100644 docs/arkiv/2026-04-30/sikkerhet-rapport-01-00.html
+ create mode 100644 docs/arkiv/2026-04-30/skjermbilder/s16-doede-lenker-side.png
+ create mode 100644 docs/arkiv/2026-04-30/uu-rapport-00-59.html
+ create mode 100644 docs/skjermbilder/s16-doede-lenker-side.png
+ create mode 100644 rapporter/2026-04-30/monkey-rapport-01-00.html
+ create mode 100644 rapporter/2026-04-30/monkey-resultat-01-00.json
+ create mode 100644 rapporter/2026-04-30/negativ-rapport-01-00.html
+ create mode 100644 rapporter/2026-04-30/negativ-resultat-01-00.json
+ create mode 100644 rapporter/2026-04-30/resultat-00-59.json
+ create mode 100644 rapporter/2026-04-30/sikkerhet-rapport-01-00.html
+ create mode 100644 rapporter/2026-04-30/sikkerhet-resultat-01-00.json
+ create mode 100644 rapporter/2026-04-30/skjermbilder/s16-doede-lenker-side.png
+ create mode 100644 rapporter/2026-04-30/uu-rapport-00-59.html

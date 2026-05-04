@@ -106,13 +106,6 @@
     },
     {
       "kategori": "cookies",
-      "alvorlighet": "alvorlig",
-      "tittel": "Cookie \"dtCookie\" har svake sikkerhetsattributter",
-      "detalj": "mangler Secure-flagg, mangler HttpOnly-flagg",
-      "url": "https://tilskudd.fiks.test.ks.no/"
-    },
-    {
-      "kategori": "cookies",
       "alvorlighet": "middels",
       "tittel": "Cookie \"b01773c48f061e5a6fa15915170117e2\" har svake sikkerhetsattributter",
       "detalj": "SameSite er None eller ikke satt",
@@ -137,6 +130,13 @@
       "alvorlighet": "ok",
       "tittel": "Cookie \"BIGipServer~DIGILB01~pool_digdir_idporten.no_https\" har korrekte sikkerhetsattributter",
       "detalj": "Secure + HttpOnly + SameSite er satt",
+      "url": "https://tilskudd.fiks.test.ks.no/"
+    },
+    {
+      "kategori": "cookies",
+      "alvorlighet": "alvorlig",
+      "tittel": "Cookie \"dtCookie\" har svake sikkerhetsattributter",
+      "detalj": "mangler Secure-flagg, mangler HttpOnly-flagg",
       "url": "https://tilskudd.fiks.test.ks.no/"
     },
     {

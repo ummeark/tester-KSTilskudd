@@ -178,7 +178,7 @@ async function analyserSide(url, indeks) {
     for (let li = 0; li < aLenkerCount; li++) {
       const href = await aLenkerLoc.nth(li).getAttribute('href') ?? '';
       const fullHref = href.startsWith('http') ? href : (href.startsWith('/') ? baseOrigin + href : '');
-      if (fullHref.startsWith(baseOrigin) && !fullHref.includes('#')) {
+      if (fullHref.startsWith(baseOrigin) && !fullHref.includes('#') && !fullHref.includes('/authorize/')) {
         internelenker.push(fullHref.split('?')[0].replace(/\/$/, '') || '/');
       }
     }
@@ -203,7 +203,7 @@ async function analyserSide(url, indeks) {
 
     const lenkeSjekk = await Promise.all(
       allelenker.map(async (l) => {
-        if (!l.href || l.href.startsWith('mailto:') || l.href.startsWith('tel:') || l.href.startsWith('javascript:')) {
+        if (!l.href || l.href.startsWith('mailto:') || l.href.startsWith('tel:') || l.href.startsWith('javascript:') || l.href.includes('/authorize/')) {
           return { ...l, status: 'skip', ok: true };
         }
         try {

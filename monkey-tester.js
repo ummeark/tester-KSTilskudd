@@ -2,8 +2,8 @@ import { chromium } from 'playwright';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { START_URL, ITERASJONER, VIEWPORT, SIDE_TIMEOUT, IDLE_TIMEOUT, KRASJ_ORD } from './config.js';
-import { hentVersjon } from './lib/common.js';
+import { START_URL, ITERASJONER, VIEWPORT, SIDE_TIMEOUT, IDLE_TIMEOUT, KRASJ_ORD, TEST_FNR, TEST_MODUS } from './config.js';
+import { hentVersjon, loggInn } from './lib/common.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dato = new Date().toISOString().slice(0, 10);
@@ -58,6 +58,13 @@ const context = await browser.newContext({
   userAgent: 'Mozilla/5.0 MonkeyTester/1.0',
   viewport: VIEWPORT,
 });
+
+const { url: innloggetUrl } = await loggInn(context, START_URL, { modus: TEST_MODUS, testFnr: TEST_FNR });
+if (!innloggetUrl) {
+  console.log('❌ Innlogging feilet – avslutter.');
+  await browser.close();
+  process.exit(1);
+}
 
 const versjon = await hentVersjon(context, START_URL);
 
@@ -118,7 +125,7 @@ async function sjekkForFeilside() {
 
 // ── Start navigasjon ─────────────────────────────────────────────────────────
 try {
-  await page.goto(START_URL, { waitUntil: 'networkidle', timeout: IDLE_TIMEOUT });
+  await page.goto(innloggetUrl, { waitUntil: 'networkidle', timeout: IDLE_TIMEOUT });
 } catch (e) {
   console.log(`❌ Kunne ikke laste startsiden: ${e.message}`);
   await browser.close();

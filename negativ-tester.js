@@ -3,8 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { exec } from 'child_process';
-import { START_URL, VIEWPORT, SIDE_TIMEOUT } from './config.js';
-import { hentVersjon, gåTil, sjekkKrasj, sjekkFeilmelding } from './lib/common.js';
+import { START_URL, VIEWPORT, SIDE_TIMEOUT, TEST_FNR, TEST_MODUS } from './config.js';
+import { hentVersjon, loggInn, gåTil, sjekkKrasj, sjekkFeilmelding } from './lib/common.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dato = new Date().toISOString().slice(0, 10);
@@ -37,6 +37,13 @@ const context = await browser.newContext({
   userAgent: 'Mozilla/5.0 NegativTester/1.0',
   viewport: VIEWPORT,
 });
+
+const { url: innloggetUrl } = await loggInn(context, START_URL, { modus: TEST_MODUS, testFnr: TEST_FNR });
+if (!innloggetUrl) {
+  console.log('❌ Innlogging feilet – avslutter.');
+  await browser.close();
+  process.exit(1);
+}
 
 const versjon = await hentVersjon(context, START_URL);
 

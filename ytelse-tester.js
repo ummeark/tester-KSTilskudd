@@ -2,7 +2,8 @@ import { chromium } from 'playwright';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { START_URL, MAX_SIDER, VIEWPORT, LAST_TIMEOUT } from './config.js';
+import { START_URL, MAX_SIDER, VIEWPORT, LAST_TIMEOUT, TEST_FNR, TEST_MODUS } from './config.js';
+import { loggInn } from './lib/common.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dato = new Date().toISOString().slice(0, 10);
@@ -48,8 +49,15 @@ const context = await browser.newContext({
   viewport: VIEWPORT,
 });
 
+const { url: innloggetUrl } = await loggInn(context, START_URL, { modus: TEST_MODUS, testFnr: TEST_FNR });
+if (!innloggetUrl) {
+  console.log('❌ Innlogging feilet – avslutter.');
+  await browser.close();
+  process.exit(1);
+}
+
 const besøkte = new Set();
-const kø = [START_URL];
+const kø = [innloggetUrl];
 const sideResultater = [];
 
 while (kø.length > 0 && sideResultater.length < MAX_SIDER) {

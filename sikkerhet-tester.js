@@ -5,8 +5,8 @@ import https from 'https';
 import http from 'http';
 import { fileURLToPath } from 'url';
 import { exec } from 'child_process';
-import { START_URL, VIEWPORT, SIDE_TIMEOUT, IDLE_TIMEOUT, HTTP_TIMEOUT } from './config.js';
-import { hentVersjon } from './lib/common.js';
+import { START_URL, VIEWPORT, SIDE_TIMEOUT, IDLE_TIMEOUT, HTTP_TIMEOUT, TEST_FNR, TEST_MODUS } from './config.js';
+import { hentVersjon, loggInn } from './lib/common.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dato = new Date().toISOString().slice(0, 10);
@@ -198,12 +198,19 @@ const browser = await chromium.launch();
 const nettleser = browser.version();
 const context = await browser.newContext({ ignoreHTTPSErrors: true });
 
+const { url: innloggetUrl } = await loggInn(context, START_URL, { modus: TEST_MODUS, testFnr: TEST_FNR });
+if (!innloggetUrl) {
+  console.log('❌ Innlogging feilet – avslutter.');
+  await browser.close();
+  process.exit(1);
+}
+
 const versjon = await hentVersjon(context, START_URL);
 
 const page = await context.newPage();
 
 try {
-  await page.goto(START_URL, { waitUntil: 'networkidle', timeout: IDLE_TIMEOUT });
+  await page.goto(innloggetUrl, { waitUntil: 'networkidle', timeout: IDLE_TIMEOUT });
 } catch (e) {
   console.log(`  ⚠️ Kunne ikke laste siden: ${e.message}`);
 }

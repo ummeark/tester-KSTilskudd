@@ -1,0 +1,270 @@
+{
+  "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/",
+  "dato": "2026-05-05",
+  "versjon": null,
+  "nettleser": "147.0.7727.15",
+  "totalt": {
+    "iterasjoner": 60,
+    "siderBesøkt": 3,
+    "jsErrors": 0,
+    "konsollFeil": 0,
+    "nettverksFeil": 0,
+    "kritiske": 27,
+    "alvorlige": 0,
+    "varighet": 3
+  },
+  "score": 0,
+  "jsErrors": [],
+  "konsollFeil": [],
+  "nettverksFeil": [],
+  "interaksjoner": [
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-1.png",
+      "tid": "2026-05-05T06:28:10.823Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-2.png",
+      "tid": "2026-05-05T06:28:10.920Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter navigasjon: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Gikk tilbake (browser back)",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-3.png",
+      "tid": "2026-05-05T06:28:10.988Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-4.png",
+      "tid": "2026-05-05T06:28:11.064Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-5.png",
+      "tid": "2026-05-05T06:28:11.146Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-6.png",
+      "tid": "2026-05-05T06:28:11.231Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "handling": "Klikket lenke: \"🤖 Testdatagenerator\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-7.png",
+      "tid": "2026-05-05T06:28:11.358Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter navigasjon: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "handling": "Gikk tilbake (browser back)",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-8.png",
+      "tid": "2026-05-05T06:28:11.399Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "handling": "Klikket lenke: \"🤖 Testdatagenerator\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-9.png",
+      "tid": "2026-05-05T06:28:11.456Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-10.png",
+      "tid": "2026-05-05T06:28:11.537Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-11.png",
+      "tid": "2026-05-05T06:28:11.614Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-12.png",
+      "tid": "2026-05-05T06:28:11.771Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-13.png",
+      "tid": "2026-05-05T06:28:11.872Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-14.png",
+      "tid": "2026-05-05T06:28:11.995Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter navigasjon: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Gikk tilbake (browser back)",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-15.png",
+      "tid": "2026-05-05T06:28:12.053Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter navigasjon: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Gikk tilbake (browser back)",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-16.png",
+      "tid": "2026-05-05T06:28:12.114Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-17.png",
+      "tid": "2026-05-05T06:28:12.195Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "handling": "Klikket lenke: \"🤖 Testdatagenerator\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-18.png",
+      "tid": "2026-05-05T06:28:12.257Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-19.png",
+      "tid": "2026-05-05T06:28:12.331Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "handling": "Klikket lenke: \"🤖 Testdatagenerator\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-20.png",
+      "tid": "2026-05-05T06:28:12.399Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "handling": "Klikket lenke: \"🤖 Testdatagenerator\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-21.png",
+      "tid": "2026-05-05T06:28:12.457Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-22.png",
+      "tid": "2026-05-05T06:28:12.530Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "handling": "Klikket lenke: \"🤖 Testdatagenerator\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-23.png",
+      "tid": "2026-05-05T06:28:12.589Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-24.png",
+      "tid": "2026-05-05T06:28:12.671Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-25.png",
+      "tid": "2026-05-05T06:28:12.755Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "handling": "Klikket lenke: \"🤖 Testdatagenerator\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-26.png",
+      "tid": "2026-05-05T06:28:12.882Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "handling": "Klikket lenke: \"🤖 Testdatagenerator\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-27.png",
+      "tid": "2026-05-05T06:28:12.939Z"
+    }
+  ],
+  "besøkte": [
+    "https://ummeark.github.io/tester-KSTilskudd-TEST/rapport.html",
+    "https://ummeark.github.io/tester-KSTilskudd-TEST/",
+    "https://ummeark.github.io/tester-KSTilskudd-TEST/admin.html"
+  ]
+}

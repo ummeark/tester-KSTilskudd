@@ -750,19 +750,21 @@ function genererRapport(url, dato, tidspunkt, totalt, sider, versjon = null, tas
     </a></li>`
   ).join('');
 
-  const sideDetaljer = sider.map((side, i) => `
-    <div class="side-seksjon" id="side-${i}">
-      <div class="side-header">
+  const sideDetaljer = sider.map((side, i) => {
+    const harProblemer = side.wcag.brudd > 0 || side.lenker.døde.length > 0;
+    return `
+    <details class="side-seksjon" id="side-${i}"${harProblemer ? ' open' : ''}>
+      <summary class="side-header">
         <div>
           <h2>${side.tittel || '(ingen tittel)'}</h2>
-          <a href="${side.url}" target="_blank" class="side-url-link">${side.url}</a>
+          <a href="${side.url}" target="_blank" class="side-url-link" onclick="event.stopPropagation()">${side.url}</a>
         </div>
         <div class="side-score-badges">
           ${badge(side.wcag.kritiske, 'critical', 'kritiske')}
           ${badge(side.wcag.alvorlige, 'serious', 'alvorlige')}
           ${badge(side.lenker.døde.length, 'dead', 'døde lenker')}
         </div>
-      </div>
+      </summary>
 
       <!-- WCAG-brudd med skjermdumper -->
       <div class="wcag-seksjon">
@@ -885,8 +887,9 @@ function genererRapport(url, dato, tidspunkt, totalt, sider, versjon = null, tas
             </tr>`).join('')}</tbody></table>`}
         </div>
       </div>
-    </div>
-  `).join('');
+    </details>
+  `;
+  }).join('');
 
   return `<!DOCTYPE html>
 <html lang="no">
@@ -956,6 +959,11 @@ function genererRapport(url, dato, tidspunkt, totalt, sider, versjon = null, tas
   /* Page sections */
   .side-seksjon{background:white;border:1px solid #f1f0ee;padding:2rem;margin-bottom:1.2rem;box-shadow:0 1px 4px rgba(10,19,85,.06)}
   .side-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.4rem;padding-bottom:1.2rem;border-bottom:1px solid #f4ecdf;flex-wrap:wrap;gap:.6rem}
+  summary.side-header{list-style:none;cursor:pointer;user-select:none}
+  summary.side-header::-webkit-details-marker{display:none}
+  details.side-seksjon:not([open]) summary.side-header{margin-bottom:0;padding-bottom:0;border-bottom:none}
+  summary.side-header::after{content:'▾ Vis detaljer';font-size:.68rem;color:#9ca3af;white-space:nowrap;align-self:center;flex-shrink:0}
+  details[open] summary.side-header::after{content:'▴ Skjul'}
   .side-header h2{font-size:1rem;font-weight:600;color:#0a1355}
   .side-url-link{font-size:.78rem;color:#07604f;text-decoration:none;display:block;margin-top:.2rem}
   .side-url-link:hover{text-decoration:underline}
@@ -1196,6 +1204,51 @@ function genererRapport(url, dato, tidspunkt, totalt, sider, versjon = null, tas
       </div>
     </div>
   </details>` : ''}
+
+  <details style="margin-top:2rem;border:1px solid #e5e3de;background:white;box-shadow:0 1px 4px rgba(10,19,85,.06)">
+    <summary style="cursor:pointer;padding:1rem 1.5rem;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#0a1355;user-select:none;list-style:none;display:flex;justify-content:space-between;align-items:center">
+      <span>⚠️ WCAG-krav ikke dekket av denne rapporten</span>
+      <span style="font-size:.75rem;opacity:.5;font-weight:400;text-transform:none;letter-spacing:0">klikk for å utvide ▼</span>
+    </summary>
+    <div style="padding:1.2rem 1.5rem 1.5rem;border-top:1px solid #f4ecdf">
+      <p style="font-size:.83rem;color:#374151;margin-bottom:1.2rem;line-height:1.6">
+        Automatiserte verktøy dekker kun ~30–40 % av WCAG-kriteriene. Følgende krav krever manuell gjennomgang eller spesialisert testing og er <strong>ikke</strong> inkludert i denne rapporten.
+      </p>
+      <div style="overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;font-size:.82rem">
+          <thead>
+            <tr style="background:#f4ecdf">
+              <th style="text-align:left;padding:.5rem .75rem;color:#0a1355;font-weight:700;border-bottom:2px solid #e5e3de">Kriterium</th>
+              <th style="text-align:left;padding:.5rem .75rem;color:#0a1355;font-weight:700;border-bottom:2px solid #e5e3de">Navn</th>
+              <th style="text-align:left;padding:.5rem .75rem;color:#0a1355;font-weight:700;border-bottom:2px solid #e5e3de">Hvorfor ikke dekket</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${[
+              ['1.2.1–1.2.5', 'Tidsbaserte medier', 'Teksting, lydtekst og synstolking – krever manuell gjennomgang av video/lyd-innhold'],
+              ['1.3.3', 'Sensoriske egenskaper', 'Kan ikke automatisk avgjøre om instruksjoner kun bruker form, farge eller posisjon'],
+              ['1.3.4', 'Orientering', 'Visning roteres ikke under test – sjekkes ikke'],
+              ['1.4.4', 'Endre tekststørrelse', 'Zoom til 200 % uten tap av innhold testes ikke'],
+              ['2.1.1', 'Tastatur – full traversering', 'Kun synlig fokus sjekkes, ikke at alle funksjoner er nåbare via tastatur'],
+              ['2.1.2', 'Ingen tastaturfelle', 'Felle i modaler eller widgeter oppdages ikke automatisk'],
+              ['2.2.1–2.2.2', 'Nok tid', 'Tidsavbrudd og bevegelig innhold sjekkes ikke'],
+              ['2.3.1', 'Tre blink eller under terskel', 'Blinkende/animert innhold analyseres ikke'],
+              ['2.4.3', 'Fokusrekkefølge', 'Logisk tab-rekkefølge gjennom flersidig skjema vurderes ikke'],
+              ['2.4.5', 'Flere måter', 'Krever manuell vurdering av om siden tilbyr mer enn én navigasjonsmetode'],
+              ['2.5.1–2.5.4', 'Inndatametoder', 'Pekerbevegelser, avbrytelse og bevegelsesaktivering testes ikke'],
+              ['3.2.1–3.2.2', 'Forutsigbar atferd', 'Atferd ved fokus og input-endring vurderes ikke automatisk'],
+              ['3.3.1–3.3.4', 'Inndatahjelp', 'Feilmeldingskvalitet og skjemaveiledning krever manuell gjennomgang'],
+            ].map((r, i) => `
+            <tr style="background:${i % 2 === 0 ? 'white' : '#fafaf9'}">
+              <td style="padding:.45rem .75rem;color:#6b21a8;font-family:ui-monospace,monospace;font-weight:600;border-bottom:1px solid #f0ece8;white-space:nowrap">${r[0]}</td>
+              <td style="padding:.45rem .75rem;color:#0a1355;font-weight:600;border-bottom:1px solid #f0ece8">${r[1]}</td>
+              <td style="padding:.45rem .75rem;color:#374151;border-bottom:1px solid #f0ece8">${r[2]}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
 
   <div class="seksjon" style="margin-top:2rem">
     <div class="seksjon-tittel">Slik beregnes UU-scoren</div>

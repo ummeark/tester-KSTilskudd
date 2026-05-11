@@ -127,7 +127,7 @@
          target="_blank" class="test-kort alle">
         <div class="test-ikon">🎯</div>
         <div class="test-navn">Alle tester</div>
-        <div class="test-beskrivelse">Kjører UU, Monkey, Sikkerhet, Negativ og Ytelse etter hverandre. Tar 10–20 minutter.</div>
+        <div class="test-beskrivelse">Kjører UU, Monkey, Sikkerhet, Negativ, Ytelse og Brukerhistorier etter hverandre. Tar 10–25 minutter.</div>
         <div class="test-kjor">Velg «alle» i nedtrekkslisten →</div>
       </a>
 
@@ -169,6 +169,14 @@
         <div class="test-navn">Ytelsestest</div>
         <div class="test-beskrivelse">LCP, FCP og TTFB per side. Analyserer opptil 20 sider og gir samlet ytelses-score.</div>
         <div class="test-kjor">Velg «ytelse» →</div>
+      </a>
+
+      <a href="https://github.com/ummeark/tester-KSTilskudd-TEST/actions/workflows/run-tests.yml"
+         target="_blank" class="test-kort">
+        <div class="test-ikon">📖</div>
+        <div class="test-navn">Brukerhistorier</div>
+        <div class="test-beskrivelse">Ende-til-ende-tester av reelle brukerscenarier – søk, innsending og navigasjon.</div>
+        <div class="test-kjor">Velg «brukerhistorie» →</div>
       </a>
     </div>
   </div>
@@ -214,11 +222,12 @@
   const API_URL = `https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${WORKFLOW}/runs?per_page=10`;
 
   const TEST_STEG = [
-    { navn: '♿ UU-test',        ikon: '♿' },
-    { navn: '🐒 Monkey-test',    ikon: '🐒' },
-    { navn: '🔐 Sikkerhetstest', ikon: '🔐' },
-    { navn: '🧪 Negativ test',   ikon: '🧪' },
-    { navn: '🚀 Ytelsestest',    ikon: '🚀' },
+    { navn: '♿ UU-test',             ikon: '♿' },
+    { navn: '🐒 Monkey-test',         ikon: '🐒' },
+    { navn: '🔐 Sikkerhetstest',      ikon: '🔐' },
+    { navn: '🧪 Negativ test',        ikon: '🧪' },
+    { navn: '🚀 Ytelsestest',         ikon: '🚀' },
+    { navn: '📖 Brukerhistorietest',  ikon: '📖' },
   ];
 
   let refreshTimer = null;

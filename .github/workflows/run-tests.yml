@@ -1,0 +1,83 @@
+name: Kjør tester manuelt
+
+# Kjøres på self-hosted runner (Mac) fordi tilskudd.fiks.test.ks.no
+# ikke er tilgjengelig fra GitHub Actions (Azure-nettverk).
+# Oppsett: Repo → Settings → Actions → Runners → New self-hosted runner
+
+on:
+  workflow_dispatch:
+    inputs:
+      test:
+        description: 'Velg test å kjøre'
+        required: true
+        default: 'alle'
+        type: choice
+        options:
+          - alle
+          - uu
+          - monkey
+          - sikkerhet
+          - negativ
+          - ytelse
+
+permissions:
+  contents: write
+
+jobs:
+  kjor-tester:
+    runs-on: self-hosted
+    timeout-minutes: 45
+
+    steps:
+      - name: Sjekk ut kode
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Installer npm-avhengigheter
+        run: npm ci
+
+      - name: Installer Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: ♿ UU-test
+        if: ${{ inputs.test == 'alle' || inputs.test == 'uu' }}
+        run: npm run rapport
+
+      - name: 🐒 Monkey-test
+        if: ${{ inputs.test == 'alle' || inputs.test == 'monkey' }}
+        run: npm run monkey
+
+      - name: 🔐 Sikkerhetstest
+        if: ${{ inputs.test == 'alle' || inputs.test == 'sikkerhet' }}
+        run: npm run sikkerhet
+
+      - name: 🧪 Negativ test
+        if: ${{ inputs.test == 'alle' || inputs.test == 'negativ' }}
+        run: npm run negativ
+
+      - name: 🚀 Ytelsestest
+        if: ${{ inputs.test == 'alle' || inputs.test == 'ytelse' }}
+        run: npm run ytelse
+
+      - name: Generer arkiv
+        run: npm run arkiv
+
+      - name: Publiser til GitHub Pages
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git pull --rebase origin main
+          git add rapporter/ docs/
+          DATO=$(date '+%Y-%m-%d %H:%M')
+          git diff --staged --quiet && echo "Ingen nye rapporter å publisere" || \
+            git commit --no-verify -m "Testrapport GitHub Actions ${DATO} – ${{ inputs.test }}"
+          git push
+
+      - name: ✅ Bekreft publisering
+        run: |
+          echo ""
+          echo "Testresultater publisert til GitHub Pages:"
+          echo "  https://ummeark.github.io/tester-KSTilskudd-TEST/rapport.html"
+          echo "  https://ummeark.github.io/tester-KSTilskudd-TEST/kjor-tester.html"

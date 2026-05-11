@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kjør tester – KS Tilskudd TEST</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #fdf9f3; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1a1a2e; min-height: 100vh; }
+    .side { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+    header { background: #0a1355; color: white; padding: 1.2rem 2rem; margin: 0 -1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { font-size: 1.05rem; font-weight: 700; letter-spacing: -.01em; }
+    header .meta { font-size: .78rem; opacity: .6; }
+    .nav-knapper { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .knapp { display: inline-block; padding: .45rem 1rem; background: #0a1355; color: white; border-radius: 100px; font-size: .8rem; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background .15s; }
+    .knapp:hover { background: #2b3285; }
+    .knapp.sekundær { background: transparent; border: 1px solid #c8c4bc; color: #374151; }
+    .knapp.sekundær:hover { background: #f4ecdf; border-color: #0a1355; color: #0a1355; }
+    .seksjon { background: white; border: 1px solid #e5e3de; padding: 1.5rem; margin-bottom: 1.2rem; border-radius: 2px; }
+    .seksjon-tittel { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #0a1355; margin-bottom: 1rem; }
+
+    /* Test trigger cards */
+    .test-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: .75rem; margin-top: 1rem; }
+    .test-kort { border: 1px solid #e5e3de; border-radius: 4px; padding: 1.2rem; background: #fafaf9; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: .5rem; transition: border-color .15s, box-shadow .15s; }
+    .test-kort:hover { border-color: #0a1355; box-shadow: 0 2px 8px rgba(10,19,85,.1); background: white; }
+    .test-kort.alle { border-color: #0a1355; background: #0a1355; color: white; }
+    .test-kort.alle:hover { background: #2b3285; }
+    .test-kort.alle .test-beskrivelse { opacity: .75; }
+    .test-ikon { font-size: 1.4rem; }
+    .test-navn { font-weight: 700; font-size: .95rem; }
+    .test-beskrivelse { font-size: .78rem; color: #6b7280; line-height: 1.45; }
+    .test-kort.alle .test-beskrivelse { color: rgba(255,255,255,.7); }
+    .test-kjor { margin-top: auto; padding-top: .75rem; font-size: .78rem; font-weight: 600; color: #0a1355; border-top: 1px solid #e5e3de; }
+    .test-kort.alle .test-kjor { color: rgba(255,255,255,.9); border-top-color: rgba(255,255,255,.2); }
+
+    /* Active run banner */
+    #aktiv-kjoring { background: #eff6ff; border: 1px solid #93c5fd; padding: 1rem 1.5rem; margin-bottom: 1.2rem; border-radius: 2px; display: none; }
+    #aktiv-kjoring.ferdig-ok { background: #f0fdf4; border-color: #86efac; }
+    #aktiv-kjoring.ferdig-feil { background: #fef2f2; border-color: #fca5a5; }
+    .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid #bfdbfe; border-top-color: #1d4ed8; border-radius: 50%; animation: snurr 0.8s linear infinite; flex-shrink: 0; }
+    @keyframes snurr { to { transform: rotate(360deg); } }
+    .puls { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: currentColor; animation: puls 1.4s ease-in-out infinite; }
+    @keyframes puls { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+
+    /* Runs table */
+    table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+    th { text-align: left; padding: .5rem .75rem; background: #f4ecdf; color: #0a1355; font-weight: 700; font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; border-bottom: 2px solid #e5e3de; }
+    td { padding: .5rem .75rem; border-bottom: 1px solid #f0ece8; vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #fafaf9; }
+    .status-ok { color: #07604f; font-weight: 600; }
+    .status-feil { color: #c53030; font-weight: 600; }
+    .status-aktiv { color: #1d4ed8; font-weight: 600; }
+    .status-venter { color: #6b7280; }
+    a.lenke { color: #0a1355; font-weight: 500; text-decoration: none; }
+    a.lenke:hover { text-decoration: underline; }
+
+    /* Info box */
+    .info-boks { background: #f0f9ff; border: 1px solid #bae6fd; padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 2px; font-size: .83rem; color: #1e3a5f; line-height: 1.65; }
+    .info-boks ol { padding-left: 1.4rem; }
+    .info-boks li { margin-bottom: .3rem; }
+    .info-boks strong { color: #0a1355; }
+
+    .badge { display: inline-block; padding: .15rem .5rem; border-radius: 100px; font-size: .72rem; font-weight: 600; }
+    .badge-grønn { background: #dcfce7; color: #15803d; }
+    .badge-rød { background: #fee2e2; color: #b91c1c; }
+    .badge-blå { background: #dbeafe; color: #1d4ed8; }
+    .badge-grå { background: #f3f4f6; color: #6b7280; }
+
+    #sist-oppdatert { font-size: .72rem; color: #9ca3af; margin-top: .75rem; display: flex; justify-content: space-between; align-items: center; }
+    footer { text-align: center; font-size: .75rem; color: #9ca3af; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e5e3de; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+<div class="side">
+
+  <header>
+    <h1>▶ Kjør tester</h1>
+    <span class="meta">KS Tilskudd · TEST-miljø · tilskudd.fiks.test.ks.no</span>
+  </header>
+
+  <nav class="nav-knapper">
+    <a href="rapport.html" class="knapp sekundær">← Dashboard</a>
+    <a href="uu-rapport.html" class="knapp sekundær">♿ UU</a>
+    <a href="monkey-rapport.html" class="knapp sekundær">🐒 Monkey</a>
+    <a href="sikkerhet-rapport.html" class="knapp sekundær">🔐 Sikkerhet</a>
+    <a href="negativ-rapport.html" class="knapp sekundær">🧪 Negativ</a>
+    <a href="ytelse-rapport.html" class="knapp sekundær">🚀 Ytelse</a>
+    <a href="arkiv.html" class="knapp sekundær">🗂️ Arkiv</a>
+  </nav>
+
+  <!-- Live status banner -->
+  <div id="aktiv-kjoring">
+    <div style="display:flex;align-items:center;gap:.8rem;flex-wrap:wrap">
+      <div id="banner-ikon"></div>
+      <div id="banner-tekst" style="flex:1;font-size:.88rem"></div>
+      <a id="banner-lenke" href="#" target="_blank" class="knapp" style="font-size:.78rem">Se på GitHub →</a>
+    </div>
+  </div>
+
+  <!-- Trigger buttons -->
+  <div class="seksjon">
+    <div class="seksjon-tittel">Start testkjøring</div>
+    <p style="font-size:.83rem;color:#374151;margin-bottom:.3rem">
+      Klikk en test → du sendes til GitHub Actions → klikk <strong>«Run workflow»</strong> (krever GitHub-innlogging).
+      Testene kjøres på din Mac via self-hosted runner og resultatene publiseres automatisk til GitHub Pages.
+    </p>
+
+    <div class="test-grid">
+      <a href="https://github.com/ummeark/tester-KSTilskudd-TEST/actions/workflows/run-tests.yml"
+         target="_blank" class="test-kort alle">
+        <div class="test-ikon">🎯</div>
+        <div class="test-navn">Alle tester</div>
+        <div class="test-beskrivelse">Kjører UU, Monkey, Sikkerhet, Negativ og Ytelse etter hverandre. Tar 10–20 minutter.</div>
+        <div class="test-kjor">Velg «alle» i nedtrekkslisten →</div>
+      </a>
+
+      <a href="https://github.com/ummeark/tester-KSTilskudd-TEST/actions/workflows/run-tests.yml"
+         target="_blank" class="test-kort">
+        <div class="test-ikon">♿</div>
+        <div class="test-navn">UU-rapport</div>
+        <div class="test-beskrivelse">WCAG-analyse med axe-core, tastaturnavigasjon, reflow og tekstmellomrom. Crawler opptil 20 sider.</div>
+        <div class="test-kjor">Velg «uu» →</div>
+      </a>
+
+      <a href="https://github.com/ummeark/tester-KSTilskudd-TEST/actions/workflows/run-tests.yml"
+         target="_blank" class="test-kort">
+        <div class="test-ikon">🐒</div>
+        <div class="test-navn">Monkey-test</div>
+        <div class="test-beskrivelse">60 tilfeldige handlinger – klikk, navigasjon, tilbake. Avdekker uventet atferd og JS-feil.</div>
+        <div class="test-kjor">Velg «monkey» →</div>
+      </a>
+
+      <a href="https://github.com/ummeark/tester-KSTilskudd-TEST/actions/workflows/run-tests.yml"
+         target="_blank" class="test-kort">
+        <div class="test-ikon">🔐</div>
+        <div class="test-navn">Sikkerhetstest</div>
+        <div class="test-beskrivelse">HTTP-sikkerhetshoder, cookies, HTTPS, CORS, mixed content og input-refleksjon.</div>
+        <div class="test-kjor">Velg «sikkerhet» →</div>
+      </a>
+
+      <a href="https://github.com/ummeark/tester-KSTilskudd-TEST/actions/workflows/run-tests.yml"
+         target="_blank" class="test-kort">
+        <div class="test-ikon">🧪</div>
+        <div class="test-navn">Negativ test</div>
+        <div class="test-beskrivelse">Ugyldig input, URL-manipulering, sesjonshåndtering, mobilvisning og nettleserfunksjoner.</div>
+        <div class="test-kjor">Velg «negativ» →</div>
+      </a>
+
+      <a href="https://github.com/ummeark/tester-KSTilskudd-TEST/actions/workflows/run-tests.yml"
+         target="_blank" class="test-kort">
+        <div class="test-ikon">🚀</div>
+        <div class="test-navn">Ytelsestest</div>
+        <div class="test-beskrivelse">LCP, FCP og TTFB per side. Analyserer opptil 20 sider og gir samlet ytelses-score.</div>
+        <div class="test-kjor">Velg «ytelse» →</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Recent runs -->
+  <div class="seksjon">
+    <div class="seksjon-tittel">Siste GitHub Actions-kjøringer</div>
+    <div id="runs-container">
+      <p style="color:#9ca3af;font-size:.83rem">Henter kjøringer fra GitHub...</p>
+    </div>
+    <div id="sist-oppdatert">
+      <span id="oppdatert-tekst"></span>
+      <button onclick="oppdater()" style="background:none;border:none;cursor:pointer;font-size:.72rem;color:#6b7280;padding:.2rem .5rem;border:1px solid #e5e3de;border-radius:4px">↻ Oppdater</button>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="info-boks">
+    <strong style="display:block;margin-bottom:.6rem">ℹ️ Slik fungerer det</strong>
+    <ol>
+      <li>Klikk en testknapp over – du sendes til GitHub Actions i ny fane</li>
+      <li>Logg inn på GitHub hvis du ikke allerede er innlogget</li>
+      <li>Klikk <strong>«Run workflow»</strong> (grønn knapp øverst til høyre), velg riktig test i nedtrekkslisten</li>
+      <li>Gå tilbake til denne siden – status oppdateres automatisk hvert 15. sekund under kjøring</li>
+      <li>Når testen er ferdig: resultater er automatisk publisert til GitHub Pages ✅</li>
+    </ol>
+    <p style="margin-top:.75rem;font-size:.78rem;color:#374151">
+      <strong>Forutsetning:</strong> Mac-en må være på og self-hosted runner må kjøre.
+      Oppsett: Repo → Settings → Actions → Runners → New self-hosted runner.
+    </p>
+  </div>
+
+  <footer>
+    KS Tilskudd · Testkontroll · tilskudd.fiks.test.ks.no ·
+    <a href="https://github.com/ummeark/tester-KSTilskudd-TEST/actions" target="_blank">GitHub Actions</a>
+  </footer>
+</div>
+
+<script>
+  const OWNER = 'ummeark';
+  const REPO = 'tester-KSTilskudd-TEST';
+  const WORKFLOW = 'run-tests.yml';
+  const API_URL = `https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${WORKFLOW}/runs?per_page=10`;
+
+  let refreshTimer = null;
+  let erAktiv = false;
+
+  async function hentKjoringer() {
+    try {
+      const resp = await fetch(API_URL, {
+        headers: { Accept: 'application/vnd.github.v3+json' }
+      });
+      if (!resp.ok) {
+        if (resp.status === 403) throw new Error('GitHub API-grense nådd – vent litt og prøv igjen');
+        throw new Error(`HTTP ${resp.status}`);
+      }
+      const data = await resp.json();
+      return data.workflow_runs || [];
+    } catch (e) {
+      console.error(e);
+      return null;
+    }
+  }
+
+  function statusInfo(run) {
+    if (run.status === 'queued')      return { ikon: '⏳', tekst: 'Venter i kø',    cls: 'status-venter', badge: 'badge-grå' };
+    if (run.status === 'in_progress') return { ikon: '🔄', tekst: 'Kjører...',      cls: 'status-aktiv',  badge: 'badge-blå' };
+    if (run.conclusion === 'success') return { ikon: '✅', tekst: 'Fullført',        cls: 'status-ok',     badge: 'badge-grønn' };
+    if (run.conclusion === 'failure') return { ikon: '❌', tekst: 'Feilet',          cls: 'status-feil',   badge: 'badge-rød' };
+    if (run.conclusion === 'cancelled') return { ikon: '⚪', tekst: 'Avbrutt',       cls: 'status-venter', badge: 'badge-grå' };
+    return { ikon: '❓', tekst: run.conclusion || run.status, cls: 'status-venter', badge: 'badge-grå' };
+  }
+
+  function formaterDato(iso) {
+    return new Date(iso).toLocaleString('no-NO', {
+      day: '2-digit', month: '2-digit', year: 'numeric',
+      hour: '2-digit', minute: '2-digit'
+    });
+  }
+
+  function formaterVarighet(run) {
+    if (!run.updated_at || run.status !== 'completed') return '–';
+    const sek = Math.round((new Date(run.updated_at) - new Date(run.created_at)) / 1000);
+    if (sek < 60) return `${sek}s`;
+    const min = Math.floor(sek / 60);
+    const rest = sek % 60;
+    return rest > 0 ? `${min}m ${rest}s` : `${min}m`;
+  }
+
+  function oppdaterBanner(runs) {
+    const banner = document.getElementById('aktiv-kjoring');
+    const aktivRun = runs.find(r => r.status === 'in_progress' || r.status === 'queued');
+    const sisteRun = runs[0];
+
+    if (aktivRun) {
+      erAktiv = true;
+      banner.className = '';
+      banner.style.display = 'block';
+      document.getElementById('banner-ikon').innerHTML = '<div class="spinner"></div>';
+      document.getElementById('banner-tekst').innerHTML =
+        `<strong style="color:#1d4ed8">Test kjører nå</strong> · startet ${formaterDato(aktivRun.created_at)} av <strong>${aktivRun.actor?.login || 'ukjent'}</strong>`;
+      document.getElementById('banner-lenke').href = aktivRun.html_url;
+    } else if (sisteRun && sisteRun.status === 'completed') {
+      erAktiv = false;
+      const info = statusInfo(sisteRun);
+      const erFerdig = sisteRun.conclusion === 'success';
+      banner.className = erFerdig ? 'ferdig-ok' : 'ferdig-feil';
+      banner.style.display = 'block';
+      document.getElementById('banner-ikon').innerHTML = `<span style="font-size:1.2rem">${info.ikon}</span>`;
+      document.getElementById('banner-tekst').innerHTML =
+        `<strong style="${erFerdig ? 'color:#07604f' : 'color:#c53030'}">${info.tekst}</strong> · siste kjøring ${formaterDato(sisteRun.updated_at)} · varighet ${formaterVarighet(sisteRun)}`;
+      document.getElementById('banner-lenke').href = sisteRun.html_url;
+      document.getElementById('banner-lenke').textContent = erFerdig
+        ? '✅ Se publisert rapport →'
+        : '❌ Se feillogg →';
+    } else {
+      banner.style.display = 'none';
+      erAktiv = false;
+    }
+  }
+
+  function oppdaterTabell(runs) {
+    if (!runs.length) {
+      document.getElementById('runs-container').innerHTML =
+        '<p style="color:#9ca3af;font-size:.83rem">Ingen GitHub Actions-kjøringer funnet ennå.</p>';
+      return;
+    }
+
+    const rader = runs.map(r => {
+      const info = statusInfo(r);
+      return `<tr>
+        <td>${formaterDato(r.created_at)}</td>
+        <td style="color:#374151">${r.actor?.login || '–'}</td>
+        <td><span class="${info.cls}">${info.ikon} ${info.tekst}</span></td>
+        <td style="color:#6b7280">${formaterVarighet(r)}</td>
+        <td><a href="${r.html_url}" target="_blank" class="lenke">Se kjøring →</a></td>
+      </tr>`;
+    }).join('');
+
+    document.getElementById('runs-container').innerHTML = `
+      <table>
+        <thead>
+          <tr>
+            <th>Startet</th>
+            <th>Bruker</th>
+            <th>Status</th>
+            <th>Varighet</th>
+            <th>Detaljer</th>
+          </tr>
+        </thead>
+        <tbody>${rader}</tbody>
+      </table>`;
+  }
+
+  function planleggNeste() {
+    clearInterval(refreshTimer);
+    // 15 sek hvis test kjører, ellers 2 min
+    const intervall = erAktiv ? 15000 : 120000;
+    refreshTimer = setInterval(oppdater, intervall);
+  }
+
+  async function oppdater() {
+    const runs = await hentKjoringer();
+
+    if (runs === null) {
+      document.getElementById('oppdatert-tekst').textContent =
+        '⚠️ Kunne ikke hente data fra GitHub API – rategrense eller nettverksfeil';
+      return;
+    }
+
+    oppdaterBanner(runs);
+    oppdaterTabell(runs);
+
+    document.getElementById('oppdatert-tekst').textContent =
+      `Oppdatert: ${new Date().toLocaleTimeString('no-NO')} · ${erAktiv ? 'neste om 15 sek' : 'neste om 2 min'}`;
+
+    planleggNeste();
+  }
+
+  oppdater();
+</script>
+</body>
+</html>

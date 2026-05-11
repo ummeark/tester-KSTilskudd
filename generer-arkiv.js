@@ -507,6 +507,7 @@ const arkivHTML = `<!DOCTYPE html>
       <a href="ytelse-rapport.html" class="knapp sekundær">Ytelsestest</a>
       <a href="brukerhistorie-rapport.html" class="knapp sekundær">Brukerhistorier</a>
       <a href="arkiv.html" class="knapp aktiv">Arkiv</a>
+      <a href="kjor-tester.html" class="knapp" style="background:#07604f">▶ Kjør tester</a>
     </div>
   </div>
 
@@ -675,6 +676,7 @@ const dashboardHTML = `<!DOCTYPE html>
       <a href="ytelse-rapport.html" class="knapp sekundær">Ytelsestest</a>
       <a href="brukerhistorie-rapport.html" class="knapp sekundær">Brukerhistorier</a>
       <a href="arkiv.html" class="knapp sekundær">Arkiv</a>
+      <a href="kjor-tester.html" class="knapp" style="background:#07604f">▶ Kjør tester</a>
     </div>
   </div>
 

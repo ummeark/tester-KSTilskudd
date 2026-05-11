@@ -68,15 +68,18 @@ jobs:
         run: npm run arkiv
 
       - name: Publiser til GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/ummeark/tester-KSTilskudd-TEST.git"
           git pull --rebase origin main
           git add rapporter/ docs/
           DATO=$(date '+%Y-%m-%d %H:%M')
           git diff --staged --quiet && echo "Ingen nye rapporter å publisere" || \
             git commit --no-verify -m "Testrapport GitHub Actions ${DATO} – ${{ inputs.test }}"
-          git push
+          git push origin main
 
       - name: ✅ Bekreft publisering
         run: |

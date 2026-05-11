@@ -67,6 +67,20 @@
     .badge-blå { background: #dbeafe; color: #1d4ed8; }
     .badge-grå { background: #f3f4f6; color: #6b7280; }
 
+    /* Step progress list */
+    #steg-liste { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .steg-kort { display: flex; align-items: center; gap: .45rem; background: white; border: 1px solid #e5e3de; border-radius: 6px; padding: .4rem .75rem; font-size: .8rem; min-width: 160px; }
+    .steg-kort.aktiv { border-color: #93c5fd; background: #eff6ff; }
+    .steg-kort.ok { border-color: #86efac; background: #f0fdf4; }
+    .steg-kort.feil { border-color: #fca5a5; background: #fef2f2; }
+    .steg-kort.venter { opacity: .55; }
+    .steg-kort.hoppet { opacity: .35; }
+    .steg-navn { font-weight: 600; color: #0a1355; }
+    .steg-kort.aktiv .steg-navn { color: #1d4ed8; }
+    .steg-kort.ok .steg-navn { color: #07604f; }
+    .steg-kort.feil .steg-navn { color: #c53030; }
+    .steg-tid { color: #9ca3af; font-size: .72rem; margin-left: auto; white-space: nowrap; }
+
     #sist-oppdatert { font-size: .72rem; color: #9ca3af; margin-top: .75rem; display: flex; justify-content: space-between; align-items: center; }
     footer { text-align: center; font-size: .75rem; color: #9ca3af; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e5e3de; }
     footer a { color: inherit; }
@@ -92,11 +106,12 @@
 
   <!-- Live status banner -->
   <div id="aktiv-kjoring">
-    <div style="display:flex;align-items:center;gap:.8rem;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-bottom:.9rem">
       <div id="banner-ikon"></div>
       <div id="banner-tekst" style="flex:1;font-size:.88rem"></div>
       <a id="banner-lenke" href="#" target="_blank" class="knapp" style="font-size:.78rem">Se på GitHub →</a>
     </div>
+    <div id="steg-liste"></div>
   </div>
 
   <!-- Trigger buttons -->
@@ -198,6 +213,14 @@
   const WORKFLOW = 'run-tests.yml';
   const API_URL = `https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${WORKFLOW}/runs?per_page=10`;
 
+  const TEST_STEG = [
+    { navn: '♿ UU-test',        ikon: '♿' },
+    { navn: '🐒 Monkey-test',    ikon: '🐒' },
+    { navn: '🔐 Sikkerhetstest', ikon: '🔐' },
+    { navn: '🧪 Negativ test',   ikon: '🧪' },
+    { navn: '🚀 Ytelsestest',    ikon: '🚀' },
+  ];
+
   let refreshTimer = null;
   let erAktiv = false;
 
@@ -243,7 +266,65 @@
     return rest > 0 ? `${min}m ${rest}s` : `${min}m`;
   }
 
-  function oppdaterBanner(runs) {
+  async function hentJobSteg(runId) {
+    try {
+      const resp = await fetch(
+        `https://api.github.com/repos/${OWNER}/${REPO}/actions/runs/${runId}/jobs`,
+        { headers: { Accept: 'application/vnd.github.v3+json' } }
+      );
+      if (!resp.ok) return null;
+      const data = await resp.json();
+      const job = data.jobs?.find(j => j.name === 'kjor-tester');
+      return job?.steps || null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function stegVarighet(steg) {
+    if (!steg.started_at) return '';
+    const slutt = steg.completed_at ? new Date(steg.completed_at) : new Date();
+    const sek = Math.round((slutt - new Date(steg.started_at)) / 1000);
+    if (sek < 60) return `${sek}s`;
+    return `${Math.floor(sek / 60)}m ${sek % 60}s`;
+  }
+
+  function visStegListe(steg) {
+    const liste = document.getElementById('steg-liste');
+    if (!steg) { liste.innerHTML = ''; return; }
+
+    const html = TEST_STEG.map(ts => {
+      const s = steg.find(x => x.name === ts.navn);
+      if (!s) return '';
+
+      let cls = 'venter', ikonHTML = '⏳';
+      let tidHTML = '';
+
+      if (s.conclusion === 'skipped') {
+        cls = 'hoppet'; ikonHTML = '–';
+      } else if (s.status === 'in_progress') {
+        cls = 'aktiv';
+        ikonHTML = '<div class="spinner" style="width:12px;height:12px;border-width:2px"></div>';
+        tidHTML = stegVarighet(s);
+      } else if (s.conclusion === 'success') {
+        cls = 'ok'; ikonHTML = '✅';
+        tidHTML = stegVarighet(s);
+      } else if (s.conclusion === 'failure') {
+        cls = 'feil'; ikonHTML = '❌';
+        tidHTML = stegVarighet(s);
+      }
+
+      return `<div class="steg-kort ${cls}">
+        <span>${ikonHTML}</span>
+        <span class="steg-navn">${ts.navn}</span>
+        ${tidHTML ? `<span class="steg-tid">${tidHTML}</span>` : ''}
+      </div>`;
+    }).join('');
+
+    liste.innerHTML = html;
+  }
+
+  async function oppdaterBanner(runs) {
     const banner = document.getElementById('aktiv-kjoring');
     const aktivRun = runs.find(r => r.status === 'in_progress' || r.status === 'queued');
     const sisteRun = runs[0];
@@ -256,6 +337,10 @@
       document.getElementById('banner-tekst').innerHTML =
         `<strong style="color:#1d4ed8">Test kjører nå</strong> · startet ${formaterDato(aktivRun.created_at)} av <strong>${aktivRun.actor?.login || 'ukjent'}</strong>`;
       document.getElementById('banner-lenke').href = aktivRun.html_url;
+
+      const steg = await hentJobSteg(aktivRun.id);
+      visStegListe(steg);
+
     } else if (sisteRun && sisteRun.status === 'completed') {
       erAktiv = false;
       const info = statusInfo(sisteRun);
@@ -269,9 +354,14 @@
       document.getElementById('banner-lenke').textContent = erFerdig
         ? '✅ Se publisert rapport →'
         : '❌ Se feillogg →';
+
+      const steg = await hentJobSteg(sisteRun.id);
+      visStegListe(steg);
+
     } else {
       banner.style.display = 'none';
       erAktiv = false;
+      visStegListe(null);
     }
   }
 
@@ -324,7 +414,7 @@
       return;
     }
 
-    oppdaterBanner(runs);
+    await oppdaterBanner(runs);
     oppdaterTabell(runs);
 
     document.getElementById('oppdatert-tekst').textContent =

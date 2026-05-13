@@ -15,7 +15,8 @@
     "valider": "bash valider-miljø.sh",
     "prepare": "git config core.hooksPath .githooks",
     "poc-uu": "playwright test --config poc.playwright.config.js && node generer-poc-uu-rapport.js",
-    "brukerhistorie": "playwright test --config brukerhistorie.playwright.config.js; node generer-brukerhistorie-rapport.js"
+    "brukerhistorie": "playwright test --config brukerhistorie.playwright.config.js; node generer-brukerhistorie-rapport.js",
+    "testverktøy-rapport": "node generer-testverktøy-rapport.js"
   },
   "dependencies": {
     "@axe-core/playwright": "^4.10.1",

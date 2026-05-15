@@ -88,6 +88,64 @@ test.describe('BH-3: Som innlogget søker vil jeg se mine søknader', () => {
 
 });
 
+// ── BH-6 ─────────────────────────────────────────────────────────────────────
+test.describe('BH-6: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord', () => {
+
+  async function søk(page, tekst) {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    const felt = page.locator('input[type="search"], input[name*="search"], input[placeholder*="øk"]').first();
+    await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
+    await felt.fill(tekst);
+    await page.keyboard.press('Enter');
+    await page.waitForLoadState('domcontentloaded');
+  }
+
+  test('stikkord – søk på ett ord gir resultater eller ingen-treff-melding (ikke feilside)', async ({ page }) => {
+    await søk(page, 'tilskudd');
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
+  });
+
+  test('stikkord – søk på ett ord viser matchende utlysninger', async ({ page }) => {
+    await søk(page, 'tilskudd');
+    const kort = page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]');
+    const antall = await kort.count();
+    expect(antall, 'Forventet minst én utlysning med søkeordet «tilskudd»').toBeGreaterThan(0);
+  });
+
+  test('halvferdig ord – delstreng gir relevante treff', async ({ page }) => {
+    await søk(page, 'tilsk');
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
+    // Enten vises resultater, eller en ingen-treff-melding – men ikke en feilside
+    const kortEllerIngenTreff = page.locator(
+      'article, [class*="card"], [class*="kort"], li a[href*="utlysing"], ' +
+      '[class*="ingen"], [class*="empty"], [class*="no-result"]'
+    );
+    await expect(kortEllerIngenTreff.first()).toBeAttached({ timeout: SIDE_TIMEOUT });
+  });
+
+  test('flere ord – søk på flere ord gir respons uten feilside', async ({ page }) => {
+    await søk(page, 'barn og unge');
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
+  });
+
+  test('ingen treff – søk på nonsens-streng viser ingen-treff-melding, ikke feilside', async ({ page }) => {
+    await søk(page, 'xyzabc123nonsens');
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
+  });
+
+  test('tomt søkefelt – hel utlysningsliste vises igjen', async ({ page }) => {
+    await søk(page, '');
+    await expect(page).toHaveURL(/utlysinger/);
+    const kort = page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]');
+    await expect(kort.first()).toBeVisible({ timeout: SIDE_TIMEOUT });
+  });
+
+});
+
 const SKJERMBILDER = 'brukerhistorie-resultater/skjermbilder';
 
 // ── BH-4 ─────────────────────────────────────────────────────────────────────

@@ -45,7 +45,7 @@ const ytelse   = lesJson('ytelse-resultat.json');
 const målDatoDir = path.join(docsDir, 'testverktøy', sisteDato);
 fs.mkdirSync(målDatoDir, { recursive: true });
 
-const AUTH_SCRIPT = '<script>if(!sessionStorage.getItem(\'ks-auth\'))location.replace(\'logg-inn.html?redir=\'+encodeURIComponent(location.href))</script>';
+const AUTH_SCRIPT = '<script>if(location.protocol!==\'file:\'&&!sessionStorage.getItem(\'ks-auth\'))location.replace(\'logg-inn.html?redir=\'+encodeURIComponent(location.href))</script>';
 const rapportFiler = ['uu-rapport.html', 'monkey-rapport.html', 'sikkerhet-rapport.html', 'negativ-rapport.html', 'ytelse-rapport.html'];
 
 for (const fil of rapportFiler) {
@@ -94,7 +94,7 @@ const html = `<!DOCTYPE html>
 <html lang="no">
 <head>
 <meta charset="UTF-8">
-<script>if(!sessionStorage.getItem('ks-auth'))location.replace('logg-inn.html?redir='+encodeURIComponent(location.href))</script>
+<script>if(location.protocol!=='file:'&&!sessionStorage.getItem('ks-auth'))location.replace('logg-inn.html?redir='+encodeURIComponent(location.href))</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Test av Testdashboard – tester-KSTilskudd-TEST</title>

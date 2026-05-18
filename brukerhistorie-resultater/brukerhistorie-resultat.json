@@ -1,74 +1,30 @@
 {
   "config": {
-    "configFile": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie.playwright.config.js",
-    "rootDir": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST",
+    "configFile": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie.playwright.config.js",
+    "rootDir": "/Users/ummearkhan/tester-KSTilskudd",
     "forbidOnly": false,
     "fullyParallel": false,
-    "globalSetup": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie.setup.js",
+    "globalSetup": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie.setup.js",
     "globalTeardown": null,
     "globalTimeout": 0,
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "ci": {
-        "commitHref": "https://github.com/ummeark/tester-KSTilskudd-TEST/commit/bc3dd91026cb148c73726e668e79a94871693fbf",
-        "commitHash": "bc3dd91026cb148c73726e668e79a94871693fbf",
-        "buildHref": "https://github.com/ummeark/tester-KSTilskudd-TEST/actions/runs/26036474772"
-      },
-      "gitCommit": {
-        "shortHash": "bc3dd91",
-        "hash": "bc3dd91026cb148c73726e668e79a94871693fbf",
-        "subject": "config.js: eksporter GITHUB_PAGES_AUTH for auth-bypass i testverktøy-kjøringer",
-        "body": "config.js: eksporter GITHUB_PAGES_AUTH for auth-bypass i testverktøy-kjøringer\n",
-        "author": {
-          "name": "UU-tester bot",
-          "email": "bot@github.com",
-          "time": 1779110763000
-        },
-        "committer": {
-          "name": "UU-tester bot",
-          "email": "bot@github.com",
-          "time": 1779110763000
-        },
-        "branch": "main"
-      },
       "actualWorkers": 1
     },
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-resultater/traces",
+        "outputDir": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-resultater/traces",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/ummeark/tester-KSTilskudd-TEST/commit/bc3dd91026cb148c73726e668e79a94871693fbf",
-            "commitHash": "bc3dd91026cb148c73726e668e79a94871693fbf",
-            "buildHref": "https://github.com/ummeark/tester-KSTilskudd-TEST/actions/runs/26036474772"
-          },
-          "gitCommit": {
-            "shortHash": "bc3dd91",
-            "hash": "bc3dd91026cb148c73726e668e79a94871693fbf",
-            "subject": "config.js: eksporter GITHUB_PAGES_AUTH for auth-bypass i testverktøy-kjøringer",
-            "body": "config.js: eksporter GITHUB_PAGES_AUTH for auth-bypass i testverktøy-kjøringer\n",
-            "author": {
-              "name": "UU-tester bot",
-              "email": "bot@github.com",
-              "time": 1779110763000
-            },
-            "committer": {
-              "name": "UU-tester bot",
-              "email": "bot@github.com",
-              "time": 1779110763000
-            },
-            "branch": "main"
-          },
           "actualWorkers": 1
         },
         "id": "",
         "name": "",
-        "testDir": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST",
+        "testDir": "/Users/ummearkhan/tester-KSTilskudd",
         "testIgnore": [],
         "testMatch": [
           "brukerhistorie-tester.js"
@@ -103,6 +59,621 @@
   },
   "suites": [
     {
+      "title": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+      "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "BH-1: Som søker vil jeg se oversikt over tilskuddsordninger",
+          "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+          "line": 11,
+          "column": 6,
+          "specs": [
+            {
+              "title": "kan navigere til utlysningslisten",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 236,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-18T13:46:13.366Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a42ad8acf4ea26fced78-43a2221a7e2abd87b7f9",
+              "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "utlysningslisten inneholder minst én ordning",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 210,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-18T13:46:13.668Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a42ad8acf4ea26fced78-3d9f3356828d1d0d3ee4",
+              "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "kan klikke seg inn på en utlysning og se detaljer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 262,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-18T13:46:13.883Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a42ad8acf4ea26fced78-ace70d8575092a985afd",
+              "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+              "line": 24,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "BH-2: Som søker vil jeg søke etter en tilskuddsordning",
+          "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+          "line": 36,
+          "column": 6,
+          "specs": [
+            {
+              "title": "søkefeltet er synlig og fokuserbart",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 256,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-18T13:46:14.149Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a42ad8acf4ea26fced78-9d29f53dd9960a9c3283",
+              "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+              "line": 38,
+              "column": 3
+            },
+            {
+              "title": "søk med gyldig tekst gir respons uten feilside",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 193,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-18T13:46:14.409Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a42ad8acf4ea26fced78-bf8d6aae93ba727db3c3",
+              "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+              "line": 46,
+              "column": 3
+            },
+            {
+              "title": "søk med tom streng beholder utlysningslisten",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 189,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-18T13:46:14.606Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a42ad8acf4ea26fced78-610c3d8662271b823246",
+              "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+              "line": 56,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "BH-3: Som innlogget søker vil jeg se mine søknader",
+          "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+          "line": 68,
+          "column": 6,
+          "specs": [
+            {
+              "title": "min side er tilgjengelig etter innlogging",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 296,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-18T13:46:14.801Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a42ad8acf4ea26fced78-269f221031584c743c99",
+              "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+              "line": 70,
+              "column": 3
+            },
+            {
+              "title": "min side viser ikke innloggingsskjema (brukeren er innlogget)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 291,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-18T13:46:15.102Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a42ad8acf4ea26fced78-dc8a02d69c1cd31050e5",
+              "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+              "line": 75,
+              "column": 3
+            },
+            {
+              "title": "min side laster uten JavaScript-feil",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 916,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-18T13:46:15.397Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a42ad8acf4ea26fced78-d066fb04ec46dd6c2d5f",
+              "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+              "line": 81,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "BH-4: Som søker vil jeg kunne navigere tilbake fra en utlysning",
+          "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+          "line": 94,
+          "column": 6,
+          "specs": [
+            {
+              "title": "tilbake-navigasjon fra utlysning fungerer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1128,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-18T13:46:16.321Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a42ad8acf4ea26fced78-19c2055b97c19c657b35",
+              "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+              "line": 96,
+              "column": 3
+            },
+            {
+              "title": "F5-refresh på utlysningslisten beholder siden",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 260,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-18T13:46:17.456Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a42ad8acf4ea26fced78-6c5794433aae7e116f2a",
+              "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+              "line": 106,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "BH-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen",
+          "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+          "line": 117,
+          "column": 6,
+          "specs": [
+            {
+              "title": "skiplink til hovedinnhold finnes i DOM (WCAG 2.4.1)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5230,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/tester-KSTilskudd/.claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js:128:29",
+                        "location": {
+                          "file": "/Users/ummearkhan/tester-KSTilskudd/.claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+                          "column": 29,
+                          "line": 128
+                        },
+                        "snippet": "  126 |       'a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]'\n  127 |     ).first();\n> 128 |     await expect(skipLenke).toBeAttached();\n      |                             ^\n  129 |   });\n  130 |\n  131 |   test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/ummearkhan/tester-KSTilskudd/.claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+                            "column": 29,
+                            "line": 128
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n\n\n  126 |       'a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]'\n  127 |     ).first();\n> 128 |     await expect(skipLenke).toBeAttached();\n      |                             ^\n  129 |   });\n  130 |\n  131 |   test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) => {\n    at /Users/ummearkhan/tester-KSTilskudd/.claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js:128:29"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-18T13:46:17.720Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-resultater/traces/.claude-worktrees-stoic-al-fd141-ld-finnes-i-DOM-WCAG-2-4-1-/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/ummearkhan/tester-KSTilskudd/.claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+                        "column": 29,
+                        "line": 128
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a42ad8acf4ea26fced78-ce908bc6013f2bcd8629",
+              "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+              "line": 119,
+              "column": 3
+            },
+            {
+              "title": "skiplink er første fokuserbare element ved Tab-navigasjon",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 318,
+                      "error": {
+                        "message": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m",
+                        "stack": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m\n    at /Users/ummearkhan/tester-KSTilskudd/.claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js:138:84",
+                        "location": {
+                          "file": "/Users/ummearkhan/tester-KSTilskudd/.claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+                          "column": 84,
+                          "line": 138
+                        },
+                        "snippet": "  136 |     // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke\n  137 |     const href = await page.locator(':focus').getAttribute('href').catch(() => '');\n> 138 |     expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);\n      |                                                                                    ^\n  139 |   });\n  140 |\n  141 |   test('søkeskjema er merket med role=\"search\" for skjermlesere', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/ummearkhan/tester-KSTilskudd/.claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+                            "column": 84,
+                            "line": 138
+                          },
+                          "message": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m\n\n  136 |     // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke\n  137 |     const href = await page.locator(':focus').getAttribute('href').catch(() => '');\n> 138 |     expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);\n      |                                                                                    ^\n  139 |   });\n  140 |\n  141 |   test('søkeskjema er merket med role=\"search\" for skjermlesere', async ({ page }) => {\n    at /Users/ummearkhan/tester-KSTilskudd/.claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js:138:84"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-18T13:46:23.215Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-resultater/traces/.claude-worktrees-stoic-al-de75b--element-ved-Tab-navigasjon/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/ummearkhan/tester-KSTilskudd/.claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+                        "column": 84,
+                        "line": 138
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a42ad8acf4ea26fced78-bb1d1fb21057d2970214",
+              "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+              "line": 131,
+              "column": 3
+            },
+            {
+              "title": "søkeskjema er merket med role=\"search\" for skjermlesere",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 16289,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/tester-KSTilskudd/.claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js:145:32",
+                        "location": {
+                          "file": "/Users/ummearkhan/tester-KSTilskudd/.claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+                          "column": 32,
+                          "line": 145
+                        },
+                        "snippet": "  143 |     // Forventer: søkecontaineren er annotert med role=\"search\" (WCAG)\n  144 |     const searchRegion = page.locator('[role=\"search\"]').first();\n> 145 |     await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });\n      |                                ^\n  146 |   });\n  147 |\n  148 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/ummearkhan/tester-KSTilskudd/.claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+                            "column": 32,
+                            "line": 145
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n\n\n  143 |     // Forventer: søkecontaineren er annotert med role=\"search\" (WCAG)\n  144 |     const searchRegion = page.locator('[role=\"search\"]').first();\n> 145 |     await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });\n      |                                ^\n  146 |   });\n  147 |\n  148 | });\n    at /Users/ummearkhan/tester-KSTilskudd/.claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js:145:32"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-18T13:46:23.827Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-resultater/traces/.claude-worktrees-stoic-al-01293-ole-search-for-skjermlesere/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/ummearkhan/tester-KSTilskudd/.claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+                        "column": 32,
+                        "line": 145
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a42ad8acf4ea26fced78-3f75bf5532eb26983e75",
+              "file": ".claude/worktrees/stoic-albattani-53b3a6/brukerhistorie-tester.js",
+              "line": 141,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "brukerhistorie-tester.js",
       "file": "brukerhistorie-tester.js",
       "column": 0,
@@ -128,15 +699,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 284,
+                      "duration": 259,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:29:55.468Z",
+                      "startTime": "2026-05-18T13:46:40.477Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -162,15 +733,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 219,
+                      "duration": 236,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:29:55.848Z",
+                      "startTime": "2026-05-18T13:46:40.807Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -196,15 +767,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 299,
+                      "duration": 250,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:29:56.076Z",
+                      "startTime": "2026-05-18T13:46:41.048Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -238,15 +809,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 259,
+                      "duration": 243,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:29:56.384Z",
+                      "startTime": "2026-05-18T13:46:41.302Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -272,15 +843,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 219,
+                      "duration": 218,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:29:56.649Z",
+                      "startTime": "2026-05-18T13:46:41.548Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -306,15 +877,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 242,
+                      "duration": 220,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:29:56.873Z",
+                      "startTime": "2026-05-18T13:46:41.769Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -348,15 +919,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 532,
+                      "duration": 283,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:29:57.121Z",
+                      "startTime": "2026-05-18T13:46:41.995Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -382,15 +953,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 406,
+                      "duration": 292,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:29:57.660Z",
+                      "startTime": "2026-05-18T13:46:42.282Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -416,15 +987,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2140,
+                      "duration": 991,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:29:58.075Z",
+                      "startTime": "2026-05-18T13:46:42.578Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -458,15 +1029,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 369,
+                      "duration": 227,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:30:00.226Z",
+                      "startTime": "2026-05-18T13:46:43.574Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -492,15 +1063,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 223,
+                      "duration": 205,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:30:00.608Z",
+                      "startTime": "2026-05-18T13:46:43.807Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -526,15 +1097,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 385,
+                      "duration": 209,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:30:00.839Z",
+                      "startTime": "2026-05-18T13:46:44.015Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -560,15 +1131,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 495,
+                      "duration": 219,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:30:01.232Z",
+                      "startTime": "2026-05-18T13:46:44.228Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -594,15 +1165,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 305,
+                      "duration": 206,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:30:01.734Z",
+                      "startTime": "2026-05-18T13:46:44.451Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -628,15 +1199,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 305,
+                      "duration": 196,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:30:02.046Z",
+                      "startTime": "2026-05-18T13:46:44.660Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -670,15 +1241,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1443,
+                      "duration": 1126,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:30:02.356Z",
+                      "startTime": "2026-05-18T13:46:44.860Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -704,15 +1275,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 363,
+                      "duration": 291,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:30:03.805Z",
+                      "startTime": "2026-05-18T13:46:45.990Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -746,44 +1317,44 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 5278,
+                      "duration": 5279,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-tester.js:186:29",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:186:29",
                         "location": {
-                          "file": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-tester.js",
+                          "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                           "column": 29,
                           "line": 186
                         },
-                        "snippet": "\u001b[0m \u001b[90m 184 |\u001b[39m       \u001b[32m'a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]'\u001b[39m\n \u001b[90m 185 |\u001b[39m     )\u001b[33m.\u001b[39mfirst()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 186 |\u001b[39m     \u001b[36mawait\u001b[39m expect(skipLenke)\u001b[33m.\u001b[39mtoBeAttached()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 187 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 188 |\u001b[39m\n \u001b[90m 189 |\u001b[39m   test(\u001b[32m'skiplink er første fokuserbare element ved Tab-navigasjon'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                        "snippet": "  184 |       'a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]'\n  185 |     ).first();\n> 186 |     await expect(skipLenke).toBeAttached();\n      |                             ^\n  187 |   });\n  188 |\n  189 |   test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) => {"
                       },
                       "errors": [
                         {
                           "location": {
-                            "file": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-tester.js",
+                            "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                             "column": 29,
                             "line": 186
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n\n\n  184 |       'a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]'\n  185 |     ).first();\n> 186 |     await expect(skipLenke).toBeAttached();\n      |                             ^\n  187 |   });\n  188 |\n  189 |   test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) => {\n    at /Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-tester.js:186:29"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n\n\n  184 |       'a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]'\n  185 |     ).first();\n> 186 |     await expect(skipLenke).toBeAttached();\n      |                             ^\n  187 |   });\n  188 |\n  189 |   test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) => {\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:186:29"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:30:04.173Z",
+                      "startTime": "2026-05-18T13:46:46.284Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-resultater/traces/brukerhistorie-tester.js-B-40763-ld-finnes-i-DOM-WCAG-2-4-1-/error-context.md"
+                          "path": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-resultater/traces/brukerhistorie-tester.js-B-40763-ld-finnes-i-DOM-WCAG-2-4-1-/error-context.md"
                         }
                       ],
                       "errorLocation": {
-                        "file": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-tester.js",
+                        "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                         "column": 29,
                         "line": 186
                       }
@@ -810,44 +1381,44 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 411,
+                      "duration": 283,
                       "error": {
                         "message": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m",
-                        "stack": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m\n    at /Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-tester.js:196:84",
+                        "stack": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:196:84",
                         "location": {
-                          "file": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-tester.js",
+                          "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                           "column": 84,
                           "line": 196
                         },
-                        "snippet": "\u001b[0m \u001b[90m 194 |\u001b[39m     \u001b[90m// Forventer: første Tab-stopp er skiplink, ikke logo/menylenke\u001b[39m\n \u001b[90m 195 |\u001b[39m     \u001b[36mconst\u001b[39m href \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m':focus'\u001b[39m)\u001b[33m.\u001b[39mgetAttribute(\u001b[32m'href'\u001b[39m)\u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(() \u001b[33m=>\u001b[39m \u001b[32m''\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 196 |\u001b[39m     expect(href\u001b[33m,\u001b[39m \u001b[32m'Første Tab-stopp bør være en skiplink til #main eller #innhold'\u001b[39m)\u001b[33m.\u001b[39mtoMatch(\u001b[35m/#main|#innhold|#content|#skip/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 197 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 198 |\u001b[39m\n \u001b[90m 199 |\u001b[39m   test(\u001b[32m'søkeskjema er merket med role=\"search\" for skjermlesere'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                        "snippet": "  194 |     // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke\n  195 |     const href = await page.locator(':focus').getAttribute('href').catch(() => '');\n> 196 |     expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);\n      |                                                                                    ^\n  197 |   });\n  198 |\n  199 |   test('søkeskjema er merket med role=\"search\" for skjermlesere', async ({ page }) => {"
                       },
                       "errors": [
                         {
                           "location": {
-                            "file": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-tester.js",
+                            "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                             "column": 84,
                             "line": 196
                           },
-                          "message": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m\n\n  194 |     // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke\n  195 |     const href = await page.locator(':focus').getAttribute('href').catch(() => '');\n> 196 |     expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);\n      |                                                                                    ^\n  197 |   });\n  198 |\n  199 |   test('søkeskjema er merket med role=\"search\" for skjermlesere', async ({ page }) => {\n    at /Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-tester.js:196:84"
+                          "message": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m\n\n  194 |     // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke\n  195 |     const href = await page.locator(':focus').getAttribute('href').catch(() => '');\n> 196 |     expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);\n      |                                                                                    ^\n  197 |   });\n  198 |\n  199 |   test('søkeskjema er merket med role=\"search\" for skjermlesere', async ({ page }) => {\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:196:84"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:30:10.099Z",
+                      "startTime": "2026-05-18T13:46:51.861Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-resultater/traces/brukerhistorie-tester.js-B-e418c--element-ved-Tab-navigasjon/error-context.md"
+                          "path": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-resultater/traces/brukerhistorie-tester.js-B-e418c--element-ved-Tab-navigasjon/error-context.md"
                         }
                       ],
                       "errorLocation": {
-                        "file": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-tester.js",
+                        "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                         "column": 84,
                         "line": 196
                       }
@@ -874,44 +1445,44 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 16360,
+                      "duration": 15250,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-tester.js:203:32",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:203:32",
                         "location": {
-                          "file": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-tester.js",
+                          "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                           "column": 32,
                           "line": 203
                         },
-                        "snippet": "\u001b[0m \u001b[90m 201 |\u001b[39m     \u001b[90m// Forventer: søkecontaineren er annotert med role=\"search\" (WCAG)\u001b[39m\n \u001b[90m 202 |\u001b[39m     \u001b[36mconst\u001b[39m searchRegion \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[role=\"search\"]'\u001b[39m)\u001b[33m.\u001b[39mfirst()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 203 |\u001b[39m     \u001b[36mawait\u001b[39m expect(searchRegion)\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[33mSIDE_TIMEOUT\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 204 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 205 |\u001b[39m\n \u001b[90m 206 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                        "snippet": "  201 |     // Forventer: søkecontaineren er annotert med role=\"search\" (WCAG)\n  202 |     const searchRegion = page.locator('[role=\"search\"]').first();\n> 203 |     await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });\n      |                                ^\n  204 |   });\n  205 |\n  206 | });"
                       },
                       "errors": [
                         {
                           "location": {
-                            "file": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-tester.js",
+                            "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                             "column": 32,
                             "line": 203
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n\n\n  201 |     // Forventer: søkecontaineren er annotert med role=\"search\" (WCAG)\n  202 |     const searchRegion = page.locator('[role=\"search\"]').first();\n> 203 |     await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });\n      |                                ^\n  204 |   });\n  205 |\n  206 | });\n    at /Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-tester.js:203:32"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n\n\n  201 |     // Forventer: søkecontaineren er annotert med role=\"search\" (WCAG)\n  202 |     const searchRegion = page.locator('[role=\"search\"]').first();\n> 203 |     await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });\n      |                                ^\n  204 |   });\n  205 |\n  206 | });\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:203:32"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-18T13:30:11.189Z",
+                      "startTime": "2026-05-18T13:46:52.451Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-resultater/traces/brukerhistorie-tester.js-B-fc80c-ole-search-for-skjermlesere/error-context.md"
+                          "path": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-resultater/traces/brukerhistorie-tester.js-B-fc80c-ole-search-for-skjermlesere/error-context.md"
                         }
                       ],
                       "errorLocation": {
-                        "file": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-tester.js",
+                        "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                         "column": 32,
                         "line": 203
                       }
@@ -932,11 +1503,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-18T13:29:53.062Z",
-    "duration": 35025.204,
-    "expected": 17,
+    "startTime": "2026-05-18T13:46:11.967Z",
+    "duration": 55830.76,
+    "expected": 28,
     "skipped": 0,
-    "unexpected": 3,
+    "unexpected": 6,
     "flaky": 0
   }
 }

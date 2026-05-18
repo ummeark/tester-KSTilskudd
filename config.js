@@ -2,7 +2,8 @@
 // Verdier kan overstyres via kommandolinjeargumenter eller miljøvariabler.
 
 export const START_URL  = process.argv[2] || process.env.TEST_URL   || 'https://tilskudd.fiks.test.ks.no/';
-export const RAPPORTDIR = process.env.OUTPUT_DIR || null;
+export const RAPPORTDIR         = process.env.OUTPUT_DIR        || null;
+export const GITHUB_PAGES_AUTH  = process.env.GITHUB_PAGES_AUTH  || null;
 
 // Innlogging via ID-porten TestID
 // TEST_MODUS: 'fast' (bruker TEST_FNR) | 'tilfeldig' (klikker "Hent tilfeldig person")

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Kjøres hvert 30. minutt av launchd.
-# Starter alle fem tester hvis de ikke allerede er kjørt i dag.
+# Starter alle seks tester hvis de ikke allerede er kjørt i dag.
 
 set -euo pipefail
 
@@ -16,12 +16,13 @@ if [ "$UKEDAG" -gt 5 ]; then
   exit 0
 fi
 
-# Allerede kjørt i dag? Sjekk alle fem resultatfiler.
+# Allerede kjørt i dag? Sjekk alle seks resultatfiler.
 if [ -f "$REPO_DIR/rapporter/$DATO/resultat.json" ] && \
    [ -f "$REPO_DIR/rapporter/$DATO/monkey-resultat.json" ] && \
    [ -f "$REPO_DIR/rapporter/$DATO/sikkerhet-resultat.json" ] && \
    [ -f "$REPO_DIR/rapporter/$DATO/negativ-resultat.json" ] && \
-   [ -f "$REPO_DIR/rapporter/$DATO/ytelse-resultat.json" ]; then
+   [ -f "$REPO_DIR/rapporter/$DATO/ytelse-resultat.json" ] && \
+   [ -f "$REPO_DIR/brukerhistorie-resultater/brukerhistorie-resultat.json" ]; then
   exit 0
 fi
 

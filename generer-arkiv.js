@@ -532,8 +532,6 @@ const arkivHTML = `<!DOCTYPE html>
           seksjoner.forEach(function(s) { s.classList.remove('skjult'); });
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
-          const faneBar = document.getElementById('fane-bar');
-          window.scrollTo({ top: faneBar.offsetTop });
           seksjoner.forEach(function(seksjon) {
             if (seksjon.dataset.testtype === filter) {
               seksjon.classList.remove('skjult');
@@ -541,6 +539,8 @@ const arkivHTML = `<!DOCTYPE html>
               seksjon.classList.add('skjult');
             }
           });
+          const synlig = document.querySelector('.testtype-seksjon:not(.skjult)');
+          if (synlig) synlig.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });

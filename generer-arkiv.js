@@ -539,10 +539,8 @@ const arkivHTML = `<!DOCTYPE html>
               seksjon.classList.add('skjult');
             }
           });
-          requestAnimationFrame(function() {
-            const synlig = document.querySelector('.testtype-seksjon:not(.skjult)');
-            if (synlig) synlig.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          });
+          const faneBar = document.getElementById('fane-bar');
+          window.scrollTo({ top: faneBar.offsetTop, behavior: 'smooth' });
         }
       });
     });

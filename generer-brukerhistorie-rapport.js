@@ -181,6 +181,8 @@ const html = `<!DOCTYPE html>
   .knapp.sekundær{background:transparent;border:1px solid #0a1355;color:#0a1355}
   .knapp.sekundær:hover{background:#f4ecdf}
 
+  .seksjon{background:white;border:1px solid #f1f0ee;padding:2rem;margin-bottom:1.2rem;box-shadow:0 1px 4px rgba(10,19,85,.06)}
+  .seksjon-tittel{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#0a1355;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid #f4ecdf}
   .score-kort{background:white;border:1px solid #f1f0ee;padding:1.8rem 2rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:2rem;box-shadow:0 1px 4px rgba(10,19,85,.06)}
   .score-sirkel{width:88px;height:88px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:700;color:white;flex-shrink:0}
   .score-tekst strong{color:#0a1355;font-size:1rem}
@@ -252,8 +254,46 @@ ${sidemenyLinks()}
     </div>
   </header>
 
+  <div class="seksjon" style="background:#f4ecdf;border-color:#e8dcc8;margin-bottom:1.5rem">
+    <div class="seksjon-tittel">Hva er brukerhistorietesting?</div>
+    <p style="font-size:.88rem;line-height:1.7;color:#374151;margin-bottom:1rem">
+      Brukerhistorietester verifiserer at konkrete brukerscenarioer fungerer fra ende til ende i applikasjonen.
+      Hver test representerer én brukerhistorie med akseptansekriterier som automatisk verifiseres mot testmiljøet.
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem;font-size:.83rem">
+      <div>
+        <strong style="color:#0a1355;display:block;margin-bottom:.3rem">Hva testes</strong>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.25rem;color:#374151">
+          <li>📋 Navigasjon og oversikt over utlysninger</li>
+          <li>🔍 Søk etter tilskuddsordninger</li>
+          <li>👤 Innlogget brukers «Min side»</li>
+          <li>🔙 Tilbake-navigasjon og F5-refresh</li>
+          <li>♿ Skiplink og hjelpemiddelteknologi</li>
+        </ul>
+      </div>
+      <div>
+        <strong style="color:#0a1355;display:block;margin-bottom:.3rem">Hva måles</strong>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.25rem;color:#374151">
+          <li>Antall bestatte akseptansekriterier</li>
+          <li>Antall feilende akseptansekriterier</li>
+          <li>Feilmelding og stack trace ved feil</li>
+          <li>Skjermbilder ved feiling</li>
+        </ul>
+      </div>
+      <div>
+        <strong style="color:#0a1355;display:block;margin-bottom:.3rem">Verktøy og metode</strong>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.25rem;color:#374151">
+          <li>@playwright/test (testramme)</li>
+          <li>Innlogging via ID-porten TestID</li>
+          <li>Kjøres mot testmiljøet</li>
+          <li>Kjøres daglig og ved manuell trigger</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <div class="score-kort">
-    <div class="score-sirkel" style="background:${scoreFarge};">${pct}%</div>
+    <div class="score-sirkel" style="background:${scoreFarge};">${pct}</div>
     <div class="score-tekst">
       <strong>${pct === 100 ? 'Alle tester bestatt' : `${totaltFeilet} test${totaltFeilet !== 1 ? 'er' : ''} feilet`}</strong>
       <p>${totaltBestatt} av ${totaltTester} tester bestatt på ${suites.length} brukerhistorier.<br>

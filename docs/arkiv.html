@@ -99,12 +99,50 @@
 
   footer { text-align: center; padding: 2.5rem; color: #9ca3af; font-size: 0.78rem; border-top: 1px solid #f1f0ee; margin-top: 1rem; }
 
+  /* Fane-bar */
+  .fane-bar { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.5rem; padding: 0.75rem 1rem; background: white; border: 1px solid #f1f0ee; box-shadow: 0 1px 4px rgba(10,19,85,.06); position: sticky; top: 0; z-index: 10; }
+  .fane { padding: 0.45rem 1.1rem; border-radius: 100px; font-size: 0.82rem; font-weight: 500; cursor: pointer; border: 1.5px solid #e5e3de; background: transparent; color: #6b7280; transition: background .15s, color .15s, border-color .15s; white-space: nowrap; }
+  .fane:hover { background: #f4ecdf; color: #0a1355; border-color: #0a1355; }
+  .fane.aktiv { background: #0a1355; color: white; border-color: #0a1355; }
+  .testtype-seksjon { transition: opacity .2s; scroll-margin-top: 70px; }
+  .testtype-seksjon.skjult { display: none; }
+  .seksjon-overskrift { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #9ca3af; margin-bottom: 0.6rem; padding-left: 0.2rem; }
+
   @media (max-width: 640px) {
     .container { padding: 0 1rem; }
     .rapport-rad { grid-template-columns: auto 1fr auto; }
     .nøkkeltall { display: none; }
+    .fane-bar { padding: 0.5rem; gap: 0.3rem; }
+    .fane { font-size: 0.75rem; padding: 0.35rem 0.8rem; }
   }
 </style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const faner = document.querySelectorAll('.fane');
+    const seksjoner = document.querySelectorAll('.testtype-seksjon');
+    faner.forEach(function(fane) {
+      fane.addEventListener('click', function() {
+        const filter = fane.dataset.filter;
+        faner.forEach(function(f) { f.classList.remove('aktiv'); });
+        fane.classList.add('aktiv');
+        if (filter === 'alle') {
+          seksjoner.forEach(function(s) { s.classList.remove('skjult'); });
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          seksjoner.forEach(function(seksjon) {
+            if (seksjon.dataset.testtype === filter) {
+              seksjon.classList.remove('skjult');
+            } else {
+              seksjon.classList.add('skjult');
+            }
+          });
+          const synlig = document.querySelector('.testtype-seksjon:not(.skjult)');
+          if (synlig) synlig.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  });
+</script>
 </head>
 <body>
 <header>
@@ -131,8 +169,18 @@
     </div>
   </div>
 
+  <div class="fane-bar" id="fane-bar">
+    <button class="fane aktiv" data-filter="alle">Alle tester</button>
+    <button class="fane" data-filter="UU-test (WCAG / tilgjengelighet)">♿ UU</button>
+    <button class="fane" data-filter="Monkey-test">🐒 Monkey</button>
+    <button class="fane" data-filter="Sikkerhetstest">🔐 Sikkerhet</button>
+    <button class="fane" data-filter="Negativ test">🧪 Negativ</button>
+    <button class="fane" data-filter="Ytelsestest">🚀 Ytelse</button>
+    <button class="fane" data-filter="Brukerhistorietest">📖 Brukerhistorie</button>
+  </div>
+
   
-  <section class="testtype-seksjon">
+  <section class="testtype-seksjon" data-testtype="UU-test (WCAG / tilgjengelighet)">
     <div class="seksjon-header">
       <span class="seksjon-ikon">♿</span>
       <h2>UU-test (WCAG / tilgjengelighet)</h2>
@@ -1585,7 +1633,7 @@
     </div>
   </section>
   
-  <section class="testtype-seksjon">
+  <section class="testtype-seksjon" data-testtype="Monkey-test">
     <div class="seksjon-header">
       <span class="seksjon-ikon">🐒</span>
       <h2>Monkey-test</h2>
@@ -2820,7 +2868,7 @@
     </div>
   </section>
   
-  <section class="testtype-seksjon">
+  <section class="testtype-seksjon" data-testtype="Sikkerhetstest">
     <div class="seksjon-header">
       <span class="seksjon-ikon">🔐</span>
       <h2>Sikkerhetstest</h2>
@@ -4043,7 +4091,7 @@
     </div>
   </section>
   
-  <section class="testtype-seksjon">
+  <section class="testtype-seksjon" data-testtype="Negativ test">
     <div class="seksjon-header">
       <span class="seksjon-ikon">🧪</span>
       <h2>Negativ test</h2>
@@ -5266,7 +5314,7 @@
     </div>
   </section>
   
-  <section class="testtype-seksjon">
+  <section class="testtype-seksjon" data-testtype="Ytelsestest">
     <div class="seksjon-header">
       <span class="seksjon-ikon">🚀</span>
       <h2>Ytelsestest</h2>
@@ -5679,6 +5727,47 @@
   <span>LCP: 332 ms</span>
   <span>FCP: 251 ms</span>
   <span>9 sider</span></div>
+      <div class="åpne-knapp">Se rapport →</div>
+    </a>
+    
+    </div>
+  </section>
+  
+  <section class="testtype-seksjon" data-testtype="Brukerhistorietest">
+    <div class="seksjon-header">
+      <span class="seksjon-ikon">📖</span>
+      <h2>Brukerhistorietest</h2>
+      <span class="seksjon-antall">1 kjøringer</span>
+      <a href="brukerhistorie-rapport.html" class="seksjon-lenke">Siste rapport →</a>
+    </div>
+    <div class="trend-graf">
+      <div class="graf-tittel">Score-utvikling</div>
+      <svg class="linje-graf" viewBox="0 0 1000 160" preserveAspectRatio="xMidYMid meet">
+    <line class="ref-linje ref-god" x1="36" y1="49.2" x2="984" y2="49.2"/>
+    <text class="ref-etikett ref-god" x="31" y="53.2" text-anchor="end">80</text>
+    <line class="ref-linje ref-middels" x1="36" y1="81" x2="984" y2="81"/>
+    <text class="ref-etikett ref-middels" x="31" y="85" text-anchor="end">50</text>
+    <polyline class="linje" points="510,43.9"/>
+    <a class="pkt-lenke" href="arkiv/2026-05-19/brukerhistorie-rapport.html" title="tirsdag 19. mai 2026: 85 poeng">
+      <circle class="pkt-ring" cx="510" cy="43.9" r="14"/>
+      <circle class="pkt god" cx="510" cy="43.9" r="6"/>
+      <text class="pkt-score" x="510" y="32.9" text-anchor="middle">85</text>
+      <text class="pkt-dato" x="510" y="158" text-anchor="middle">05/19</text>
+    </a>
+  </svg>
+    </div>
+    <div class="rapport-liste">
+      
+    <a class="rapport-rad god" href="arkiv/2026-05-19/brukerhistorie-rapport.html">
+      <div class="score-boble god">85</div>
+      <div class="dato-info">
+        <h3>tirsdag 19. mai 2026</h3>
+        <p>2026-05-19 &nbsp; </p>
+      </div>
+      <div class="nøkkeltall">
+  <span><span class="grønn">Bestått 17</span></span>
+  <span><b class="rød">Feilet 3</b></span>
+  <span>6 brukerhistorier</span></div>
       <div class="åpne-knapp">Se rapport →</div>
     </a>
     

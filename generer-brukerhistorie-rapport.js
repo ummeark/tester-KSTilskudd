@@ -333,4 +333,13 @@ ${bhSeksjoner()}
 
 fs.writeFileSync(utPath, html);
 fs.writeFileSync(datoUtPath, html);
+
+const jsonResultat = {
+  url: 'https://tilskudd.fiks.test.ks.no/',
+  dato,
+  score: pct,
+  totalt: { bestått: totaltBestatt, feilet: totaltFeilet, totalt: totaltTester, suites: suites.length },
+};
+fs.writeFileSync(`${datoDir}/brukerhistorie-resultat.json`, JSON.stringify(jsonResultat, null, 2));
+
 console.log(`Rapport skrevet til ${utPath} og ${datoUtPath}`);

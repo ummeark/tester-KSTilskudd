@@ -126,11 +126,22 @@ function lesAlleYtelse(dato) {
   });
 }
 
-const uu        = datoer.flatMap(lesAlleUU);
-const monkey    = datoer.flatMap(lesAlleMonkey);
-const sikkerhet = datoer.flatMap(lesAlleSikkerhet);
-const negativ   = datoer.flatMap(lesAlleNegativ);
-const ytelse    = datoer.flatMap(lesAlleYtelse);
+function lesAlleBrukerhistorie(dato) {
+  const datoDir = path.join(rapportDir, dato);
+  const fil = path.join(datoDir, 'brukerhistorie-resultat.json');
+  if (!fs.existsSync(fil)) return [];
+  try {
+    const json = JSON.parse(fs.readFileSync(fil, 'utf-8'));
+    return [{ dato, tidspunkt: null, score: json.score, totalt: json.totalt, rapportFil: 'brukerhistorie-rapport.html' }];
+  } catch { return []; }
+}
+
+const uu             = datoer.flatMap(lesAlleUU);
+const monkey         = datoer.flatMap(lesAlleMonkey);
+const sikkerhet      = datoer.flatMap(lesAlleSikkerhet);
+const negativ        = datoer.flatMap(lesAlleNegativ);
+const ytelse         = datoer.flatMap(lesAlleYtelse);
+const brukerhistorie = datoer.flatMap(lesAlleBrukerhistorie);
 
 function lesBrukerhistorie() {
   const fil = path.join(__dirname, 'brukerhistorie-resultater/brukerhistorie-resultat.json');
@@ -311,6 +322,11 @@ const ytelseNøkkel = r => `
   <span>FCP: ${visTid(r.totalt.snittFCP || 0)}</span>
   <span>${r.totalt.sider} sider</span>`;
 
+const brukerhistorieNøkkel = r => `
+  <span><span class="grønn">Bestått ${r.totalt?.bestått ?? 0}</span></span>
+  <span>${(r.totalt?.feilet ?? 0) > 0 ? `<b class="rød">Feilet ${r.totalt.feilet}</b>` : '<span class="grønn">Ingen feilet</span>'}</span>
+  <span>${r.totalt?.suites ?? 0} brukerhistorier</span>`;
+
 
 // --- Seksjon per testtype med nedtrekk for flere kjøringer samme dag ---
 
@@ -364,7 +380,7 @@ function seksjonHTML(tittel, ikon, alleRuns, sisteRapportLenke, nøkkeltallFn) {
   }).join('');
 
   return `
-  <section class="testtype-seksjon">
+  <section class="testtype-seksjon" data-testtype="${tittel}">
     <div class="seksjon-header">
       <span class="seksjon-ikon">${ikon}</span>
       <h2>${tittel}</h2>
@@ -486,12 +502,50 @@ const arkivHTML = `<!DOCTYPE html>
 
   footer { text-align: center; padding: 2.5rem; color: #9ca3af; font-size: 0.78rem; border-top: 1px solid #f1f0ee; margin-top: 1rem; }
 
+  /* Fane-bar */
+  .fane-bar { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.5rem; padding: 0.75rem 1rem; background: white; border: 1px solid #f1f0ee; box-shadow: 0 1px 4px rgba(10,19,85,.06); position: sticky; top: 0; z-index: 10; }
+  .fane { padding: 0.45rem 1.1rem; border-radius: 100px; font-size: 0.82rem; font-weight: 500; cursor: pointer; border: 1.5px solid #e5e3de; background: transparent; color: #6b7280; transition: background .15s, color .15s, border-color .15s; white-space: nowrap; }
+  .fane:hover { background: #f4ecdf; color: #0a1355; border-color: #0a1355; }
+  .fane.aktiv { background: #0a1355; color: white; border-color: #0a1355; }
+  .testtype-seksjon { transition: opacity .2s; scroll-margin-top: 70px; }
+  .testtype-seksjon.skjult { display: none; }
+  .seksjon-overskrift { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #9ca3af; margin-bottom: 0.6rem; padding-left: 0.2rem; }
+
   @media (max-width: 640px) {
     .container { padding: 0 1rem; }
     .rapport-rad { grid-template-columns: auto 1fr auto; }
     .nøkkeltall { display: none; }
+    .fane-bar { padding: 0.5rem; gap: 0.3rem; }
+    .fane { font-size: 0.75rem; padding: 0.35rem 0.8rem; }
   }
 </style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const faner = document.querySelectorAll('.fane');
+    const seksjoner = document.querySelectorAll('.testtype-seksjon');
+    faner.forEach(function(fane) {
+      fane.addEventListener('click', function() {
+        const filter = fane.dataset.filter;
+        faner.forEach(function(f) { f.classList.remove('aktiv'); });
+        fane.classList.add('aktiv');
+        if (filter === 'alle') {
+          seksjoner.forEach(function(s) { s.classList.remove('skjult'); });
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          seksjoner.forEach(function(seksjon) {
+            if (seksjon.dataset.testtype === filter) {
+              seksjon.classList.remove('skjult');
+            } else {
+              seksjon.classList.add('skjult');
+            }
+          });
+          const synlig = document.querySelector('.testtype-seksjon:not(.skjult)');
+          if (synlig) synlig.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  });
+</script>
 </head>
 <body>
 <header>
@@ -518,11 +572,22 @@ const arkivHTML = `<!DOCTYPE html>
     </div>
   </div>
 
+  <div class="fane-bar" id="fane-bar">
+    <button class="fane aktiv" data-filter="alle">Alle tester</button>
+    <button class="fane" data-filter="UU-test (WCAG / tilgjengelighet)">♿ UU</button>
+    <button class="fane" data-filter="Monkey-test">🐒 Monkey</button>
+    <button class="fane" data-filter="Sikkerhetstest">🔐 Sikkerhet</button>
+    <button class="fane" data-filter="Negativ test">🧪 Negativ</button>
+    <button class="fane" data-filter="Ytelsestest">🚀 Ytelse</button>
+    <button class="fane" data-filter="Brukerhistorietest">📖 Brukerhistorie</button>
+  </div>
+
   ${seksjonHTML('UU-test (WCAG / tilgjengelighet)', '♿', uu, 'uu-rapport.html', uuNøkkel)}
   ${seksjonHTML('Monkey-test', '🐒', monkey, 'monkey-rapport.html', monkeyNøkkel)}
   ${seksjonHTML('Sikkerhetstest', '🔐', sikkerhet, 'sikkerhet-rapport.html', sikkerhetNøkkel)}
   ${seksjonHTML('Negativ test', '🧪', negativ, 'negativ-rapport.html', negativNøkkel)}
   ${seksjonHTML('Ytelsestest', '🚀', ytelse, 'ytelse-rapport.html', ytelseNøkkel)}
+  ${seksjonHTML('Brukerhistorietest', '📖', brukerhistorie, 'brukerhistorie-rapport.html', brukerhistorieNøkkel)}
 
 </div>
 <footer>KS Tilskudd · Testrapporter · axe-core + Playwright · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html" style="color:inherit">🗂️ Testdatahub</a> · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html" style="color:inherit">🤖 Testdatagenerator</a> · <a href="https://ummeark.github.io/tester-KSTilskudd-TEST/admin.html" style="color:inherit">⚙️ Admin</a> · <a href="https://github.com/ummeark/tester-KSTilskudd-TEST/blob/main/brukerhistorie-tester.js" style="color:inherit">📖 Brukerhistorietester</a> · <a href="testverktøy-rapport.html" style="color:inherit">🔬 Test av testverktøy</a></footer>

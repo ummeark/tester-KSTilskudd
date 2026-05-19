@@ -257,7 +257,7 @@ ${sidemenyLinks()}
   <div class="seksjon" style="background:#f4ecdf;border-color:#e8dcc8;margin-bottom:1.5rem">
     <div class="seksjon-tittel">Hva er brukerhistorietesting?</div>
     <p style="font-size:.88rem;line-height:1.7;color:#374151;margin-bottom:1rem">
-      Brukerhistorietester verifiserer at konkrete brukerscenarioer fungerer fra ende til ende i applikasjonen.
+      Brukerhistorietester verifiserer at konkrete brukerscenarioer fungerer i applikasjonen.
       Hver test representerer én brukerhistorie med akseptansekriterier som automatisk verifiseres mot testmiljøet.
     </p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem;font-size:.83rem">

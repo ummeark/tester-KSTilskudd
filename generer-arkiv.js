@@ -253,6 +253,14 @@ function trendPil(nyScore, gammelScore) {
   return `<span class="trend lik">→ 0</span>`;
 }
 
+function isoUke(datoStr) {
+  const d = new Date(datoStr);
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() + 3 - (d.getDay() + 6) % 7);
+  const jan4 = new Date(d.getFullYear(), 0, 4);
+  return 1 + Math.round(((d - jan4) / 86400000 - 3 + (jan4.getDay() + 6) % 7) / 7);
+}
+
 function grafHTML(sistePerDato) {
   if (sistePerDato.length === 0) return '<p style="color:#9ca3af;font-size:0.82rem">Ingen data ennå.</p>';
 
@@ -277,12 +285,21 @@ function grafHTML(sistePerDato) {
 
   const sirkler = punkter.map((r, i) => {
     const x = xOf(i), y = yOf(r.score), cls = scoreKlasse(r.score);
-    const dato = r.dato.slice(5).replace('-', '/');
+    const dd = r.dato.slice(8), mm = r.dato.slice(5, 7), åå = r.dato.slice(2, 4);
+    const erFørst = i === 0;
+    const erSist = i === n - 1;
+    const årsskifte = erSist && r.dato.slice(0, 4) !== punkter[0].dato.slice(0, 4);
+    const dato = (erFørst || årsskifte) ? `${dd}/${mm}-${åå}` : `${dd}/${mm}`;
+    const erNestSist = i === n - 2 && n > 2;
+    const visLabel = !erNestSist && (erFørst || erSist || isoUke(r.dato) !== isoUke(punkter[i - 1].dato));
+    const datoEl = visLabel
+      ? `<text class="pkt-dato" x="${x}" y="${VH - 2}" text-anchor="middle">${dato}</text>`
+      : `<circle cx="${x}" cy="${VH - 10}" r="2.5" fill="#d1d5db"/>`;
     return `<a class="pkt-lenke" href="arkiv/${r.dato}/${r.rapportFil}" title="${norskDato(r.dato)}: ${r.score} poeng">
       <circle class="pkt-ring" cx="${x}" cy="${y}" r="14"/>
       <circle class="pkt ${cls}" cx="${x}" cy="${y}" r="6"/>
       <text class="pkt-score" x="${x}" y="${y - 11}" text-anchor="middle">${r.score}</text>
-      <text class="pkt-dato" x="${x}" y="${VH - 2}" text-anchor="middle">${dato}</text>
+      ${datoEl}
     </a>`;
   }).join('');
 
@@ -459,7 +476,7 @@ const arkivHTML = `<!DOCTYPE html>
   .pkt-lenke:hover .pkt { r: 9; }
   .pkt-lenke:hover .linje-graf .linje { stroke: #0a1355; }
   .pkt-score { font-size: 18px; font-weight: 700; fill: #374151; }
-  .pkt-dato { font-size: 17px; fill: #9ca3af; }
+  .pkt-dato { font-size: 13px; fill: #9ca3af; }
 
   /* Rapportliste */
   .rapport-liste { display: flex; flex-direction: column; }

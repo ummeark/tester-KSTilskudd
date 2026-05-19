@@ -428,7 +428,7 @@ const arkivHTML = `<!DOCTYPE html>
   .knapp.sekundær { background: transparent; border: 1px solid #0a1355; color: #0a1355; }
   .knapp.sekundær:hover { background: #f4ecdf; }
 
-  .container { max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem; display: flex; flex-direction: column; gap: 2.5rem; }
+  .container { max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem; display: flex; flex-direction: column; gap: 2.5rem; min-height: calc(100vh + 300px); }
 
   /* Seksjon per testtype */
   .testtype-seksjon { background: white; border: 1px solid #f1f0ee; box-shadow: 0 1px 4px rgba(10,19,85,.06); }

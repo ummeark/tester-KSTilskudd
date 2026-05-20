@@ -1,0 +1,11 @@
+{
+  "url": "https://tilskudd.fiks.test.ks.no/",
+  "dato": "2026-05-20",
+  "score": 85,
+  "totalt": {
+    "bestått": 17,
+    "feilet": 3,
+    "totalt": 20,
+    "suites": 6
+  }
+}

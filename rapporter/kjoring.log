@@ -12327,3 +12327,28 @@ Rapport skrevet til docs/brukerhistorie-rapport.html og rapporter/2026-05-19/bru
 ✅ Arkiv generert → docs/arkiv.html
    Datoer: 31 | UU: 92 | Monkey: 76 | Sikkerhet: 75 | Negativ: 75
 ✅ Dashboard generert → docs/rapport.html
+[2026-05-19 08:32:18] ✅ Ferdig og pushet til GitHub
+[2026-05-20 00:05:55] 🚀 Starter tester (ikke kjørt i dag)
+=======================================
+[2026-05-20 00:05:55] Starter daglig UU-test
+[2026-05-20 00:05:55] Node: v24.12.0
+[2026-05-20 00:05:55] Kjører npm run rapport...
+
+> uu-tester@1.0.0 rapport
+> node uu-tester.js
+
+
+🔍 Starter UU-analyse av: https://tilskudd.fiks.test.ks.no/
+📅 Dato: 2026-05-19
+📄 Maks antall sider: 20
+
+
+🔐 Logger inn via ID-porten TestID (modus: fast)...
+  ❌ Innlogging feilet: locator.click: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator('button:has-text("Autentiser"), input[value="A
+  📸 Skjermbilde: /tmp/idporten-login-feil.png
+❌ Innlogging feilet – avslutter.
+=======================================
+[2026-05-20 08:30:32] Starter daglig UU-test
+[2026-05-20 08:30:32] ❌ Nettstedet ikke tilgjengelig – avbryter

@@ -1,0 +1,73 @@
+{
+  "url": "https://tilskudd.fiks.test.ks.no/",
+  "dato": "2026-05-22",
+  "versjon": "v0.6.0",
+  "nettleser": "147.0.7727.15",
+  "totalt": {
+    "iterasjoner": 60,
+    "siderBesøkt": 7,
+    "jsErrors": 1,
+    "konsollFeil": 5,
+    "nettverksFeil": 0,
+    "kritiske": 1,
+    "alvorlige": 0,
+    "varighet": 15
+  },
+  "score": 57,
+  "jsErrors": [
+    {
+      "melding": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+      "stack": "",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/7082abd8-4f23-43e9-adce-c4762b848b81",
+      "tid": "2026-05-22T08:11:28.131Z"
+    }
+  ],
+  "konsollFeil": [
+    {
+      "melding": "TRPCClientError: network error\n    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-22T08:11:27.057Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-22T08:11:27.239Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-22T08:11:28.371Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-22T08:11:28.522Z"
+    },
+    {
+      "melding": "TRPCClientError: Failed to fetch\n    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-22T08:11:28.594Z"
+    }
+  ],
+  "nettverksFeil": [],
+  "interaksjoner": [
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter skjemafyll: inneholder \"500\"",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/7082abd8-4f23-43e9-adce-c4762b848b81",
+      "handling": "",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-7.png",
+      "tid": "2026-05-22T08:11:28.162Z"
+    }
+  ],
+  "besøkte": [
+    "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+    "https://tilskudd.fiks.test.ks.no/soknad/a986a003-ce01-4cfc-af76-24a247db9a17",
+    "https://tilskudd.fiks.test.ks.no/",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/utlysinger/7082abd8-4f23-43e9-adce-c4762b848b81",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&currentPage=1&pageSize=10"
+  ]
+}

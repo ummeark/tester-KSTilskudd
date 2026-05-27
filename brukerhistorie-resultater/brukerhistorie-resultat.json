@@ -87,12 +87,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 233,
+                      "duration": 676,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:44.695Z",
+                      "startTime": "2026-05-27T20:36:25.992Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -121,12 +121,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 365,
+                      "duration": 585,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:44.994Z",
+                      "startTime": "2026-05-27T20:36:26.727Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 356,
+                      "duration": 694,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:45.364Z",
+                      "startTime": "2026-05-27T20:36:27.318Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -197,12 +197,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 329,
+                      "duration": 589,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:45.725Z",
+                      "startTime": "2026-05-27T20:36:28.017Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -231,12 +231,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 389,
+                      "duration": 602,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:46.057Z",
+                      "startTime": "2026-05-27T20:36:28.609Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -265,12 +265,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 304,
+                      "duration": 776,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:46.451Z",
+                      "startTime": "2026-05-27T20:36:29.216Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -307,12 +307,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 361,
+                      "duration": 849,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:46.759Z",
+                      "startTime": "2026-05-27T20:36:29.997Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -341,12 +341,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 365,
+                      "duration": 820,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:47.125Z",
+                      "startTime": "2026-05-27T20:36:30.850Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -375,12 +375,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1038,
+                      "duration": 1438,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:47.495Z",
+                      "startTime": "2026-05-27T20:36:31.677Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -417,12 +417,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 319,
+                      "duration": 630,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:48.538Z",
+                      "startTime": "2026-05-27T20:36:33.123Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -451,12 +451,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 296,
+                      "duration": 732,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:48.863Z",
+                      "startTime": "2026-05-27T20:36:33.759Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -485,12 +485,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 414,
+                      "duration": 628,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:49.163Z",
+                      "startTime": "2026-05-27T20:36:34.496Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -519,12 +519,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 315,
+                      "duration": 568,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:49.581Z",
+                      "startTime": "2026-05-27T20:36:35.128Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -553,12 +553,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 321,
+                      "duration": 810,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:49.901Z",
+                      "startTime": "2026-05-27T20:36:35.700Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -587,12 +587,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 382,
+                      "duration": 742,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:50.226Z",
+                      "startTime": "2026-05-27T20:36:36.514Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -608,9 +608,433 @@
           ]
         },
         {
+          "title": "BH-7: Som søker ønsker jeg å se kontaktinformasjon om ordningen (TILSK-738)",
+          "file": "brukerhistorie-tester.js",
+          "line": 150,
+          "column": 6,
+          "specs": [
+            {
+              "title": "AK-1.0 – utlysningssiden laster uten feilside",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 2455,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/500|Internal Server Error|Uventet feil/\u001b[39m\nReceived string:      \u001b[31m\"KS TilskuddTilskuddsordningerLogg innHjemTilskuddsordninger32-GROMSINNBE-2026-IZGrønn omstilling og innovasjon i bedriftOrdningen skal stimulere bedrifter til å utvikle nye løsninger innen grønn omstilling.Sist oppdatert 13. mai 2026 kl. 08:33TilskuddsforvalterSkånsom Impulsiv Tiger AsTilskuddsrammexx xxx xxx NOKTilgjengelige midlerxx xxx xxx NOKMål for ordningenFormålet med ordningen er å bidra til at bedrifter utvikler og tester nye løsninger som reduserer klimaavtrykk, gir mer effektiv ressursbruk og styrker konkurransekraften.Hvem kan søkeSmå og mellomstore bedrifter med forretningsadresse og virksomhet i regionen kan søke. Bedriften må være registrert i Enhetsregisteret og ha ansatte på søknadstidspunktet.Hva kan dere få støtte tilDet kan gis støtte til forprosjekter, pilotering, konseptutvikling, testing av ny teknologi og kjøp av ekstern kompetanse knyttet til grønn omstilling.Krav for å motta støtteProsjektet må ha tydelig nytteverdi for bedriften og vise hvordan tiltaket bidrar til bærekraftig utvikling. Alle obligatoriske vedlegg må følge søknaden.Hvor mye støtte kan dere få?Bedriften kan søke om inntil \u001b[7m500\u001b[27m 000 kroner i støtte. Tilskuddet kan dekke inntil 50 prosent av godkjente prosjektkostnader.RapporteringTilskuddsmottaker skal levere sluttrapport og regnskap innen 30 dager etter avsluttet prosjektperiode.SøknadsfristLøpendeSøk om tilskuddSøknadsbeløpInntil 500000 NOKTilleggsinformasjonSøker må legge ved prosjektbeskrivelse, budsjett og dokumentasjon på egenfinansiering.Seniorrådgiver innovasjonKari TestesenTelefon:97956048E‑post:kari.testesen@eksempel.nov0.6.0\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/500|Internal Server Error|Uventet feil/\u001b[39m\nReceived string:      \u001b[31m\"KS TilskuddTilskuddsordningerLogg innHjemTilskuddsordninger32-GROMSINNBE-2026-IZGrønn omstilling og innovasjon i bedriftOrdningen skal stimulere bedrifter til å utvikle nye løsninger innen grønn omstilling.Sist oppdatert 13. mai 2026 kl. 08:33TilskuddsforvalterSkånsom Impulsiv Tiger AsTilskuddsrammexx xxx xxx NOKTilgjengelige midlerxx xxx xxx NOKMål for ordningenFormålet med ordningen er å bidra til at bedrifter utvikler og tester nye løsninger som reduserer klimaavtrykk, gir mer effektiv ressursbruk og styrker konkurransekraften.Hvem kan søkeSmå og mellomstore bedrifter med forretningsadresse og virksomhet i regionen kan søke. Bedriften må være registrert i Enhetsregisteret og ha ansatte på søknadstidspunktet.Hva kan dere få støtte tilDet kan gis støtte til forprosjekter, pilotering, konseptutvikling, testing av ny teknologi og kjøp av ekstern kompetanse knyttet til grønn omstilling.Krav for å motta støtteProsjektet må ha tydelig nytteverdi for bedriften og vise hvordan tiltaket bidrar til bærekraftig utvikling. Alle obligatoriske vedlegg må følge søknaden.Hvor mye støtte kan dere få?Bedriften kan søke om inntil \u001b[7m500\u001b[27m 000 kroner i støtte. Tilskuddet kan dekke inntil 50 prosent av godkjente prosjektkostnader.RapporteringTilskuddsmottaker skal levere sluttrapport og regnskap innen 30 dager etter avsluttet prosjektperiode.SøknadsfristLøpendeSøk om tilskuddSøknadsbeløpInntil 500000 NOKTilleggsinformasjonSøker må legge ved prosjektbeskrivelse, budsjett og dokumentasjon på egenfinansiering.Seniorrådgiver innovasjonKari TestesenTelefon:97956048E‑post:kari.testesen@eksempel.nov0.6.0\"\u001b[39m\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:224:22",
+                        "location": {
+                          "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                          "column": 22,
+                          "line": 224
+                        },
+                        "snippet": "  222 |     const url = await gåTilOrdningMedKontaktinfo(page);\n  223 |     const body = await page.textContent('body');\n> 224 |     expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);\n      |                      ^\n  225 |     if (!url) test.skip();\n  226 |   });\n  227 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                            "column": 22,
+                            "line": 224
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/500|Internal Server Error|Uventet feil/\u001b[39m\nReceived string:      \u001b[31m\"KS TilskuddTilskuddsordningerLogg innHjemTilskuddsordninger32-GROMSINNBE-2026-IZGrønn omstilling og innovasjon i bedriftOrdningen skal stimulere bedrifter til å utvikle nye løsninger innen grønn omstilling.Sist oppdatert 13. mai 2026 kl. 08:33TilskuddsforvalterSkånsom Impulsiv Tiger AsTilskuddsrammexx xxx xxx NOKTilgjengelige midlerxx xxx xxx NOKMål for ordningenFormålet med ordningen er å bidra til at bedrifter utvikler og tester nye løsninger som reduserer klimaavtrykk, gir mer effektiv ressursbruk og styrker konkurransekraften.Hvem kan søkeSmå og mellomstore bedrifter med forretningsadresse og virksomhet i regionen kan søke. Bedriften må være registrert i Enhetsregisteret og ha ansatte på søknadstidspunktet.Hva kan dere få støtte tilDet kan gis støtte til forprosjekter, pilotering, konseptutvikling, testing av ny teknologi og kjøp av ekstern kompetanse knyttet til grønn omstilling.Krav for å motta støtteProsjektet må ha tydelig nytteverdi for bedriften og vise hvordan tiltaket bidrar til bærekraftig utvikling. Alle obligatoriske vedlegg må følge søknaden.Hvor mye støtte kan dere få?Bedriften kan søke om inntil \u001b[7m500\u001b[27m 000 kroner i støtte. Tilskuddet kan dekke inntil 50 prosent av godkjente prosjektkostnader.RapporteringTilskuddsmottaker skal levere sluttrapport og regnskap innen 30 dager etter avsluttet prosjektperiode.SøknadsfristLøpendeSøk om tilskuddSøknadsbeløpInntil 500000 NOKTilleggsinformasjonSøker må legge ved prosjektbeskrivelse, budsjett og dokumentasjon på egenfinansiering.Seniorrådgiver innovasjonKari TestesenTelefon:97956048E‑post:kari.testesen@eksempel.nov0.6.0\"\u001b[39m\n\n  222 |     const url = await gåTilOrdningMedKontaktinfo(page);\n  223 |     const body = await page.textContent('body');\n> 224 |     expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);\n      |                      ^\n  225 |     if (!url) test.skip();\n  226 |   });\n  227 |\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:224:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-27T20:36:37.264Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-resultater/traces/brukerhistorie-tester.js-B-de147-ssiden-laster-uten-feilside/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                        "column": 22,
+                        "line": 224
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-2363091903c875d3c361",
+              "file": "brukerhistorie-tester.js",
+              "line": 221,
+              "column": 3
+            },
+            {
+              "title": "AK-1.0 – kontaktinformasjonsseksjon finnes på en utlysningsside",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1911,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-27T20:36:40.004Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-14c1273acd8bd07084c3",
+              "file": "brukerhistorie-tester.js",
+              "line": 228,
+              "column": 3
+            },
+            {
+              "title": "AK-1.1 – minst ett kontaktinfokort vises",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1394,
+                      "error": {
+                        "message": "Error: Forventet e-post eller telefon i kontaktinformasjonen\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/@|tlf\\.|telefon|e-post/i\u001b[39m\nReceived string:  \u001b[31m\"v0.6.0import(\\\"/assets/index-DrNGiQh1.js\\\")\"\u001b[39m",
+                        "stack": "Error: Forventet e-post eller telefon i kontaktinformasjonen\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/@|tlf\\.|telefon|e-post/i\u001b[39m\nReceived string:  \u001b[31m\"v0.6.0import(\\\"/assets/index-DrNGiQh1.js\\\")\"\u001b[39m\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:243:77",
+                        "location": {
+                          "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                          "column": 77,
+                          "line": 243
+                        },
+                        "snippet": "  241 |     if (antall === 0) {\n  242 |       const body = await page.textContent('body');\n> 243 |       expect(body, 'Forventet e-post eller telefon i kontaktinformasjonen').toMatch(/@|tlf\\.|telefon|e-post/i);\n      |                                                                             ^\n  244 |     } else {\n  245 |       expect(antall).toBeGreaterThanOrEqual(1);\n  246 |     }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                            "column": 77,
+                            "line": 243
+                          },
+                          "message": "Error: Forventet e-post eller telefon i kontaktinformasjonen\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/@|tlf\\.|telefon|e-post/i\u001b[39m\nReceived string:  \u001b[31m\"v0.6.0import(\\\"/assets/index-DrNGiQh1.js\\\")\"\u001b[39m\n\n  241 |     if (antall === 0) {\n  242 |       const body = await page.textContent('body');\n> 243 |       expect(body, 'Forventet e-post eller telefon i kontaktinformasjonen').toMatch(/@|tlf\\.|telefon|e-post/i);\n      |                                                                             ^\n  244 |     } else {\n  245 |       expect(antall).toBeGreaterThanOrEqual(1);\n  246 |     }\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:243:77"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-27T20:36:41.979Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-resultater/traces/brukerhistorie-tester.js-B-61afe-t-ett-kontaktinfokort-vises/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                        "column": 77,
+                        "line": 243
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-ebb7ce1b69753a5c14cf",
+              "file": "brukerhistorie-tester.js",
+              "line": 236,
+              "column": 3
+            },
+            {
+              "title": "AK-1.1 – maks tre kontaktinfokort vises totalt",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4089,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-27T20:36:43.601Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-81dc395a64488cadd3ba",
+              "file": "brukerhistorie-tester.js",
+              "line": 249,
+              "column": 3
+            },
+            {
+              "title": "AK-1.2 – maks tre personkort vises",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 703,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-27T20:36:47.749Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-7b489b90b82e7c312965",
+              "file": "brukerhistorie-tester.js",
+              "line": 257,
+              "column": 3
+            },
+            {
+              "title": "AK-1.3 – maks ett virksomhetskort vises",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 624,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-27T20:36:48.457Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-557b00a3cc98c6c57d20",
+              "file": "brukerhistorie-tester.js",
+              "line": 265,
+              "column": 3
+            },
+            {
+              "title": "AK-1.4/1.5 – kontaktkort inneholder e-post eller telefonnummer",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 792,
+                      "error": {
+                        "message": "Error: Forventet e-postadresse eller telefonnummer i kontaktinformasjonen\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: Forventet e-postadresse eller telefonnummer i kontaktinformasjonen\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:278:106",
+                        "location": {
+                          "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                          "column": 106,
+                          "line": 278
+                        },
+                        "snippet": "  276 |     const body = await page.textContent('body');\n  277 |     const { harEpost, harTelefon } = harKontaktdetaljer(body);\n> 278 |     expect(harEpost || harTelefon, 'Forventet e-postadresse eller telefonnummer i kontaktinformasjonen').toBe(true);\n      |                                                                                                          ^\n  279 |   });\n  280 |\n  281 |   // AK-1.6: Navn + telefon ELLER e-post er obligatorisk"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                            "column": 106,
+                            "line": 278
+                          },
+                          "message": "Error: Forventet e-postadresse eller telefonnummer i kontaktinformasjonen\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  276 |     const body = await page.textContent('body');\n  277 |     const { harEpost, harTelefon } = harKontaktdetaljer(body);\n> 278 |     expect(harEpost || harTelefon, 'Forventet e-postadresse eller telefonnummer i kontaktinformasjonen').toBe(true);\n      |                                                                                                          ^\n  279 |   });\n  280 |\n  281 |   // AK-1.6: Navn + telefon ELLER e-post er obligatorisk\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:278:106"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-27T20:36:49.086Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-resultater/traces/brukerhistorie-tester.js-B-ae1f4--e-post-eller-telefonnummer/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                        "column": 106,
+                        "line": 278
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-ca64bb787a95748140f2",
+              "file": "brukerhistorie-tester.js",
+              "line": 273,
+              "column": 3
+            },
+            {
+              "title": "AK-1.6 – obligatoriske felt: minst telefon eller e-post finnes i kontaktinfo",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1699,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-27T20:36:50.109Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-d53d7f04a3119d5b9065",
+              "file": "brukerhistorie-tester.js",
+              "line": 282,
+              "column": 3
+            },
+            {
+              "title": "AK-1.7 – personkort vises over virksomhetskort på siden",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Ingen utlysning med både person- og virksomhetskort funnet i TEST-miljøet",
+                      "location": {
+                        "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                        "line": 293,
+                        "column": 14
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 2007,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-27T20:36:51.867Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Ingen utlysning med både person- og virksomhetskort funnet i TEST-miljøet",
+                          "location": {
+                            "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                            "line": 293,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-00249acb2b35fd5f71dd",
+              "file": "brukerhistorie-tester.js",
+              "line": 291,
+              "column": 3
+            }
+          ]
+        },
+        {
           "title": "BH-4: Som søker vil jeg kunne navigere tilbake fra en utlysning",
           "file": "brukerhistorie-tester.js",
-          "line": 152,
+          "line": 304,
           "column": 6,
           "specs": [
             {
@@ -626,15 +1050,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2219,
+                      "duration": 1557,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:50.611Z",
+                      "startTime": "2026-05-27T20:36:53.879Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -644,7 +1068,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-37e9bde47be2254f01b4",
               "file": "brukerhistorie-tester.js",
-              "line": 154,
+              "line": 306,
               "column": 3
             },
             {
@@ -660,15 +1084,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 449,
+                      "duration": 696,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:52.835Z",
+                      "startTime": "2026-05-27T20:36:55.441Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -678,7 +1102,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-77c9dd97a141556f5526",
               "file": "brukerhistorie-tester.js",
-              "line": 164,
+              "line": 316,
               "column": 3
             }
           ]
@@ -686,7 +1110,7 @@
         {
           "title": "BH-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen",
           "file": "brukerhistorie-tester.js",
-          "line": 175,
+          "line": 327,
           "column": 6,
           "specs": [
             {
@@ -702,34 +1126,34 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 5330,
+                      "duration": 5708,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:186:29",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:338:29",
                         "location": {
                           "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                           "column": 29,
-                          "line": 186
+                          "line": 338
                         },
-                        "snippet": "  184 |       'a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]'\n  185 |     ).first();\n> 186 |     await expect(skipLenke).toBeAttached();\n      |                             ^\n  187 |   });\n  188 |\n  189 |   test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) => {"
+                        "snippet": "  336 |       'a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]'\n  337 |     ).first();\n> 338 |     await expect(skipLenke).toBeAttached();\n      |                             ^\n  339 |   });\n  340 |\n  341 |   test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) => {"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                             "column": 29,
-                            "line": 186
+                            "line": 338
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n\n\n  184 |       'a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]'\n  185 |     ).first();\n> 186 |     await expect(skipLenke).toBeAttached();\n      |                             ^\n  187 |   });\n  188 |\n  189 |   test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) => {\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:186:29"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n\n\n  336 |       'a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]'\n  337 |     ).first();\n> 338 |     await expect(skipLenke).toBeAttached();\n      |                             ^\n  339 |   });\n  340 |\n  341 |   test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) => {\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:338:29"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:53.288Z",
+                      "startTime": "2026-05-27T20:36:56.141Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -741,7 +1165,7 @@
                       "errorLocation": {
                         "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                         "column": 29,
-                        "line": 186
+                        "line": 338
                       }
                     }
                   ],
@@ -750,7 +1174,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-4d65b02f08c7f860f154",
               "file": "brukerhistorie-tester.js",
-              "line": 177,
+              "line": 329,
               "column": 3
             },
             {
@@ -766,34 +1190,34 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 399,
+                      "duration": 753,
                       "error": {
                         "message": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m",
-                        "stack": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:196:84",
+                        "stack": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:348:84",
                         "location": {
                           "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                           "column": 84,
-                          "line": 196
+                          "line": 348
                         },
-                        "snippet": "  194 |     // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke\n  195 |     const href = await page.locator(':focus').getAttribute('href').catch(() => '');\n> 196 |     expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);\n      |                                                                                    ^\n  197 |   });\n  198 |\n  199 |   test('søkeskjema er merket med role=\"search\" for skjermlesere', async ({ page }) => {"
+                        "snippet": "  346 |     // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke\n  347 |     const href = await page.locator(':focus').getAttribute('href').catch(() => '');\n> 348 |     expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);\n      |                                                                                    ^\n  349 |   });\n  350 |\n  351 |   test('søkeskjema er merket med role=\"search\" for skjermlesere', async ({ page }) => {"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                             "column": 84,
-                            "line": 196
+                            "line": 348
                           },
-                          "message": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m\n\n  194 |     // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke\n  195 |     const href = await page.locator(':focus').getAttribute('href').catch(() => '');\n> 196 |     expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);\n      |                                                                                    ^\n  197 |   });\n  198 |\n  199 |   test('søkeskjema er merket med role=\"search\" for skjermlesere', async ({ page }) => {\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:196:84"
+                          "message": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m\n\n  346 |     // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke\n  347 |     const href = await page.locator(':focus').getAttribute('href').catch(() => '');\n> 348 |     expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);\n      |                                                                                    ^\n  349 |   });\n  350 |\n  351 |   test('søkeskjema er merket med role=\"search\" for skjermlesere', async ({ page }) => {\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:348:84"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:58.933Z",
+                      "startTime": "2026-05-27T20:37:02.087Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -805,7 +1229,7 @@
                       "errorLocation": {
                         "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                         "column": 84,
-                        "line": 196
+                        "line": 348
                       }
                     }
                   ],
@@ -814,7 +1238,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-165c0b70b0b03816c00a",
               "file": "brukerhistorie-tester.js",
-              "line": 189,
+              "line": 341,
               "column": 3
             },
             {
@@ -830,34 +1254,34 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 15247,
+                      "duration": 15709,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:203:32",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:355:32",
                         "location": {
                           "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                           "column": 32,
-                          "line": 203
+                          "line": 355
                         },
-                        "snippet": "  201 |     // Forventer: søkecontaineren er annotert med role=\"search\" (WCAG)\n  202 |     const searchRegion = page.locator('[role=\"search\"]').first();\n> 203 |     await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });\n      |                                ^\n  204 |   });\n  205 |\n  206 | });"
+                        "snippet": "  353 |     // Forventer: søkecontaineren er annotert med role=\"search\" (WCAG)\n  354 |     const searchRegion = page.locator('[role=\"search\"]').first();\n> 355 |     await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });\n      |                                ^\n  356 |   });\n  357 |\n  358 | });"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                             "column": 32,
-                            "line": 203
+                            "line": 355
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n\n\n  201 |     // Forventer: søkecontaineren er annotert med role=\"search\" (WCAG)\n  202 |     const searchRegion = page.locator('[role=\"search\"]').first();\n> 203 |     await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });\n      |                                ^\n  204 |   });\n  205 |\n  206 | });\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:203:32"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n\n\n  353 |     // Forventer: søkecontaineren er annotert med role=\"search\" (WCAG)\n  354 |     const searchRegion = page.locator('[role=\"search\"]').first();\n> 355 |     await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });\n      |                                ^\n  356 |   });\n  357 |\n  358 | });\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:355:32"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-20T06:41:59.643Z",
+                      "startTime": "2026-05-27T20:37:03.117Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -869,7 +1293,7 @@
                       "errorLocation": {
                         "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
                         "column": 32,
-                        "line": 203
+                        "line": 355
                       }
                     }
                   ],
@@ -878,7 +1302,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-e1fc8ad34ca095a4d40c",
               "file": "brukerhistorie-tester.js",
-              "line": 199,
+              "line": 351,
               "column": 3
             }
           ]
@@ -888,11 +1312,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-20T06:41:40.915Z",
-    "duration": 34068.6,
-    "expected": 17,
-    "skipped": 0,
-    "unexpected": 3,
+    "startTime": "2026-05-27T20:36:22.149Z",
+    "duration": 56761.202,
+    "expected": 22,
+    "skipped": 1,
+    "unexpected": 6,
     "flaky": 0
   }
 }

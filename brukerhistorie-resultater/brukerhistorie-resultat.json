@@ -1,30 +1,74 @@
 {
   "config": {
-    "configFile": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie.playwright.config.js",
-    "rootDir": "/Users/ummearkhan/tester-KSTilskudd",
+    "configFile": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie.playwright.config.js",
+    "rootDir": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST",
     "forbidOnly": false,
     "fullyParallel": false,
-    "globalSetup": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie.setup.js",
+    "globalSetup": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie.setup.js",
     "globalTeardown": null,
     "globalTimeout": 0,
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/ummeark/tester-KSTilskudd-TEST/commit/68fdaa49ffd6ccbbc44495ee43e9159902c6f621",
+        "commitHash": "68fdaa49ffd6ccbbc44495ee43e9159902c6f621",
+        "buildHref": "https://github.com/ummeark/tester-KSTilskudd-TEST/actions/runs/26537510495"
+      },
+      "gitCommit": {
+        "shortHash": "68fdaa4",
+        "hash": "68fdaa49ffd6ccbbc44495ee43e9159902c6f621",
+        "subject": "Brukerhistorierapport 2026-05-27 – BH-7 lagt til (TILSK-738)",
+        "body": "Brukerhistorierapport 2026-05-27 – BH-7 lagt til (TILSK-738)\n",
+        "author": {
+          "name": "UU-tester bot",
+          "email": "bot@github.com",
+          "time": 1779914328000
+        },
+        "committer": {
+          "name": "UU-tester bot",
+          "email": "bot@github.com",
+          "time": 1779914328000
+        },
+        "branch": "main"
+      },
       "actualWorkers": 1
     },
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-resultater/traces",
+        "outputDir": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST/brukerhistorie-resultater/traces",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ummeark/tester-KSTilskudd-TEST/commit/68fdaa49ffd6ccbbc44495ee43e9159902c6f621",
+            "commitHash": "68fdaa49ffd6ccbbc44495ee43e9159902c6f621",
+            "buildHref": "https://github.com/ummeark/tester-KSTilskudd-TEST/actions/runs/26537510495"
+          },
+          "gitCommit": {
+            "shortHash": "68fdaa4",
+            "hash": "68fdaa49ffd6ccbbc44495ee43e9159902c6f621",
+            "subject": "Brukerhistorierapport 2026-05-27 – BH-7 lagt til (TILSK-738)",
+            "body": "Brukerhistorierapport 2026-05-27 – BH-7 lagt til (TILSK-738)\n",
+            "author": {
+              "name": "UU-tester bot",
+              "email": "bot@github.com",
+              "time": 1779914328000
+            },
+            "committer": {
+              "name": "UU-tester bot",
+              "email": "bot@github.com",
+              "time": 1779914328000
+            },
+            "branch": "main"
+          },
           "actualWorkers": 1
         },
         "id": "",
         "name": "",
-        "testDir": "/Users/ummearkhan/tester-KSTilskudd",
+        "testDir": "/Users/ummearkhan/actions-runner/_work/tester-KSTilskudd-TEST/tester-KSTilskudd-TEST",
         "testIgnore": [],
         "testMatch": [
           "brukerhistorie-tester.js"

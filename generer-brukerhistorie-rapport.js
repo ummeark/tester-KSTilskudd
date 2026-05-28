@@ -20,6 +20,11 @@ if (!fs.existsSync(jsonPath)) {
 const data   = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 const stats  = data.stats ?? {};
 
+const metadataPath = 'brukerhistorie-metadata.json';
+const jiraMetadata = fs.existsSync(metadataPath)
+  ? JSON.parse(fs.readFileSync(metadataPath, 'utf-8'))
+  : {};
+
 // Samle BH-suites fra alle testfiler og dedupliser på tittel (siste fil vinner)
 const allBhSuites = (data.suites ?? []).flatMap(s => s.suites ?? []);
 const bhMap = new Map();
@@ -65,6 +70,16 @@ function lesSkjermbilder(id) {
 function bhId(title) {
   const m = title.match(/^BH-\d+/);
   return m ? m[0] : title;
+}
+
+function jiraTittelHtml(suiteTitle) {
+  const tilskNummer = [...suiteTitle.matchAll(/TILSK-\d+/g)].map(m => m[0]);
+  const linjer = tilskNummer
+    .filter(t => jiraMetadata[t])
+    .map(t => `<span class="jira-tittel-linje"><span class="jira-tag">${esc(t)}</span>${esc(jiraMetadata[t])}</span>`);
+  return linjer.length
+    ? `<div class="jira-tittel">${linjer.join('')}</div>`
+    : '';
 }
 
 function erHoppetOver(spec) {
@@ -157,6 +172,7 @@ function bhSeksjoner() {
     <div class="side-header">
       <div>
         <h2>${esc(suite.title)}</h2>
+        ${jiraTittelHtml(suite.title)}
       </div>
       <div class="side-score-badges">${statusBadge}</div>
     </div>
@@ -229,6 +245,9 @@ const html = `<!DOCTYPE html>
   .side-seksjon{background:white;border:1px solid #f1f0ee;padding:2rem;margin-bottom:1.2rem;box-shadow:0 1px 4px rgba(10,19,85,.06)}
   .side-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.4rem;padding-bottom:1.2rem;border-bottom:1px solid #f4ecdf;flex-wrap:wrap;gap:.6rem}
   .side-header h2{font-size:1rem;font-weight:600;color:#0a1355}
+  .jira-tittel{margin-top:.45rem;display:flex;flex-direction:column;gap:.2rem}
+  .jira-tittel-linje{font-size:.8rem;color:#6b7280;font-style:italic;line-height:1.4}
+  .jira-tag{font-size:.68rem;font-weight:700;font-style:normal;background:#eff6ff;color:#1d4ed8;padding:.1rem .45rem;border-radius:3px;margin-right:.4rem;letter-spacing:.01em}
   .side-score-badges{display:flex;gap:.4rem;flex-wrap:wrap;align-items:flex-start}
 
   .wcag-seksjon{margin-bottom:1.6rem}

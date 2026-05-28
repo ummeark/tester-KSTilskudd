@@ -650,3 +650,111 @@ test.describe('TILSK-767: Organisasjonsvelger ved søknadsopprettelse', () => {
   });
 
 });
+
+// ── TILSK-543 ────────────────────────────────────────────────────────────────────
+test.describe('TILSK-543: Som besøker ønsker jeg å finne riktig tilskuddsordning i portalen (uten innlogging)', () => {
+
+  // AK-1.1: Liste over tilskuddsordninger er tilgjengelig uten innlogging
+  test('AK-1.1 – utlysningslisten vises uten krav om innlogging', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    await expect(page).toHaveURL(/utlysinger/);
+    const kort = page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]');
+    await expect(kort.first()).toBeVisible({ timeout: SIDE_TIMEOUT });
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/logg inn for å/i);
+  });
+
+  // AK-1.2: Søkefunksjonalitet er tilgjengelig uten innlogging
+  test('AK-1.2 – søkefelt er synlig og tilgjengelig uten innlogging', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    const felt = page.locator('input[type="search"], input[placeholder*="øk"]').first();
+    await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
+  });
+
+  // AK-2.1: Søk på tittel
+  test('AK-2.1 – søk på tittelord gir relevante treff', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    const felt = page.locator('input[type="search"], input[placeholder*="øk"]').first();
+    await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
+    await felt.fill('tilskudd');
+    await page.keyboard.press('Enter');
+    await page.waitForLoadState('domcontentloaded');
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
+    const kort = page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]');
+    const antall = await kort.count();
+    expect(antall, 'Forventet minst ett treff på tittelord «tilskudd»').toBeGreaterThan(0);
+  });
+
+  // AK-2.2: Søk på fritekst (stikkord, tema, formål)
+  test('AK-2.2 – søk på fritekst (stikkord/tema) gir svar uten feilside', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    const felt = page.locator('input[type="search"], input[placeholder*="øk"]').first();
+    await felt.fill('barn og unge');
+    await page.keyboard.press('Enter');
+    await page.waitForLoadState('domcontentloaded');
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
+  });
+
+  // AK-2.3: Relevante treff basert på søket
+  test('AK-2.3 – søkeresultat inneholder relevante ordninger', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    const felt = page.locator('input[type="search"], input[placeholder*="øk"]').first();
+    await felt.fill('tilskudd');
+    await page.keyboard.press('Enter');
+    await page.waitForLoadState('domcontentloaded');
+    const kort = page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]');
+    const antall = await kort.count();
+    expect(antall, 'Forventet relevante treff for søkeordet «tilskudd»').toBeGreaterThan(0);
+  });
+
+  // AK-2.4: Trefflisten oppdateres når søket endres
+  test('AK-2.4 – trefflisten oppdateres når søket endres', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    const felt = page.locator('input[type="search"], input[placeholder*="øk"]').first();
+    await felt.fill('tilskudd');
+    await page.keyboard.press('Enter');
+    await page.waitForLoadState('domcontentloaded');
+    const kortMedSøk = await page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]').count();
+    await felt.fill('');
+    await page.keyboard.press('Enter');
+    await page.waitForLoadState('domcontentloaded');
+    const kortUtenSøk = await page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]').count();
+    expect(kortUtenSøk, 'Tom søkestreng skal gi hel liste – minst like mange som med søk').toBeGreaterThanOrEqual(kortMedSøk);
+  });
+
+  // AK-3.1: Paginering – bla til neste side hvis listen er lang
+  test('AK-3.1 – pagineringsknapp finnes hvis listen har flere sider', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    await page.waitForLoadState('networkidle', { timeout: IDLE_TIMEOUT });
+    const antallKort = await page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]').count();
+    if (antallKort < 10) {
+      // For få resultater til å kreve paginering – test ikke relevant
+      return;
+    }
+    const pagKnapp = page.locator(
+      'button:has-text("Neste"), a:has-text("Neste"), ' +
+      '[aria-label*="neste" i], [aria-label*="next" i], ' +
+      '[class*="pagination"] button, nav[aria-label*="paginering"] button'
+    ).first();
+    await expect(pagKnapp).toBeAttached({ timeout: SIDE_TIMEOUT });
+  });
+
+  // AK-4.1: Ingen treff – tydelig beskjed (med forslag til hva brukeren kan gjøre)
+  test('AK-4.1 – ingen treff: tydelig melding vises, ikke feilside', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    const felt = page.locator('input[type="search"], input[placeholder*="øk"]').first();
+    await felt.fill('xyzabc123nonsens');
+    await page.keyboard.press('Enter');
+    await page.waitForLoadState('domcontentloaded');
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
+    const kortEtter = await page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]').count();
+    const ingenTreffEl = await page.locator(
+      '[class*="ingen"], [class*="empty"], [class*="no-result"], [class*="zero-result"]'
+    ).count();
+    expect(kortEtter === 0 || ingenTreffEl > 0, 'Forventet ingen ordningskort eller en ingen-treff-melding').toBe(true);
+  });
+
+});

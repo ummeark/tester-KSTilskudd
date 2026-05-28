@@ -32,8 +32,8 @@ test.describe('BR.HIST-1: Som søker vil jeg se oversikt over tilskuddsordninger
 
 });
 
-// ── BR.HIST-2 ─────────────────────────────────────────────────────────────────────
-test.describe('BR.HIST-2: Som søker vil jeg søke etter en tilskuddsordning (TILSK-481 / TILSK-793)', () => {
+// ── TILSK-481 / TILSK-793 ────────────────────────────────────────────────────────
+test.describe('TILSK-481 / TILSK-793: Som søker vil jeg søke etter en tilskuddsordning', () => {
 
   const SØKEFELT = 'input[placeholder*="tilskuddsordning"], input[placeholder*="Søk etter"], input[type="search"]';
 
@@ -118,8 +118,8 @@ test.describe('BR.HIST-2: Som søker vil jeg søke etter en tilskuddsordning (TI
 
 });
 
-// ── BR.HIST-3 ─────────────────────────────────────────────────────────────────────
-test.describe('BR.HIST-3: Som innlogget søker vil jeg se mine søknader (TILSK-547)', () => {
+// ── TILSK-547 ────────────────────────────────────────────────────────────────────
+test.describe('TILSK-547: Som innlogget søker vil jeg se mine søknader', () => {
 
   test('min side er tilgjengelig etter innlogging', async ({ page }) => {
     await page.goto(`${base}/minside`, { timeout: IDLE_TIMEOUT });
@@ -201,8 +201,8 @@ test.describe('BR.HIST-5: Som søker med hjelpemiddelteknologi vil jeg hoppe ove
 
 });
 
-// ── BR.HIST-6 ─────────────────────────────────────────────────────────────────────
-test.describe('BR.HIST-6: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord (TILSK-856)', () => {
+// ── TILSK-856 ────────────────────────────────────────────────────────────────────
+test.describe('TILSK-856: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord', () => {
 
   async function søk(page, tekst) {
     await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
@@ -268,8 +268,8 @@ test.describe('BR.HIST-6: Som søker vil jeg finne tilskuddsordninger med stikko
 
 });
 
-// ── BR.HIST-7 ─────────────────────────────────────────────────────────────────────
-test.describe('BR.HIST-7: Som søker ønsker jeg å se kontaktinformasjon om ordningen (TILSK-738)', () => {
+// ── TILSK-738 ────────────────────────────────────────────────────────────────────
+test.describe('TILSK-738: Som søker ønsker jeg å se kontaktinformasjon om ordningen', () => {
 
   // Cache-variabler — populeres ved første bruk (workers: 1, sekvensiell kjøring)
   let _urlMedKontaktinfo = null;
@@ -420,8 +420,8 @@ test.describe('BR.HIST-7: Som søker ønsker jeg å se kontaktinformasjon om ord
 
 });
 
-// ── BR.HIST-8 ─────────────────────────────────────────────────────────────────────
-test.describe('BR.HIST-8: Redesign av utlysningsside (TILSK-785 / TILSK-795)', () => {
+// ── TILSK-785 / TILSK-795 ────────────────────────────────────────────────────────
+test.describe('TILSK-785 / TILSK-795: Redesign av utlysningsside', () => {
 
   let _utlysningUrl = null;
 
@@ -516,8 +516,8 @@ test.describe('BR.HIST-8: Redesign av utlysningsside (TILSK-785 / TILSK-795)', (
 
 });
 
-// ── BR.HIST-9 ─────────────────────────────────────────────────────────────────────
-test.describe('BR.HIST-9: Organisasjonsvelger ved søknadsopprettelse (TILSK-767)', () => {
+// ── TILSK-767 ────────────────────────────────────────────────────────────────────
+test.describe('TILSK-767: Organisasjonsvelger ved søknadsopprettelse', () => {
 
   const SØK_KNAPP =
     'a:has-text("Søk om tilskudd"), button:has-text("Søk om tilskudd"), ' +

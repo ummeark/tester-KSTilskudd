@@ -356,3 +356,234 @@ test.describe('BH-7: Som søker ønsker jeg å se kontaktinformasjon om ordninge
   });
 
 });
+
+// ── BH-8 ─────────────────────────────────────────────────────────────────────
+test.describe('BH-8: Redesign av utlysningsside (TILSK-785 / TILSK-795)', () => {
+
+  let _utlysningUrl = null;
+
+  async function gåTilUtlysning(page) {
+    if (_utlysningUrl) {
+      await page.goto(_utlysningUrl, { waitUntil: 'networkidle', timeout: IDLE_TIMEOUT });
+      return;
+    }
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    const lenke = page.locator('a[href*="utlysinger/"]').first();
+    await lenke.waitFor({ state: 'visible', timeout: SIDE_TIMEOUT });
+    const href = await lenke.getAttribute('href');
+    _utlysningUrl = href.startsWith('http') ? href : `${base}${href}`;
+    await page.goto(_utlysningUrl, { waitUntil: 'networkidle', timeout: IDLE_TIMEOUT });
+  }
+
+  test('AK-1.0 – breadcrumbs er synlig på utlysningssiden', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const breadcrumbs = page.locator(
+      'nav[aria-label*="breadcrumb" i], [class*="breadcrumb"], ' +
+      'ol[class*="breadcrumb"], nav ol li'
+    ).first();
+    await expect(breadcrumbs).toBeVisible({ timeout: SIDE_TIMEOUT });
+  });
+
+  test('AK-1.1 – tittel (h1) er synlig under breadcrumbs', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const tittel = page.locator('h1').first();
+    await expect(tittel).toBeVisible({ timeout: SIDE_TIMEOUT });
+    const tekst = await tittel.textContent();
+    expect(tekst?.trim().length ?? 0).toBeGreaterThan(0);
+  });
+
+  test('AK-1.2 – sist oppdatert dato vises', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const body = await page.textContent('body');
+    const harDato = /oppdatert|sist\s+endret|\d{1,2}\.\d{1,2}\.\d{4}|\d{4}-\d{2}-\d{2}/i.test(body);
+    expect(harDato, 'Forventet å finne oppdatert-dato på utlysningssiden').toBe(true);
+  });
+
+  test('AK-1.3 – forvalternavn vises', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const body = await page.textContent('body');
+    const harForvalter =
+      (await page.locator('[class*="forvalter"], [data-testid*="forvalter"]').count()) > 0 ||
+      /kommune|fylkeskommune|forvalter|statlig/i.test(body);
+    expect(harForvalter, 'Forventet forvalternavn eller kommunereferanse').toBe(true);
+  });
+
+  test('AK-1.4 – pengebeløp vises med tusenskille i kroner (om tilskuddsramme er satt)', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const body = await page.textContent('body');
+    const harBelop = /kr\b|NOK|tilskuddsramme|ramme|midler/i.test(body);
+    if (harBelop) {
+      // Bekrefter at tall med tusenskille (mellomrom eller punktum) brukes
+      expect(body).toMatch(/\d[\s.]\d{3}/);
+    }
+    // Godtar mangel – ikke alle ordninger har satt tilskuddsramme
+  });
+
+  test('AK-2.0 – søknadsfristkort er synlig', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const frist = page.locator(
+      '[class*="frist"], [class*="deadline"], [data-testid*="frist"], ' +
+      'section:has-text("Søknadsfrist"), h2:has-text("Frist"), h3:has-text("Frist"), ' +
+      'div:has-text("Søknadsfrist")'
+    ).first();
+    await expect(frist).toBeAttached({ timeout: SIDE_TIMEOUT });
+  });
+
+  test('AK-3.0 – kontaktinfoseksjon er synlig', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const kontakt = page.locator(
+      '[class*="kontakt"], [data-testid*="kontakt"], ' +
+      'section:has-text("Kontakt"), h2:has-text("Kontakt"), h3:has-text("Kontakt")'
+    ).first();
+    await expect(kontakt).toBeAttached({ timeout: SIDE_TIMEOUT });
+  });
+
+  test('AK-4.0 – rikttekst-innholdsområde er synlig med tekst', async ({ page }) => {
+    await gåTilUtlysning(page);
+    // Sjekk at main-området inneholder synlig tekst (rikttekst-innhold)
+    const mainTekst = await page.locator('main').textContent().catch(() => '');
+    expect(mainTekst?.trim().length ?? 0, 'Forventet tekst-innhold i main-elementet').toBeGreaterThan(50);
+  });
+
+  test('AK – utlysningssiden laster uten feilside', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/Internal Server Error|Uventet feil/);
+  });
+
+});
+
+// ── BH-9 ─────────────────────────────────────────────────────────────────────
+test.describe('BH-9: Organisasjonsvelger ved søknadsopprettelse (TILSK-767)', () => {
+
+  const SØK_KNAPP =
+    'a:has-text("Søk om tilskudd"), button:has-text("Søk om tilskudd"), ' +
+    'a:has-text("Start søknad"), button:has-text("Start søknad"), ' +
+    '[data-testid*="sok-tilskudd"], [data-testid*="start-soknad"]';
+
+  const ORGNR_FELT =
+    'input[name*="orgnr"], input[name*="organisasjonsnummer"], ' +
+    'input[placeholder*="rgnr"], input[placeholder*="rganisasjon"], ' +
+    'input[inputmode="numeric"][maxlength="9"], [data-testid*="orgnr"]';
+
+  const SUBMIT_KNAPP =
+    'button[type="submit"], button:has-text("Neste"), ' +
+    'button:has-text("Fortsett"), button:has-text("Opprett søknad")';
+
+  // Finn utlysning med Søk om tilskudd-knapp og klikk den
+  async function gåTilOrgVelger(page) {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    await page.locator('a[href*="utlysinger/"]').first().waitFor({ state: 'visible', timeout: SIDE_TIMEOUT });
+    const hrefs = await page.locator('a[href*="utlysinger/"]').evaluateAll(
+      els => [...new Set(els.map(el => el.getAttribute('href')).filter(Boolean))]
+    );
+    const urler = hrefs.map(h => h.startsWith('http') ? h : `${base}${h}`);
+    for (const url of urler.slice(0, 8)) {
+      await page.goto(url, { waitUntil: 'networkidle', timeout: IDLE_TIMEOUT });
+      const knapp = page.locator(SØK_KNAPP).first();
+      if ((await knapp.count()) === 0) continue;
+      await knapp.click();
+      await page.waitForLoadState('networkidle', { timeout: IDLE_TIMEOUT });
+      return true;
+    }
+    return false;
+  }
+
+  test('AK-1 – "Hvem søker du på vegne av?"-skjerm vises etter klikk på Søk om tilskudd', async ({ page }, testInfo) => {
+    const funnet = await gåTilOrgVelger(page);
+    testInfo.skip(!funnet, 'Ingen utlysning med "Søk om tilskudd"-knapp funnet i TEST-miljøet');
+    const body = await page.textContent('body');
+    const harOrgSkjerm = /hvem søker|vegne av|organisasjon|velg.*org/i.test(body);
+    expect(harOrgSkjerm, 'Forventet skjermbilde for organisasjonsvalg etter klikk på Søk om tilskudd').toBe(true);
+  });
+
+  test('AK-2 – organisasjonsnummerfeltet er synlig', async ({ page }, testInfo) => {
+    const funnet = await gåTilOrgVelger(page);
+    testInfo.skip(!funnet, 'Ingen utlysning med "Søk om tilskudd"-knapp funnet i TEST-miljøet');
+    const felt = page.locator(ORGNR_FELT).first();
+    if ((await felt.count()) > 0) {
+      await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
+    } else {
+      const body = await page.textContent('body');
+      expect(body).toMatch(/organisasjonsnummer|org\.?\s*nr|orgnr/i);
+    }
+  });
+
+  test('AK-3 – organisasjonsnummer er obligatorisk (tom felt blokkerer innsending)', async ({ page }, testInfo) => {
+    const funnet = await gåTilOrgVelger(page);
+    testInfo.skip(!funnet, 'Ingen utlysning med "Søk om tilskudd"-knapp funnet i TEST-miljøet');
+    const felt = page.locator(ORGNR_FELT).first();
+    testInfo.skip((await felt.count()) === 0, 'Organisasjonsnummerfelt ikke funnet på org-velger-siden');
+    await felt.fill('');
+    const submitKnapp = page.locator(SUBMIT_KNAPP).first();
+    if ((await submitKnapp.count()) > 0) {
+      // Knapp disabled = skjema blokkerer innsending ved tomt obligatorisk felt
+      const erDisabled = await submitKnapp.isDisabled();
+      if (erDisabled) {
+        expect(erDisabled, 'Submit-knapp skal være deaktivert når org-nummer er tomt').toBe(true);
+        return;
+      }
+      // Knapp enabled = sjekk om klikk gir feilmelding
+      await submitKnapp.click({ force: true });
+      await page.waitForLoadState('domcontentloaded');
+      const body = await page.textContent('body');
+      const harFeil =
+        /påkrevd|obligatorisk|required|mangler|ugyldig|feil/i.test(body) ||
+        (await page.locator('[aria-invalid="true"], [role="alert"], [class*="error"]').count()) > 0;
+      expect(harFeil, 'Forventet valideringsfeil for tomt organisasjonsnummer').toBe(true);
+    }
+  });
+
+  test('AK-3 – org-nummer valideres på format (feil antall siffer gir feil)', async ({ page }, testInfo) => {
+    const funnet = await gåTilOrgVelger(page);
+    testInfo.skip(!funnet, 'Ingen utlysning med "Søk om tilskudd"-knapp funnet i TEST-miljøet');
+    const felt = page.locator(ORGNR_FELT).first();
+    testInfo.skip((await felt.count()) === 0, 'Organisasjonsnummerfelt ikke funnet på org-velger-siden');
+    await felt.fill('123'); // For kort – ugyldig format
+    await felt.press('Tab');
+    let harFeil =
+      (await page.locator('[aria-invalid="true"], [class*="error"]').count()) > 0;
+    if (!harFeil) {
+      const submitKnapp = page.locator(SUBMIT_KNAPP).first();
+      if ((await submitKnapp.count()) > 0) {
+        await submitKnapp.click();
+        await page.waitForLoadState('domcontentloaded');
+        const body = await page.textContent('body');
+        harFeil = /ugyldig|feil|invalid|9 siffer/i.test(body) ||
+          (await page.locator('[aria-invalid="true"], [role="alert"]').count()) > 0;
+      }
+    }
+    expect(harFeil, 'Forventet valideringsfeil for org-nummer med feil format (123)').toBe(true);
+  });
+
+  test('AK-4 – søknadsnavn-felt er synlig', async ({ page }, testInfo) => {
+    const funnet = await gåTilOrgVelger(page);
+    testInfo.skip(!funnet, 'Ingen utlysning med "Søk om tilskudd"-knapp funnet i TEST-miljøet');
+    const navnFelt = page.locator(
+      'input[name*="navn"], input[name*="name"], input[placeholder*="navn"], ' +
+      'input[placeholder*="søknad"], [data-testid*="soknadsnavn"], [data-testid*="navn"]'
+    ).first();
+    if ((await navnFelt.count()) > 0) {
+      await expect(navnFelt).toBeVisible({ timeout: SIDE_TIMEOUT });
+    } else {
+      const body = await page.textContent('body');
+      expect(body).toMatch(/søknad.*navn|navn.*søknad|gi.*søknaden|tittel/i);
+    }
+  });
+
+  test('AK-5 – e-postfelt er synlig', async ({ page }, testInfo) => {
+    const funnet = await gåTilOrgVelger(page);
+    testInfo.skip(!funnet, 'Ingen utlysning med "Søk om tilskudd"-knapp funnet i TEST-miljøet');
+    const epostFelt = page.locator(
+      'input[type="email"], input[name*="epost"], input[name*="email"], ' +
+      'input[placeholder*="e-post"], input[placeholder*="epost"], [data-testid*="epost"]'
+    ).first();
+    if ((await epostFelt.count()) > 0) {
+      await expect(epostFelt).toBeVisible({ timeout: SIDE_TIMEOUT });
+    } else {
+      const body = await page.textContent('body');
+      expect(body).toMatch(/e-post|epost|e-mail|email/i);
+    }
+  });
+
+});

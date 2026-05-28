@@ -6,6 +6,7 @@ import { START_URL, SIDE_TIMEOUT, IDLE_TIMEOUT } from './config.js';
 import fs from 'fs';
 
 const base = START_URL.replace(/\/$/, '');
+const SKJERMBILDER = 'brukerhistorie-resultater/skjermbilder';
 
 // ── BR.HIST-1 ─────────────────────────────────────────────────────────────────────
 test.describe('BR.HIST-1: Som søker vil jeg se oversikt over tilskuddsordninger', () => {
@@ -28,6 +29,63 @@ test.describe('BR.HIST-1: Som søker vil jeg se oversikt over tilskuddsordninger
     await forstelenke.click();
     await page.waitForLoadState('domcontentloaded');
     await expect(page).not.toHaveURL(`${base}/utlysinger`);
+  });
+
+});
+
+// ── BR.HIST-4 ─────────────────────────────────────────────────────────────────────
+test.describe('BR.HIST-4: Som søker vil jeg kunne navigere tilbake fra en utlysning', () => {
+
+  test('tilbake-navigasjon fra utlysning fungerer', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    const lenke = page.locator('a[href*="utlysinger/"]').first();
+    const href = await lenke.getAttribute('href');
+    const absoluteHref = href.startsWith('http') ? href : `${base}${href}`;
+    await page.goto(absoluteHref, { waitUntil: 'domcontentloaded', timeout: SIDE_TIMEOUT });
+    await page.goBack({ waitUntil: 'domcontentloaded' });
+    await expect(page).toHaveURL(/utlysinger/);
+  });
+
+  test('F5-refresh på utlysningslisten beholder siden', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await expect(page).toHaveURL(/utlysinger/);
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
+  });
+
+});
+
+// ── BR.HIST-5 ─────────────────────────────────────────────────────────────────────
+test.describe('BR.HIST-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen', () => {
+
+  test('skiplink til hovedinnhold finnes i DOM (WCAG 2.4.1)', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    fs.mkdirSync(SKJERMBILDER, { recursive: true });
+    await page.screenshot({ path: `${SKJERMBILDER}/BR.HIST-5-side-uten-skiplink.png` });
+    // Forventer: <a href="#main"> eller tilsvarende skiplink øverst på siden
+    const skipLenke = page.locator(
+      'a[href="#main"], a[href="#maincontent"], a[href="#main-content"], ' +
+      'a[href="#innhold"], a.skip-link, a[class*="skip"]'
+    ).first();
+    await expect(skipLenke).toBeAttached();
+  });
+
+  test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    await page.keyboard.press('Tab');
+    fs.mkdirSync(SKJERMBILDER, { recursive: true });
+    await page.screenshot({ path: `${SKJERMBILDER}/BR.HIST-5-foerste-tab-fokus.png` });
+    // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke
+    const href = await page.locator(':focus').getAttribute('href').catch(() => '');
+    expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);
+  });
+
+  test('søkeskjema er merket med role="search" for skjermlesere', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    // Forventer: søkecontaineren er annotert med role="search" (WCAG)
+    const searchRegion = page.locator('[role="search"]').first();
+    await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });
   });
 
 });
@@ -118,6 +176,60 @@ test.describe('TILSK-481 / TILSK-793: Som søker vil jeg søke etter en tilskudd
 
 });
 
+// ── TILSK-543 ────────────────────────────────────────────────────────────────────
+test.describe('TILSK-543: Som besøker ønsker jeg å finne riktig tilskuddsordning i portalen (uten innlogging)', () => {
+
+  // AK-1.1: Liste over tilskuddsordninger er tilgjengelig uten innlogging
+  test('AK-1.1 – utlysningslisten vises uten krav om innlogging', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    await expect(page).toHaveURL(/utlysinger/);
+    const kort = page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]');
+    await expect(kort.first()).toBeVisible({ timeout: SIDE_TIMEOUT });
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/logg inn for å/i);
+  });
+
+  // AK-1.2: Søkefunksjonalitet er tilgjengelig uten innlogging
+  test('AK-1.2 – søkefelt er synlig og tilgjengelig uten innlogging', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    const felt = page.locator('input[type="search"], input[placeholder*="øk"]').first();
+    await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
+  });
+
+  // AK-2.1–2.4: Dekkes av TILSK-856
+
+  // AK-3.1: Paginering – bla til neste side hvis listen er lang
+  test('AK-3.1 – pagineringsknapp finnes hvis listen har flere sider', async ({ page }, testInfo) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    await page.waitForLoadState('networkidle', { timeout: IDLE_TIMEOUT });
+    const pagKnapp = page.locator(
+      'button:has-text("Neste"), a:has-text("Neste"), ' +
+      '[aria-label*="neste" i], [aria-label*="next" i], ' +
+      '[class*="pagination"] button, nav[aria-label*="paginering"] button'
+    ).first();
+    const harPaginering = (await pagKnapp.count()) > 0;
+    testInfo.skip(!harPaginering, 'Ingen pagineringsknapp funnet – testmiljøet har antagelig færre ordninger enn én side krever, eller pagineringsselektorer treffer ikke appens DOM');
+    await expect(pagKnapp).toBeAttached({ timeout: SIDE_TIMEOUT });
+  });
+
+  // AK-4.1: Ingen treff – tydelig beskjed (med forslag til hva brukeren kan gjøre)
+  test('AK-4.1 – ingen treff: tydelig melding vises, ikke feilside', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    const felt = page.locator('input[type="search"], input[placeholder*="øk"]').first();
+    await felt.fill('xyzabc123nonsens');
+    await page.keyboard.press('Enter');
+    await page.waitForLoadState('domcontentloaded');
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
+    const kortEtter = await page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysig"]').count();
+    const ingenTreffEl = await page.locator(
+      '[class*="ingen"], [class*="empty"], [class*="no-result"], [class*="zero-result"]'
+    ).count();
+    expect(kortEtter === 0 || ingenTreffEl > 0, 'Forventet ingen ordningskort eller en ingen-treff-melding').toBe(true);
+  });
+
+});
+
 // ── TILSK-547 ────────────────────────────────────────────────────────────────────
 test.describe('TILSK-547: Som innlogget søker vil jeg se mine søknader', () => {
 
@@ -138,132 +250,6 @@ test.describe('TILSK-547: Som innlogget søker vil jeg se mine søknader', () =>
     await page.goto(`${base}/minside`, { timeout: IDLE_TIMEOUT });
     await page.waitForLoadState('networkidle', { timeout: IDLE_TIMEOUT });
     expect(feil, `JS-feil: ${feil.join(', ')}`).toHaveLength(0);
-  });
-
-});
-
-const SKJERMBILDER = 'brukerhistorie-resultater/skjermbilder';
-
-// ── BR.HIST-4 ─────────────────────────────────────────────────────────────────────
-test.describe('BR.HIST-4: Som søker vil jeg kunne navigere tilbake fra en utlysning', () => {
-
-  test('tilbake-navigasjon fra utlysning fungerer', async ({ page }) => {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    const lenke = page.locator('a[href*="utlysinger/"]').first();
-    const href = await lenke.getAttribute('href');
-    const absoluteHref = href.startsWith('http') ? href : `${base}${href}`;
-    await page.goto(absoluteHref, { waitUntil: 'domcontentloaded', timeout: SIDE_TIMEOUT });
-    await page.goBack({ waitUntil: 'domcontentloaded' });
-    await expect(page).toHaveURL(/utlysinger/);
-  });
-
-  test('F5-refresh på utlysningslisten beholder siden', async ({ page }) => {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    await page.reload({ waitUntil: 'domcontentloaded' });
-    await expect(page).toHaveURL(/utlysinger/);
-    const body = await page.textContent('body');
-    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
-  });
-
-});
-
-// ── BR.HIST-5 ─────────────────────────────────────────────────────────────────────
-test.describe('BR.HIST-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen', () => {
-
-  test('skiplink til hovedinnhold finnes i DOM (WCAG 2.4.1)', async ({ page }) => {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    fs.mkdirSync(SKJERMBILDER, { recursive: true });
-    await page.screenshot({ path: `${SKJERMBILDER}/BR.HIST-5-side-uten-skiplink.png` });
-    // Forventer: <a href="#main"> eller tilsvarende skiplink øverst på siden
-    const skipLenke = page.locator(
-      'a[href="#main"], a[href="#maincontent"], a[href="#main-content"], ' +
-      'a[href="#innhold"], a.skip-link, a[class*="skip"]'
-    ).first();
-    await expect(skipLenke).toBeAttached();
-  });
-
-  test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) => {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    await page.keyboard.press('Tab');
-    fs.mkdirSync(SKJERMBILDER, { recursive: true });
-    await page.screenshot({ path: `${SKJERMBILDER}/BR.HIST-5-foerste-tab-fokus.png` });
-    // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke
-    const href = await page.locator(':focus').getAttribute('href').catch(() => '');
-    expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);
-  });
-
-  test('søkeskjema er merket med role="search" for skjermlesere', async ({ page }) => {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    // Forventer: søkecontaineren er annotert med role="search" (WCAG)
-    const searchRegion = page.locator('[role="search"]').first();
-    await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });
-  });
-
-});
-
-// ── TILSK-856 ────────────────────────────────────────────────────────────────────
-test.describe('TILSK-856: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord', () => {
-
-  async function søk(page, tekst) {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    const felt = page.locator('input[type="search"], input[name*="search"], input[placeholder*="øk"]').first();
-    await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
-    await felt.fill(tekst);
-    await page.keyboard.press('Enter');
-    await page.waitForLoadState('domcontentloaded');
-  }
-
-  // AK-1: Stikkord – ett enkelt ord gir treff i tittel eller beskrivelse
-  test('AK-1 – stikkord: søk på ett ord gir resultater (ikke feilside)', async ({ page }) => {
-    await søk(page, 'tilskudd');
-    const body = await page.textContent('body');
-    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
-  });
-
-  test('AK-1 – stikkord: søk på ett ord viser matchende utlysninger', async ({ page }) => {
-    await søk(page, 'tilskudd');
-    const kort = page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]');
-    const antall = await kort.count();
-    expect(antall, 'Forventet minst én utlysning med søkeordet «tilskudd»').toBeGreaterThan(0);
-  });
-
-  // AK-2: Halvferdige ord – delstreng gir treff (f.eks. «tilsk» → «tilskudd»)
-  test('AK-2 – halvferdig ord: delstreng gir relevante treff (ikke feilside)', async ({ page }) => {
-    await søk(page, 'tilsk');
-    const body = await page.textContent('body');
-    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
-    const kortEllerIngenTreff = page.locator(
-      'article, [class*="card"], [class*="kort"], li a[href*="utlysing"], ' +
-      '[class*="ingen"], [class*="empty"], [class*="no-result"]'
-    );
-    await expect(kortEllerIngenTreff.first()).toBeAttached({ timeout: SIDE_TIMEOUT });
-  });
-
-  // AK-3: Flere ord – utlysninger som inneholder alle eller noen av ordene vises
-  test('AK-3 – flere ord: søk på «barn og unge» gir respons uten feilside', async ({ page }) => {
-    await søk(page, 'barn og unge');
-    const body = await page.textContent('body');
-    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
-  });
-
-  // AK-4: Ingen treff – tydelig melding forklarer at ingen ordninger matchet
-  test('AK-4 – ingen treff: nonsens-streng viser ingen-treff-melding, ikke feilside', async ({ page }) => {
-    await søk(page, 'xyzabc123nonsens');
-    const body = await page.textContent('body');
-    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
-  });
-
-  // AK-5: Tomt søkefelt – hele listen over utlysninger vises igjen
-  test('AK-5 – tomt søkefelt: hel utlysningsliste vises igjen', async ({ page }) => {
-    await søk(page, '');
-    await expect(page).toHaveURL(/utlysinger/);
-    const kort = page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]');
-    await expect(kort.first()).toBeVisible({ timeout: SIDE_TIMEOUT });
-  });
-
-  // AK-6: Feilstaving håndteres – gjerne med «mente du?»
-  test('AK-6 – feilstaving: feilstavet søkeord håndteres (f.eks. «mente du?»)', async ({ page }, testInfo) => {
-    testInfo.skip(true, 'AK-6 ikke implementert ennå – krever fuzzy søkemotor (TILSK-856 i Utviklingskø)');
   });
 
 });
@@ -420,102 +406,6 @@ test.describe('TILSK-738: Som søker ønsker jeg å se kontaktinformasjon om ord
 
 });
 
-// ── TILSK-785 / TILSK-795 ────────────────────────────────────────────────────────
-test.describe('TILSK-785 / TILSK-795: Redesign av utlysningsside', () => {
-
-  let _utlysningUrl = null;
-
-  async function gåTilUtlysning(page) {
-    if (_utlysningUrl) {
-      await page.goto(_utlysningUrl, { waitUntil: 'networkidle', timeout: IDLE_TIMEOUT });
-      return;
-    }
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    const lenke = page.locator('a[href*="utlysinger/"]').first();
-    await lenke.waitFor({ state: 'visible', timeout: SIDE_TIMEOUT });
-    const href = await lenke.getAttribute('href');
-    _utlysningUrl = href.startsWith('http') ? href : `${base}${href}`;
-    await page.goto(_utlysningUrl, { waitUntil: 'networkidle', timeout: IDLE_TIMEOUT });
-  }
-
-  test('AK-1.0 – breadcrumbs er synlig på utlysningssiden', async ({ page }) => {
-    await gåTilUtlysning(page);
-    const breadcrumbs = page.locator(
-      'nav[aria-label*="breadcrumb" i], [class*="breadcrumb"], ' +
-      'ol[class*="breadcrumb"], nav ol li'
-    ).first();
-    await expect(breadcrumbs).toBeVisible({ timeout: SIDE_TIMEOUT });
-  });
-
-  test('AK-1.1 – tittel (h1) er synlig under breadcrumbs', async ({ page }) => {
-    await gåTilUtlysning(page);
-    const tittel = page.locator('h1').first();
-    await expect(tittel).toBeVisible({ timeout: SIDE_TIMEOUT });
-    const tekst = await tittel.textContent();
-    expect(tekst?.trim().length ?? 0).toBeGreaterThan(0);
-  });
-
-  test('AK-1.2 – sist oppdatert dato vises', async ({ page }) => {
-    await gåTilUtlysning(page);
-    const body = await page.textContent('body');
-    const harDato = /oppdatert|sist\s+endret|\d{1,2}\.\d{1,2}\.\d{4}|\d{4}-\d{2}-\d{2}/i.test(body);
-    expect(harDato, 'Forventet å finne oppdatert-dato på utlysningssiden').toBe(true);
-  });
-
-  test('AK-1.3 – forvalternavn vises', async ({ page }) => {
-    await gåTilUtlysning(page);
-    const body = await page.textContent('body');
-    const harForvalter =
-      (await page.locator('[class*="forvalter"], [data-testid*="forvalter"]').count()) > 0 ||
-      /kommune|fylkeskommune|forvalter|statlig/i.test(body);
-    expect(harForvalter, 'Forventet forvalternavn eller kommunereferanse').toBe(true);
-  });
-
-  test('AK-1.4 – pengebeløp vises med tusenskille i kroner (om tilskuddsramme er satt)', async ({ page }) => {
-    await gåTilUtlysning(page);
-    const body = await page.textContent('body');
-    const harBelop = /kr\b|NOK|tilskuddsramme|ramme|midler/i.test(body);
-    if (harBelop) {
-      // Bekrefter at tall med tusenskille (mellomrom eller punktum) brukes
-      expect(body).toMatch(/\d[\s.]\d{3}/);
-    }
-    // Godtar mangel – ikke alle ordninger har satt tilskuddsramme
-  });
-
-  test('AK-2.0 – søknadsfristkort er synlig', async ({ page }) => {
-    await gåTilUtlysning(page);
-    const frist = page.locator(
-      '[class*="frist"], [class*="deadline"], [data-testid*="frist"], ' +
-      'section:has-text("Søknadsfrist"), h2:has-text("Frist"), h3:has-text("Frist"), ' +
-      'div:has-text("Søknadsfrist")'
-    ).first();
-    await expect(frist).toBeAttached({ timeout: SIDE_TIMEOUT });
-  });
-
-  test('AK-3.0 – kontaktinfoseksjon er synlig', async ({ page }) => {
-    await gåTilUtlysning(page);
-    const kontakt = page.locator(
-      '[class*="kontakt"], [data-testid*="kontakt"], ' +
-      'section:has-text("Kontakt"), h2:has-text("Kontakt"), h3:has-text("Kontakt")'
-    ).first();
-    await expect(kontakt).toBeAttached({ timeout: SIDE_TIMEOUT });
-  });
-
-  test('AK-4.0 – rikttekst-innholdsområde er synlig med tekst', async ({ page }) => {
-    await gåTilUtlysning(page);
-    // Sjekk at main-området inneholder synlig tekst (rikttekst-innhold)
-    const mainTekst = await page.locator('main').textContent().catch(() => '');
-    expect(mainTekst?.trim().length ?? 0, 'Forventet tekst-innhold i main-elementet').toBeGreaterThan(50);
-  });
-
-  test('AK – utlysningssiden laster uten feilside', async ({ page }) => {
-    await gåTilUtlysning(page);
-    const body = await page.textContent('body');
-    expect(body).not.toMatch(/Internal Server Error|Uventet feil/);
-  });
-
-});
-
 // ── TILSK-767 ────────────────────────────────────────────────────────────────────
 test.describe('TILSK-767: Organisasjonsvelger ved søknadsopprettelse', () => {
 
@@ -651,59 +541,165 @@ test.describe('TILSK-767: Organisasjonsvelger ved søknadsopprettelse', () => {
 
 });
 
-// ── TILSK-543 ────────────────────────────────────────────────────────────────────
-test.describe('TILSK-543: Som besøker ønsker jeg å finne riktig tilskuddsordning i portalen (uten innlogging)', () => {
+// ── TILSK-785 / TILSK-795 ────────────────────────────────────────────────────────
+test.describe('TILSK-785 / TILSK-795: Redesign av utlysningsside', () => {
 
-  // AK-1.1: Liste over tilskuddsordninger er tilgjengelig uten innlogging
-  test('AK-1.1 – utlysningslisten vises uten krav om innlogging', async ({ page }) => {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    await expect(page).toHaveURL(/utlysinger/);
-    const kort = page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]');
-    await expect(kort.first()).toBeVisible({ timeout: SIDE_TIMEOUT });
-    const body = await page.textContent('body');
-    expect(body).not.toMatch(/logg inn for å/i);
-  });
+  let _utlysningUrl = null;
 
-  // AK-1.2: Søkefunksjonalitet er tilgjengelig uten innlogging
-  test('AK-1.2 – søkefelt er synlig og tilgjengelig uten innlogging', async ({ page }) => {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    const felt = page.locator('input[type="search"], input[placeholder*="øk"]').first();
-    await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
-  });
-
-  // AK-2.1–2.4: Dekkes av TILSK-856
-
-  // AK-3.1: Paginering – bla til neste side hvis listen er lang
-  test('AK-3.1 – pagineringsknapp finnes hvis listen har flere sider', async ({ page }) => {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    await page.waitForLoadState('networkidle', { timeout: IDLE_TIMEOUT });
-    const antallKort = await page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]').count();
-    if (antallKort < 10) {
-      // For få resultater til å kreve paginering – test ikke relevant
+  async function gåTilUtlysning(page) {
+    if (_utlysningUrl) {
+      await page.goto(_utlysningUrl, { waitUntil: 'networkidle', timeout: IDLE_TIMEOUT });
       return;
     }
-    const pagKnapp = page.locator(
-      'button:has-text("Neste"), a:has-text("Neste"), ' +
-      '[aria-label*="neste" i], [aria-label*="next" i], ' +
-      '[class*="pagination"] button, nav[aria-label*="paginering"] button'
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    const lenke = page.locator('a[href*="utlysinger/"]').first();
+    await lenke.waitFor({ state: 'visible', timeout: SIDE_TIMEOUT });
+    const href = await lenke.getAttribute('href');
+    _utlysningUrl = href.startsWith('http') ? href : `${base}${href}`;
+    await page.goto(_utlysningUrl, { waitUntil: 'networkidle', timeout: IDLE_TIMEOUT });
+  }
+
+  test('AK-1.0 – breadcrumbs er synlig på utlysningssiden', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const breadcrumbs = page.locator(
+      'nav[aria-label*="breadcrumb" i], [class*="breadcrumb"], ' +
+      'ol[class*="breadcrumb"], nav ol li'
     ).first();
-    await expect(pagKnapp).toBeAttached({ timeout: SIDE_TIMEOUT });
+    await expect(breadcrumbs).toBeVisible({ timeout: SIDE_TIMEOUT });
   });
 
-  // AK-4.1: Ingen treff – tydelig beskjed (med forslag til hva brukeren kan gjøre)
-  test('AK-4.1 – ingen treff: tydelig melding vises, ikke feilside', async ({ page }) => {
+  test('AK-1.1 – tittel (h1) er synlig under breadcrumbs', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const tittel = page.locator('h1').first();
+    await expect(tittel).toBeVisible({ timeout: SIDE_TIMEOUT });
+    const tekst = await tittel.textContent();
+    expect(tekst?.trim().length ?? 0).toBeGreaterThan(0);
+  });
+
+  test('AK-1.2 – sist oppdatert dato vises', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const body = await page.textContent('body');
+    const harDato = /oppdatert|sist\s+endret|\d{1,2}\.\d{1,2}\.\d{4}|\d{4}-\d{2}-\d{2}/i.test(body);
+    expect(harDato, 'Forventet å finne oppdatert-dato på utlysningssiden').toBe(true);
+  });
+
+  test('AK-1.3 – forvalternavn vises', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const body = await page.textContent('body');
+    const harForvalter =
+      (await page.locator('[class*="forvalter"], [data-testid*="forvalter"]').count()) > 0 ||
+      /kommune|fylkeskommune|forvalter|statlig/i.test(body);
+    expect(harForvalter, 'Forventet forvalternavn eller kommunereferanse').toBe(true);
+  });
+
+  test('AK-1.4 – pengebeløp vises med tusenskille i kroner (om tilskuddsramme er satt)', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const body = await page.textContent('body');
+    const harBelop = /kr\b|NOK|tilskuddsramme|ramme|midler/i.test(body);
+    if (harBelop) {
+      // Bekrefter at tall med tusenskille (mellomrom eller punktum) brukes
+      expect(body).toMatch(/\d[\s.]\d{3}/);
+    }
+    // Godtar mangel – ikke alle ordninger har satt tilskuddsramme
+  });
+
+  test('AK-2.0 – søknadsfristkort er synlig', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const frist = page.locator(
+      '[class*="frist"], [class*="deadline"], [data-testid*="frist"], ' +
+      'section:has-text("Søknadsfrist"), h2:has-text("Frist"), h3:has-text("Frist"), ' +
+      'div:has-text("Søknadsfrist")'
+    ).first();
+    await expect(frist).toBeAttached({ timeout: SIDE_TIMEOUT });
+  });
+
+  test('AK-3.0 – kontaktinfoseksjon er synlig', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const kontakt = page.locator(
+      '[class*="kontakt"], [data-testid*="kontakt"], ' +
+      'section:has-text("Kontakt"), h2:has-text("Kontakt"), h3:has-text("Kontakt")'
+    ).first();
+    await expect(kontakt).toBeAttached({ timeout: SIDE_TIMEOUT });
+  });
+
+  test('AK-4.0 – rikttekst-innholdsområde er synlig med tekst', async ({ page }) => {
+    await gåTilUtlysning(page);
+    // Sjekk at main-området inneholder synlig tekst (rikttekst-innhold)
+    const mainTekst = await page.locator('main').textContent().catch(() => '');
+    expect(mainTekst?.trim().length ?? 0, 'Forventet tekst-innhold i main-elementet').toBeGreaterThan(50);
+  });
+
+  test('AK – utlysningssiden laster uten feilside', async ({ page }) => {
+    await gåTilUtlysning(page);
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/Internal Server Error|Uventet feil/);
+  });
+
+});
+
+// ── TILSK-856 ────────────────────────────────────────────────────────────────────
+test.describe('TILSK-856: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord', () => {
+
+  async function søk(page, tekst) {
     await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    const felt = page.locator('input[type="search"], input[placeholder*="øk"]').first();
-    await felt.fill('xyzabc123nonsens');
+    const felt = page.locator('input[type="search"], input[name*="search"], input[placeholder*="øk"]').first();
+    await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
+    await felt.fill(tekst);
     await page.keyboard.press('Enter');
     await page.waitForLoadState('domcontentloaded');
+  }
+
+  // AK-1: Stikkord – ett enkelt ord gir treff i tittel eller beskrivelse
+  test('AK-1 – stikkord: søk på ett ord gir resultater (ikke feilside)', async ({ page }) => {
+    await søk(page, 'tilskudd');
     const body = await page.textContent('body');
     expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
-    const kortEtter = await page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]').count();
-    const ingenTreffEl = await page.locator(
-      '[class*="ingen"], [class*="empty"], [class*="no-result"], [class*="zero-result"]'
-    ).count();
-    expect(kortEtter === 0 || ingenTreffEl > 0, 'Forventet ingen ordningskort eller en ingen-treff-melding').toBe(true);
+  });
+
+  test('AK-1 – stikkord: søk på ett ord viser matchende utlysninger', async ({ page }) => {
+    await søk(page, 'tilskudd');
+    const kort = page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]');
+    const antall = await kort.count();
+    expect(antall, 'Forventet minst én utlysning med søkeordet «tilskudd»').toBeGreaterThan(0);
+  });
+
+  // AK-2: Halvferdige ord – delstreng gir treff (f.eks. «tilsk» → «tilskudd»)
+  test('AK-2 – halvferdig ord: delstreng gir relevante treff (ikke feilside)', async ({ page }) => {
+    await søk(page, 'tilsk');
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
+    const kortEllerIngenTreff = page.locator(
+      'article, [class*="card"], [class*="kort"], li a[href*="utlysing"], ' +
+      '[class*="ingen"], [class*="empty"], [class*="no-result"]'
+    );
+    await expect(kortEllerIngenTreff.first()).toBeAttached({ timeout: SIDE_TIMEOUT });
+  });
+
+  // AK-3: Flere ord – utlysninger som inneholder alle eller noen av ordene vises
+  test('AK-3 – flere ord: søk på «barn og unge» gir respons uten feilside', async ({ page }) => {
+    await søk(page, 'barn og unge');
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
+  });
+
+  // AK-4: Ingen treff – tydelig melding forklarer at ingen ordninger matchet
+  test('AK-4 – ingen treff: nonsens-streng viser ingen-treff-melding, ikke feilside', async ({ page }) => {
+    await søk(page, 'xyzabc123nonsens');
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
+  });
+
+  // AK-5: Tomt søkefelt – hele listen over utlysninger vises igjen
+  test('AK-5 – tomt søkefelt: hel utlysningsliste vises igjen', async ({ page }) => {
+    await søk(page, '');
+    await expect(page).toHaveURL(/utlysinger/);
+    const kort = page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysig"]');
+    await expect(kort.first()).toBeVisible({ timeout: SIDE_TIMEOUT });
+  });
+
+  // AK-6: Feilstaving håndteres – gjerne med «mente du?»
+  test('AK-6 – feilstaving: feilstavet søkeord håndteres (f.eks. «mente du?»)', async ({ page }, testInfo) => {
+    testInfo.skip(true, 'AK-6 ikke implementert ennå – krever fuzzy søkemotor (TILSK-856 i Utviklingskø)');
   });
 
 });

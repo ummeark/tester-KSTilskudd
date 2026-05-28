@@ -87,12 +87,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 248,
+                      "duration": 311,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:23.934Z",
+                      "startTime": "2026-05-28T10:11:56.189Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -121,12 +121,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 194,
+                      "duration": 422,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:24.241Z",
+                      "startTime": "2026-05-28T10:11:56.563Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 287,
+                      "duration": 356,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:24.440Z",
+                      "startTime": "2026-05-28T10:11:56.991Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -197,12 +197,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 740,
+                      "duration": 719,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:24.733Z",
+                      "startTime": "2026-05-28T10:11:57.353Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -231,12 +231,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 746,
+                      "duration": 790,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:25.478Z",
+                      "startTime": "2026-05-28T10:11:58.077Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -265,12 +265,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 717,
+                      "duration": 753,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:26.231Z",
+                      "startTime": "2026-05-28T10:11:58.873Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -299,12 +299,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 722,
+                      "duration": 986,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:26.957Z",
+                      "startTime": "2026-05-28T10:11:59.631Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -333,12 +333,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 733,
+                      "duration": 832,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:27.684Z",
+                      "startTime": "2026-05-28T10:12:00.622Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -367,12 +367,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 698,
+                      "duration": 793,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:28.425Z",
+                      "startTime": "2026-05-28T10:12:01.459Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -401,12 +401,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 691,
+                      "duration": 1818,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:29.129Z",
+                      "startTime": "2026-05-28T10:12:02.258Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -435,12 +435,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 728,
+                      "duration": 797,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:29.827Z",
+                      "startTime": "2026-05-28T10:12:04.082Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -469,12 +469,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 237,
+                      "duration": 283,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:30.562Z",
+                      "startTime": "2026-05-28T10:12:04.884Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -511,12 +511,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 324,
+                      "duration": 363,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:30.804Z",
+                      "startTime": "2026-05-28T10:12:05.172Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -545,12 +545,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 301,
+                      "duration": 289,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:31.132Z",
+                      "startTime": "2026-05-28T10:12:05.540Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -579,12 +579,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 905,
+                      "duration": 1124,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:31.438Z",
+                      "startTime": "2026-05-28T10:12:05.832Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -621,12 +621,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1172,
+                      "duration": 1120,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:32.348Z",
+                      "startTime": "2026-05-28T10:12:06.962Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -655,12 +655,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 250,
+                      "duration": 280,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:33.526Z",
+                      "startTime": "2026-05-28T10:12:08.087Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -697,7 +697,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 5229,
+                      "duration": 5245,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:182:29",
@@ -721,7 +721,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:33.781Z",
+                      "startTime": "2026-05-28T10:12:08.371Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -761,7 +761,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 299,
+                      "duration": 314,
                       "error": {
                         "message": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m",
                         "stack": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:192:84",
@@ -785,7 +785,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:39.342Z",
+                      "startTime": "2026-05-28T10:12:13.920Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -825,7 +825,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 15225,
+                      "duration": 15229,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:199:32",
@@ -849,7 +849,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:39.941Z",
+                      "startTime": "2026-05-28T10:12:14.523Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -876,13 +876,13 @@
           ]
         },
         {
-          "title": "BH-6: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord",
+          "title": "BH-6: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord (TILSK-856)",
           "file": "brukerhistorie-tester.js",
           "line": 205,
           "column": 6,
           "specs": [
             {
-              "title": "stikkord – søk på ett ord gir resultater eller ingen-treff-melding (ikke feilside)",
+              "title": "AK-1 – stikkord: søk på ett ord gir resultater (ikke feilside)",
               "ok": true,
               "tags": [],
               "tests": [
@@ -897,12 +897,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 274,
+                      "duration": 256,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:55.450Z",
+                      "startTime": "2026-05-28T10:12:30.054Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -910,13 +910,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "2d51df8f2a7ee4965639-be25668986f2098738bb",
+              "id": "2d51df8f2a7ee4965639-3cbbbbb59912451d4f2f",
               "file": "brukerhistorie-tester.js",
-              "line": 216,
+              "line": 217,
               "column": 3
             },
             {
-              "title": "stikkord – søk på ett ord viser matchende utlysninger",
+              "title": "AK-1 – stikkord: søk på ett ord viser matchende utlysninger",
               "ok": true,
               "tags": [],
               "tests": [
@@ -931,12 +931,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 205,
+                      "duration": 257,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:55.787Z",
+                      "startTime": "2026-05-28T10:12:30.371Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -944,13 +944,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "2d51df8f2a7ee4965639-b044633599c7ab9462a5",
+              "id": "2d51df8f2a7ee4965639-915ab53a512efade6c4a",
               "file": "brukerhistorie-tester.js",
-              "line": 222,
+              "line": 223,
               "column": 3
             },
             {
-              "title": "halvferdig ord – delstreng gir relevante treff",
+              "title": "AK-2 – halvferdig ord: delstreng gir relevante treff (ikke feilside)",
               "ok": true,
               "tags": [],
               "tests": [
@@ -965,12 +965,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 214,
+                      "duration": 243,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:55.997Z",
+                      "startTime": "2026-05-28T10:12:30.634Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -978,13 +978,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "2d51df8f2a7ee4965639-5a76eebcc8359a408eca",
+              "id": "2d51df8f2a7ee4965639-1596a30d77af19828571",
               "file": "brukerhistorie-tester.js",
-              "line": 229,
+              "line": 231,
               "column": 3
             },
             {
-              "title": "flere ord – søk på flere ord gir respons uten feilside",
+              "title": "AK-3 – flere ord: søk på «barn og unge» gir respons uten feilside",
               "ok": true,
               "tags": [],
               "tests": [
@@ -999,12 +999,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 234,
+                      "duration": 209,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:56.215Z",
+                      "startTime": "2026-05-28T10:12:30.880Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1012,13 +1012,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "2d51df8f2a7ee4965639-ec2e1e5b96bd1c8a1b9e",
+              "id": "2d51df8f2a7ee4965639-1fe86d2eb20eb1cb4c9a",
               "file": "brukerhistorie-tester.js",
-              "line": 241,
+              "line": 243,
               "column": 3
             },
             {
-              "title": "ingen treff – søk på nonsens-streng viser ingen-treff-melding, ikke feilside",
+              "title": "AK-4 – ingen treff: nonsens-streng viser ingen-treff-melding, ikke feilside",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1033,12 +1033,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 249,
+                      "duration": 204,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:56.453Z",
+                      "startTime": "2026-05-28T10:12:31.094Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1046,13 +1046,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "2d51df8f2a7ee4965639-2e9db93235083cff530b",
+              "id": "2d51df8f2a7ee4965639-de12659cdb8021bff058",
               "file": "brukerhistorie-tester.js",
-              "line": 247,
+              "line": 250,
               "column": 3
             },
             {
-              "title": "tomt søkefelt – hel utlysningsliste vises igjen",
+              "title": "AK-5 – tomt søkefelt: hel utlysningsliste vises igjen",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1067,12 +1067,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 228,
+                      "duration": 202,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:56.706Z",
+                      "startTime": "2026-05-28T10:12:31.302Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1080,9 +1080,63 @@
                   "status": "expected"
                 }
               ],
-              "id": "2d51df8f2a7ee4965639-944a609e2f09d6a51b98",
+              "id": "2d51df8f2a7ee4965639-c079eab9a7d5f886eb49",
               "file": "brukerhistorie-tester.js",
-              "line": 253,
+              "line": 257,
+              "column": 3
+            },
+            {
+              "title": "AK-6 – feilstaving: feilstavet søkeord håndteres (f.eks. «mente du?»)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "AK-6 ikke implementert ennå – krever fuzzy søkemotor (TILSK-856 i Utviklingskø)",
+                      "location": {
+                        "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                        "line": 266,
+                        "column": 14
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 60,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-28T10:12:31.508Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "AK-6 ikke implementert ennå – krever fuzzy søkemotor (TILSK-856 i Utviklingskø)",
+                          "location": {
+                            "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                            "line": 266,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-b8c3eb560b1f3466e266",
+              "file": "brukerhistorie-tester.js",
+              "line": 265,
               "column": 3
             }
           ]
@@ -1090,7 +1144,7 @@
         {
           "title": "BH-7: Som søker ønsker jeg å se kontaktinformasjon om ordningen (TILSK-738)",
           "file": "brukerhistorie-tester.js",
-          "line": 263,
+          "line": 272,
           "column": 6,
           "specs": [
             {
@@ -1109,12 +1163,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1709,
+                      "duration": 1724,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:56.937Z",
+                      "startTime": "2026-05-28T10:12:31.572Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1124,7 +1178,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-2363091903c875d3c361",
               "file": "brukerhistorie-tester.js",
-              "line": 334,
+              "line": 343,
               "column": 3
             },
             {
@@ -1143,12 +1197,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 869,
+                      "duration": 969,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:58.651Z",
+                      "startTime": "2026-05-28T10:12:33.301Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1158,7 +1212,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-14c1273acd8bd07084c3",
               "file": "brukerhistorie-tester.js",
-              "line": 341,
+              "line": 350,
               "column": 3
             },
             {
@@ -1177,12 +1231,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 876,
+                      "duration": 917,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:37:59.526Z",
+                      "startTime": "2026-05-28T10:12:34.276Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1192,45 +1246,11 @@
               ],
               "id": "2d51df8f2a7ee4965639-ebb7ce1b69753a5c14cf",
               "file": "brukerhistorie-tester.js",
-              "line": 349,
+              "line": 358,
               "column": 3
             },
             {
               "title": "AK-1.1 – maks tre kontaktinfokort vises totalt",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 873,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-05-28T08:38:00.408Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2d51df8f2a7ee4965639-81dc395a64488cadd3ba",
-              "file": "brukerhistorie-tester.js",
-              "line": 362,
-              "column": 3
-            },
-            {
-              "title": "AK-1.2 – maks tre personkort vises",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1250,7 +1270,41 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:01.286Z",
+                      "startTime": "2026-05-28T10:12:35.199Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-81dc395a64488cadd3ba",
+              "file": "brukerhistorie-tester.js",
+              "line": 371,
+              "column": 3
+            },
+            {
+              "title": "AK-1.2 – maks tre personkort vises",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 882,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-28T10:12:36.059Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1260,7 +1314,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-7b489b90b82e7c312965",
               "file": "brukerhistorie-tester.js",
-              "line": 370,
+              "line": 379,
               "column": 3
             },
             {
@@ -1279,12 +1333,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 824,
+                      "duration": 894,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:02.148Z",
+                      "startTime": "2026-05-28T10:12:36.947Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1294,7 +1348,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-557b00a3cc98c6c57d20",
               "file": "brukerhistorie-tester.js",
-              "line": 378,
+              "line": 387,
               "column": 3
             },
             {
@@ -1313,12 +1367,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 832,
+                      "duration": 814,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:02.979Z",
+                      "startTime": "2026-05-28T10:12:37.852Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1328,7 +1382,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-ca64bb787a95748140f2",
               "file": "brukerhistorie-tester.js",
-              "line": 386,
+              "line": 395,
               "column": 3
             },
             {
@@ -1347,12 +1401,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1995,
+                      "duration": 833,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:03.821Z",
+                      "startTime": "2026-05-28T10:12:38.671Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1362,7 +1416,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-d53d7f04a3119d5b9065",
               "file": "brukerhistorie-tester.js",
-              "line": 395,
+              "line": 404,
               "column": 3
             },
             {
@@ -1378,7 +1432,7 @@
                       "description": "Ingen utlysning med både person- og virksomhetskort funnet i TEST-miljøet",
                       "location": {
                         "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
-                        "line": 406,
+                        "line": 415,
                         "column": 14
                       }
                     }
@@ -1391,19 +1445,19 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "skipped",
-                      "duration": 5340,
+                      "duration": 4898,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:05.821Z",
+                      "startTime": "2026-05-28T10:12:39.509Z",
                       "annotations": [
                         {
                           "type": "skip",
                           "description": "Ingen utlysning med både person- og virksomhetskort funnet i TEST-miljøet",
                           "location": {
                             "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
-                            "line": 406,
+                            "line": 415,
                             "column": 14
                           }
                         }
@@ -1416,7 +1470,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-00249acb2b35fd5f71dd",
               "file": "brukerhistorie-tester.js",
-              "line": 404,
+              "line": 413,
               "column": 3
             }
           ]
@@ -1424,7 +1478,7 @@
         {
           "title": "BH-8: Redesign av utlysningsside (TILSK-785 / TILSK-795)",
           "file": "brukerhistorie-tester.js",
-          "line": 415,
+          "line": 424,
           "column": 6,
           "specs": [
             {
@@ -1443,12 +1497,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1682,
+                      "duration": 1683,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:11.167Z",
+                      "startTime": "2026-05-28T10:12:44.413Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1458,7 +1512,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-1f68aae92f6b7f8c97fe",
               "file": "brukerhistorie-tester.js",
-              "line": 432,
+              "line": 441,
               "column": 3
             },
             {
@@ -1482,7 +1536,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:12.854Z",
+                      "startTime": "2026-05-28T10:12:46.101Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1492,7 +1546,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-446cc3904193b16c76c4",
               "file": "brukerhistorie-tester.js",
-              "line": 441,
+              "line": 450,
               "column": 3
             },
             {
@@ -1511,12 +1565,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1043,
+                      "duration": 879,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:13.798Z",
+                      "startTime": "2026-05-28T10:12:47.045Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1526,7 +1580,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-c170c7f0a2cc04504c82",
               "file": "brukerhistorie-tester.js",
-              "line": 449,
+              "line": 458,
               "column": 3
             },
             {
@@ -1545,12 +1599,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1019,
+                      "duration": 1818,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:14.847Z",
+                      "startTime": "2026-05-28T10:12:47.929Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1560,7 +1614,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-e52c004841b5cbd64376",
               "file": "brukerhistorie-tester.js",
-              "line": 456,
+              "line": 465,
               "column": 3
             },
             {
@@ -1579,12 +1633,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 934,
+                      "duration": 1826,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:15.874Z",
+                      "startTime": "2026-05-28T10:12:49.752Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1594,7 +1648,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-9d8e2e7288c71302ec9e",
               "file": "brukerhistorie-tester.js",
-              "line": 465,
+              "line": 474,
               "column": 3
             },
             {
@@ -1613,12 +1667,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 958,
+                      "duration": 852,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:16.813Z",
+                      "startTime": "2026-05-28T10:12:51.583Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1628,7 +1682,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-ac1b39966171646b7a87",
               "file": "brukerhistorie-tester.js",
-              "line": 476,
+              "line": 485,
               "column": 3
             },
             {
@@ -1647,12 +1701,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 945,
+                      "duration": 836,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:17.776Z",
+                      "startTime": "2026-05-28T10:12:52.441Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1662,7 +1716,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-1119d9e4e0b4d5c31678",
               "file": "brukerhistorie-tester.js",
-              "line": 486,
+              "line": 495,
               "column": 3
             },
             {
@@ -1681,12 +1735,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1132,
+                      "duration": 908,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:18.727Z",
+                      "startTime": "2026-05-28T10:12:53.282Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1696,7 +1750,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-4e097c8c2fcd54d82d5e",
               "file": "brukerhistorie-tester.js",
-              "line": 495,
+              "line": 504,
               "column": 3
             },
             {
@@ -1715,12 +1769,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2920,
+                      "duration": 843,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:19.864Z",
+                      "startTime": "2026-05-28T10:12:54.194Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1730,7 +1784,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-ff96984d1f1f0b999431",
               "file": "brukerhistorie-tester.js",
-              "line": 502,
+              "line": 511,
               "column": 3
             }
           ]
@@ -1738,7 +1792,7 @@
         {
           "title": "BH-9: Organisasjonsvelger ved søknadsopprettelse (TILSK-767)",
           "file": "brukerhistorie-tester.js",
-          "line": 511,
+          "line": 520,
           "column": 6,
           "specs": [
             {
@@ -1757,12 +1811,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3786,
+                      "duration": 3583,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:22.789Z",
+                      "startTime": "2026-05-28T10:12:55.043Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1772,7 +1826,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-12599ac3d3a36df4fcd2",
               "file": "brukerhistorie-tester.js",
-              "line": 546,
+              "line": 555,
               "column": 3
             },
             {
@@ -1791,12 +1845,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3730,
+                      "duration": 3592,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:26.580Z",
+                      "startTime": "2026-05-28T10:12:58.632Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1806,7 +1860,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-958ebcbfb032638fc7ed",
               "file": "brukerhistorie-tester.js",
-              "line": 554,
+              "line": 563,
               "column": 3
             },
             {
@@ -1825,12 +1879,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3626,
+                      "duration": 3781,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:30.318Z",
+                      "startTime": "2026-05-28T10:13:02.229Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1840,7 +1894,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-9c2fabc8b553641a4e97",
               "file": "brukerhistorie-tester.js",
-              "line": 566,
+              "line": 575,
               "column": 3
             },
             {
@@ -1859,12 +1913,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3604,
+                      "duration": 5762,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:33.948Z",
+                      "startTime": "2026-05-28T10:13:06.014Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1874,7 +1928,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-bfc45e40e97418844c7f",
               "file": "brukerhistorie-tester.js",
-              "line": 591,
+              "line": 600,
               "column": 3
             },
             {
@@ -1893,12 +1947,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4613,
+                      "duration": 3757,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:37.556Z",
+                      "startTime": "2026-05-28T10:13:11.781Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1908,7 +1962,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-3c8107938e7eae541220",
               "file": "brukerhistorie-tester.js",
-              "line": 613,
+              "line": 622,
               "column": 3
             },
             {
@@ -1927,12 +1981,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3577,
+                      "duration": 3763,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:38:42.174Z",
+                      "startTime": "2026-05-28T10:13:15.542Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1942,7 +1996,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-92ea8873e7cd6d0217f3",
               "file": "brukerhistorie-tester.js",
-              "line": 628,
+              "line": 637,
               "column": 3
             }
           ]
@@ -1952,10 +2006,10 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-28T08:37:21.594Z",
-    "duration": 84193.95300000001,
+    "startTime": "2026-05-28T10:11:53.444Z",
+    "duration": 85898.75499999999,
     "expected": 46,
-    "skipped": 1,
+    "skipped": 2,
     "unexpected": 3,
     "flaky": 0
   }

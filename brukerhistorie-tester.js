@@ -119,7 +119,7 @@ test.describe('BH-2: Som søker vil jeg søke etter en tilskuddsordning (TILSK-4
 });
 
 // ── BH-3 ─────────────────────────────────────────────────────────────────────
-test.describe('BH-3: Som innlogget søker vil jeg se mine søknader', () => {
+test.describe('BH-3: Som innlogget søker vil jeg se mine søknader (TILSK-547)', () => {
 
   test('min side er tilgjengelig etter innlogging', async ({ page }) => {
     await page.goto(`${base}/minside`, { timeout: IDLE_TIMEOUT });

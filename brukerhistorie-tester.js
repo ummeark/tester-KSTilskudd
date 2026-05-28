@@ -671,58 +671,7 @@ test.describe('TILSK-543: Som besøker ønsker jeg å finne riktig tilskuddsordn
     await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
   });
 
-  // AK-2.1: Søk på tittel
-  test('AK-2.1 – søk på tittelord gir relevante treff', async ({ page }) => {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    const felt = page.locator('input[type="search"], input[placeholder*="øk"]').first();
-    await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
-    await felt.fill('tilskudd');
-    await page.keyboard.press('Enter');
-    await page.waitForLoadState('domcontentloaded');
-    const body = await page.textContent('body');
-    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
-    const kort = page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]');
-    const antall = await kort.count();
-    expect(antall, 'Forventet minst ett treff på tittelord «tilskudd»').toBeGreaterThan(0);
-  });
-
-  // AK-2.2: Søk på fritekst (stikkord, tema, formål)
-  test('AK-2.2 – søk på fritekst (stikkord/tema) gir svar uten feilside', async ({ page }) => {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    const felt = page.locator('input[type="search"], input[placeholder*="øk"]').first();
-    await felt.fill('barn og unge');
-    await page.keyboard.press('Enter');
-    await page.waitForLoadState('domcontentloaded');
-    const body = await page.textContent('body');
-    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
-  });
-
-  // AK-2.3: Relevante treff basert på søket
-  test('AK-2.3 – søkeresultat inneholder relevante ordninger', async ({ page }) => {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    const felt = page.locator('input[type="search"], input[placeholder*="øk"]').first();
-    await felt.fill('tilskudd');
-    await page.keyboard.press('Enter');
-    await page.waitForLoadState('domcontentloaded');
-    const kort = page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]');
-    const antall = await kort.count();
-    expect(antall, 'Forventet relevante treff for søkeordet «tilskudd»').toBeGreaterThan(0);
-  });
-
-  // AK-2.4: Trefflisten oppdateres når søket endres
-  test('AK-2.4 – trefflisten oppdateres når søket endres', async ({ page }) => {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    const felt = page.locator('input[type="search"], input[placeholder*="øk"]').first();
-    await felt.fill('tilskudd');
-    await page.keyboard.press('Enter');
-    await page.waitForLoadState('domcontentloaded');
-    const kortMedSøk = await page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]').count();
-    await felt.fill('');
-    await page.keyboard.press('Enter');
-    await page.waitForLoadState('domcontentloaded');
-    const kortUtenSøk = await page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]').count();
-    expect(kortUtenSøk, 'Tom søkestreng skal gi hel liste – minst like mange som med søk').toBeGreaterThanOrEqual(kortMedSøk);
-  });
+  // AK-2.1–2.4: Dekkes av TILSK-856
 
   // AK-3.1: Paginering – bla til neste side hvis listen er lang
   test('AK-3.1 – pagineringsknapp finnes hvis listen har flere sider', async ({ page }) => {

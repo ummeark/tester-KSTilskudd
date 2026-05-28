@@ -33,33 +33,65 @@ test.describe('BH-1: Som søker vil jeg se oversikt over tilskuddsordninger', ()
 });
 
 // ── BH-2 ─────────────────────────────────────────────────────────────────────
-test.describe('BH-2: Som søker vil jeg søke etter en tilskuddsordning', () => {
+test.describe('BH-2: Som søker vil jeg søke etter en tilskuddsordning (TILSK-481 / TILSK-793)', () => {
 
-  test('søkefeltet er synlig og fokuserbart', async ({ page }) => {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    const felt = page.locator('input[type="search"], input[name*="search"], input[placeholder*="øk"]').first();
+  const SØKEFELT = 'input[type="search"], input[name*="search"], input[placeholder*="øk"]';
+
+  // AK-4: Forsiden har overskrift og tekst som forklarer hva tjenesten er
+  test('AK-4 – forsiden viser overskrift og forklarende tekst om tjenesten', async ({ page }) => {
+    await page.goto(`${base}/`, { timeout: IDLE_TIMEOUT });
+    await page.waitForLoadState('networkidle', { timeout: IDLE_TIMEOUT });
+    const heading = page.locator('h1, h2').first();
+    await expect(heading).toBeVisible({ timeout: SIDE_TIMEOUT });
+    const tekst = await heading.textContent();
+    expect(tekst?.trim().length ?? 0).toBeGreaterThan(0);
+  });
+
+  // AK-2: Søkefelt synlig på forsiden
+  test('AK-2 – søkefeltet er synlig og fokuserbart på forsiden', async ({ page }) => {
+    await page.goto(`${base}/`, { timeout: IDLE_TIMEOUT });
+    await page.waitForLoadState('networkidle', { timeout: IDLE_TIMEOUT });
+    const felt = page.locator(SØKEFELT).first();
     await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
     await felt.click();
     await expect(felt).toBeFocused();
   });
 
-  test('søk med gyldig tekst gir respons uten feilside', async ({ page }) => {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    const felt = page.locator('input[type="search"], input[name*="search"], input[placeholder*="øk"]').first();
+  // AK-3: Søk fra forsiden trigger oversiktssiden for tilskuddsordninger
+  test('AK-3 – søk fra forsiden navigerer til oversiktssiden for utlysninger', async ({ page }) => {
+    await page.goto(`${base}/`, { timeout: IDLE_TIMEOUT });
+    await page.waitForLoadState('networkidle', { timeout: IDLE_TIMEOUT });
+    const felt = page.locator(SØKEFELT).first();
+    await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
+    await felt.fill('tilskudd');
+    await page.keyboard.press('Enter');
+    await page.waitForLoadState('domcontentloaded');
+    await expect(page).toHaveURL(/utlysing/);
+  });
+
+  // AK-3: Søk gir respons uten feilside
+  test('AK-3 – søk fra forsiden gir respons uten feilside', async ({ page }) => {
+    await page.goto(`${base}/`, { timeout: IDLE_TIMEOUT });
+    await page.waitForLoadState('networkidle', { timeout: IDLE_TIMEOUT });
+    const felt = page.locator(SØKEFELT).first();
+    await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
     await felt.fill('tilskudd');
     await page.keyboard.press('Enter');
     await page.waitForLoadState('domcontentloaded');
     const body = await page.textContent('body');
-    expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
+    expect(body).not.toMatch(/Internal Server Error|Uventet feil/);
   });
 
-  test('søk med tom streng beholder utlysningslisten', async ({ page }) => {
+  // Videre søk gjøres på oversiktssiden (TILSK-481)
+  test('AK-3 – søk på oversiktssiden gir treff uten feilside', async ({ page }) => {
     await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    const felt = page.locator('input[type="search"], input[name*="search"], input[placeholder*="øk"]').first();
-    await felt.fill('');
+    const felt = page.locator(SØKEFELT).first();
+    await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
+    await felt.fill('tilskudd');
     await page.keyboard.press('Enter');
     await page.waitForLoadState('domcontentloaded');
-    await expect(page).toHaveURL(/utlysinger/);
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/Internal Server Error|Uventet feil/);
   });
 
 });

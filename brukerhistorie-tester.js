@@ -42,24 +42,6 @@ test.describe('BH-2: Som søker vil jeg søke etter en tilskuddsordning (TILSK-4
     await page.waitForLoadState('networkidle', { timeout: IDLE_TIMEOUT });
   }
 
-  // AK-4: Forsiden har H1 og ingress som forklarer hva tjenesten er
-  test('AK-4 – forsiden viser H1 "Nasjonal portal for søknad om offentlige tilskudd"', async ({ page }) => {
-    await gåTilForside(page);
-    await expect(page.locator('h1')).toContainText('Nasjonal portal', { timeout: SIDE_TIMEOUT });
-  });
-
-  test('AK-4 – forsiden viser ingress om å finne tilskuddsordninger', async ({ page }) => {
-    await gåTilForside(page);
-    const body = await page.textContent('body');
-    expect(body).toMatch(/finn tilskuddsordninger|søke etter navn/i);
-  });
-
-  test('AK-4 – forsiden har innholdsseksjon som forklarer hva portalen er', async ({ page }) => {
-    await gåTilForside(page);
-    const body = await page.textContent('body');
-    expect(body).toMatch(/felles løsning|næringstilskudd|KS Tilskudd samler/i);
-  });
-
   // AK-2: Søkefelt med riktig placeholder og Søk-knapp er synlig på forsiden
   test('AK-2 – søkefelt med placeholder "Søk etter tilskuddsordning" er synlig', async ({ page }) => {
     await gåTilForside(page);
@@ -99,6 +81,24 @@ test.describe('BH-2: Som søker vil jeg søke etter en tilskuddsordning (TILSK-4
     await page.waitForLoadState('domcontentloaded');
     const body = await page.textContent('body');
     expect(body).not.toMatch(/Internal Server Error|Uventet feil/);
+  });
+
+  // AK-4: Forsiden har H1 og ingress som forklarer hva tjenesten er
+  test('AK-4 – forsiden viser H1 "Nasjonal portal for søknad om offentlige tilskudd"', async ({ page }) => {
+    await gåTilForside(page);
+    await expect(page.locator('h1')).toContainText('Nasjonal portal', { timeout: SIDE_TIMEOUT });
+  });
+
+  test('AK-4 – forsiden viser ingress om å finne tilskuddsordninger', async ({ page }) => {
+    await gåTilForside(page);
+    const body = await page.textContent('body');
+    expect(body).toMatch(/finn tilskuddsordninger|søke etter navn/i);
+  });
+
+  test('AK-4 – forsiden har innholdsseksjon som forklarer hva portalen er', async ({ page }) => {
+    await gåTilForside(page);
+    const body = await page.textContent('body');
+    expect(body).toMatch(/felles løsning|næringstilskudd|KS Tilskudd samler/i);
   });
 
   // TILSK-481: Videre søk gjøres på oversiktssiden

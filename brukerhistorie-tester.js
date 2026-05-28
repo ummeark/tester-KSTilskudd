@@ -7,8 +7,8 @@ import fs from 'fs';
 
 const base = START_URL.replace(/\/$/, '');
 
-// ── BH-1 ─────────────────────────────────────────────────────────────────────
-test.describe('BH-1: Som søker vil jeg se oversikt over tilskuddsordninger', () => {
+// ── BR.HIST-1 ─────────────────────────────────────────────────────────────────────
+test.describe('BR.HIST-1: Som søker vil jeg se oversikt over tilskuddsordninger', () => {
 
   test('kan navigere til utlysningslisten', async ({ page }) => {
     await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
@@ -32,8 +32,8 @@ test.describe('BH-1: Som søker vil jeg se oversikt over tilskuddsordninger', ()
 
 });
 
-// ── BH-2 ─────────────────────────────────────────────────────────────────────
-test.describe('BH-2: Som søker vil jeg søke etter en tilskuddsordning (TILSK-481 / TILSK-793)', () => {
+// ── BR.HIST-2 ─────────────────────────────────────────────────────────────────────
+test.describe('BR.HIST-2: Som søker vil jeg søke etter en tilskuddsordning (TILSK-481 / TILSK-793)', () => {
 
   const SØKEFELT = 'input[placeholder*="tilskuddsordning"], input[placeholder*="Søk etter"], input[type="search"]';
 
@@ -118,8 +118,8 @@ test.describe('BH-2: Som søker vil jeg søke etter en tilskuddsordning (TILSK-4
 
 });
 
-// ── BH-3 ─────────────────────────────────────────────────────────────────────
-test.describe('BH-3: Som innlogget søker vil jeg se mine søknader (TILSK-547)', () => {
+// ── BR.HIST-3 ─────────────────────────────────────────────────────────────────────
+test.describe('BR.HIST-3: Som innlogget søker vil jeg se mine søknader (TILSK-547)', () => {
 
   test('min side er tilgjengelig etter innlogging', async ({ page }) => {
     await page.goto(`${base}/minside`, { timeout: IDLE_TIMEOUT });
@@ -144,8 +144,8 @@ test.describe('BH-3: Som innlogget søker vil jeg se mine søknader (TILSK-547)'
 
 const SKJERMBILDER = 'brukerhistorie-resultater/skjermbilder';
 
-// ── BH-4 ─────────────────────────────────────────────────────────────────────
-test.describe('BH-4: Som søker vil jeg kunne navigere tilbake fra en utlysning', () => {
+// ── BR.HIST-4 ─────────────────────────────────────────────────────────────────────
+test.describe('BR.HIST-4: Som søker vil jeg kunne navigere tilbake fra en utlysning', () => {
 
   test('tilbake-navigasjon fra utlysning fungerer', async ({ page }) => {
     await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
@@ -167,13 +167,13 @@ test.describe('BH-4: Som søker vil jeg kunne navigere tilbake fra en utlysning'
 
 });
 
-// ── BH-5 ─────────────────────────────────────────────────────────────────────
-test.describe('BH-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen', () => {
+// ── BR.HIST-5 ─────────────────────────────────────────────────────────────────────
+test.describe('BR.HIST-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen', () => {
 
   test('skiplink til hovedinnhold finnes i DOM (WCAG 2.4.1)', async ({ page }) => {
     await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
     fs.mkdirSync(SKJERMBILDER, { recursive: true });
-    await page.screenshot({ path: `${SKJERMBILDER}/BH-5-side-uten-skiplink.png` });
+    await page.screenshot({ path: `${SKJERMBILDER}/BR.HIST-5-side-uten-skiplink.png` });
     // Forventer: <a href="#main"> eller tilsvarende skiplink øverst på siden
     const skipLenke = page.locator(
       'a[href="#main"], a[href="#maincontent"], a[href="#main-content"], ' +
@@ -186,7 +186,7 @@ test.describe('BH-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over nav
     await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
     await page.keyboard.press('Tab');
     fs.mkdirSync(SKJERMBILDER, { recursive: true });
-    await page.screenshot({ path: `${SKJERMBILDER}/BH-5-foerste-tab-fokus.png` });
+    await page.screenshot({ path: `${SKJERMBILDER}/BR.HIST-5-foerste-tab-fokus.png` });
     // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke
     const href = await page.locator(':focus').getAttribute('href').catch(() => '');
     expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);
@@ -201,8 +201,8 @@ test.describe('BH-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over nav
 
 });
 
-// ── BH-6 ─────────────────────────────────────────────────────────────────────
-test.describe('BH-6: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord (TILSK-856)', () => {
+// ── BR.HIST-6 ─────────────────────────────────────────────────────────────────────
+test.describe('BR.HIST-6: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord (TILSK-856)', () => {
 
   async function søk(page, tekst) {
     await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
@@ -268,8 +268,8 @@ test.describe('BH-6: Som søker vil jeg finne tilskuddsordninger med stikkord, h
 
 });
 
-// ── BH-7 ─────────────────────────────────────────────────────────────────────
-test.describe('BH-7: Som søker ønsker jeg å se kontaktinformasjon om ordningen (TILSK-738)', () => {
+// ── BR.HIST-7 ─────────────────────────────────────────────────────────────────────
+test.describe('BR.HIST-7: Som søker ønsker jeg å se kontaktinformasjon om ordningen (TILSK-738)', () => {
 
   // Cache-variabler — populeres ved første bruk (workers: 1, sekvensiell kjøring)
   let _urlMedKontaktinfo = null;
@@ -420,8 +420,8 @@ test.describe('BH-7: Som søker ønsker jeg å se kontaktinformasjon om ordninge
 
 });
 
-// ── BH-8 ─────────────────────────────────────────────────────────────────────
-test.describe('BH-8: Redesign av utlysningsside (TILSK-785 / TILSK-795)', () => {
+// ── BR.HIST-8 ─────────────────────────────────────────────────────────────────────
+test.describe('BR.HIST-8: Redesign av utlysningsside (TILSK-785 / TILSK-795)', () => {
 
   let _utlysningUrl = null;
 
@@ -516,8 +516,8 @@ test.describe('BH-8: Redesign av utlysningsside (TILSK-785 / TILSK-795)', () => 
 
 });
 
-// ── BH-9 ─────────────────────────────────────────────────────────────────────
-test.describe('BH-9: Organisasjonsvelger ved søknadsopprettelse (TILSK-767)', () => {
+// ── BR.HIST-9 ─────────────────────────────────────────────────────────────────────
+test.describe('BR.HIST-9: Organisasjonsvelger ved søknadsopprettelse (TILSK-767)', () => {
 
   const SØK_KNAPP =
     'a:has-text("Søk om tilskudd"), button:has-text("Søk om tilskudd"), ' +

@@ -202,7 +202,7 @@ test.describe('BH-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over nav
 });
 
 // ── BH-6 ─────────────────────────────────────────────────────────────────────
-test.describe('BH-6: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord', () => {
+test.describe('BH-6: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord (TILSK-856)', () => {
 
   async function søk(page, tekst) {
     await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
@@ -213,24 +213,25 @@ test.describe('BH-6: Som søker vil jeg finne tilskuddsordninger med stikkord, h
     await page.waitForLoadState('domcontentloaded');
   }
 
-  test('stikkord – søk på ett ord gir resultater eller ingen-treff-melding (ikke feilside)', async ({ page }) => {
+  // AK-1: Stikkord – ett enkelt ord gir treff i tittel eller beskrivelse
+  test('AK-1 – stikkord: søk på ett ord gir resultater (ikke feilside)', async ({ page }) => {
     await søk(page, 'tilskudd');
     const body = await page.textContent('body');
     expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
   });
 
-  test('stikkord – søk på ett ord viser matchende utlysninger', async ({ page }) => {
+  test('AK-1 – stikkord: søk på ett ord viser matchende utlysninger', async ({ page }) => {
     await søk(page, 'tilskudd');
     const kort = page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]');
     const antall = await kort.count();
     expect(antall, 'Forventet minst én utlysning med søkeordet «tilskudd»').toBeGreaterThan(0);
   });
 
-  test('halvferdig ord – delstreng gir relevante treff', async ({ page }) => {
+  // AK-2: Halvferdige ord – delstreng gir treff (f.eks. «tilsk» → «tilskudd»)
+  test('AK-2 – halvferdig ord: delstreng gir relevante treff (ikke feilside)', async ({ page }) => {
     await søk(page, 'tilsk');
     const body = await page.textContent('body');
     expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
-    // Enten vises resultater, eller en ingen-treff-melding – men ikke en feilside
     const kortEllerIngenTreff = page.locator(
       'article, [class*="card"], [class*="kort"], li a[href*="utlysing"], ' +
       '[class*="ingen"], [class*="empty"], [class*="no-result"]'
@@ -238,23 +239,31 @@ test.describe('BH-6: Som søker vil jeg finne tilskuddsordninger med stikkord, h
     await expect(kortEllerIngenTreff.first()).toBeAttached({ timeout: SIDE_TIMEOUT });
   });
 
-  test('flere ord – søk på flere ord gir respons uten feilside', async ({ page }) => {
+  // AK-3: Flere ord – utlysninger som inneholder alle eller noen av ordene vises
+  test('AK-3 – flere ord: søk på «barn og unge» gir respons uten feilside', async ({ page }) => {
     await søk(page, 'barn og unge');
     const body = await page.textContent('body');
     expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
   });
 
-  test('ingen treff – søk på nonsens-streng viser ingen-treff-melding, ikke feilside', async ({ page }) => {
+  // AK-4: Ingen treff – tydelig melding forklarer at ingen ordninger matchet
+  test('AK-4 – ingen treff: nonsens-streng viser ingen-treff-melding, ikke feilside', async ({ page }) => {
     await søk(page, 'xyzabc123nonsens');
     const body = await page.textContent('body');
     expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
   });
 
-  test('tomt søkefelt – hel utlysningsliste vises igjen', async ({ page }) => {
+  // AK-5: Tomt søkefelt – hele listen over utlysninger vises igjen
+  test('AK-5 – tomt søkefelt: hel utlysningsliste vises igjen', async ({ page }) => {
     await søk(page, '');
     await expect(page).toHaveURL(/utlysinger/);
     const kort = page.locator('article, [class*="card"], [class*="kort"], li a[href*="utlysing"]');
     await expect(kort.first()).toBeVisible({ timeout: SIDE_TIMEOUT });
+  });
+
+  // AK-6: Feilstaving håndteres – gjerne med «mente du?»
+  test('AK-6 – feilstaving: feilstavet søkeord håndteres (f.eks. «mente du?»)', async ({ page }, testInfo) => {
+    testInfo.skip(true, 'AK-6 ikke implementert ennå – krever fuzzy søkemotor (TILSK-856 i Utviklingskø)');
   });
 
 });

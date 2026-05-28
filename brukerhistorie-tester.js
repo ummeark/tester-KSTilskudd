@@ -35,32 +35,54 @@ test.describe('BH-1: Som søker vil jeg se oversikt over tilskuddsordninger', ()
 // ── BH-2 ─────────────────────────────────────────────────────────────────────
 test.describe('BH-2: Som søker vil jeg søke etter en tilskuddsordning (TILSK-481 / TILSK-793)', () => {
 
-  const SØKEFELT = 'input[type="search"], input[name*="search"], input[placeholder*="øk"]';
+  const SØKEFELT = 'input[placeholder*="tilskuddsordning"], input[placeholder*="Søk etter"], input[type="search"]';
 
-  // AK-4: Forsiden har overskrift og tekst som forklarer hva tjenesten er
-  test('AK-4 – forsiden viser overskrift og forklarende tekst om tjenesten', async ({ page }) => {
+  async function gåTilForside(page) {
     await page.goto(`${base}/`, { timeout: IDLE_TIMEOUT });
     await page.waitForLoadState('networkidle', { timeout: IDLE_TIMEOUT });
-    const heading = page.locator('h1, h2').first();
-    await expect(heading).toBeVisible({ timeout: SIDE_TIMEOUT });
-    const tekst = await heading.textContent();
-    expect(tekst?.trim().length ?? 0).toBeGreaterThan(0);
+  }
+
+  // AK-4: Forsiden har H1 og ingress som forklarer hva tjenesten er
+  test('AK-4 – forsiden viser H1 "Nasjonal portal for søknad om offentlige tilskudd"', async ({ page }) => {
+    await gåTilForside(page);
+    await expect(page.locator('h1')).toContainText('Nasjonal portal', { timeout: SIDE_TIMEOUT });
   });
 
-  // AK-2: Søkefelt synlig på forsiden
-  test('AK-2 – søkefeltet er synlig og fokuserbart på forsiden', async ({ page }) => {
-    await page.goto(`${base}/`, { timeout: IDLE_TIMEOUT });
-    await page.waitForLoadState('networkidle', { timeout: IDLE_TIMEOUT });
+  test('AK-4 – forsiden viser ingress om å finne tilskuddsordninger', async ({ page }) => {
+    await gåTilForside(page);
+    const body = await page.textContent('body');
+    expect(body).toMatch(/finn tilskuddsordninger|søke etter navn/i);
+  });
+
+  test('AK-4 – forsiden har innholdsseksjon som forklarer hva portalen er', async ({ page }) => {
+    await gåTilForside(page);
+    const body = await page.textContent('body');
+    expect(body).toMatch(/felles løsning|næringstilskudd|KS Tilskudd samler/i);
+  });
+
+  // AK-2: Søkefelt med riktig placeholder og Søk-knapp er synlig på forsiden
+  test('AK-2 – søkefelt med placeholder "Søk etter tilskuddsordning" er synlig', async ({ page }) => {
+    await gåTilForside(page);
     const felt = page.locator(SØKEFELT).first();
     await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
+  });
+
+  test('AK-2 – Søk-knapp er synlig ved siden av søkefeltet', async ({ page }) => {
+    await gåTilForside(page);
+    const knapp = page.locator('button:has-text("Søk")').first();
+    await expect(knapp).toBeVisible({ timeout: SIDE_TIMEOUT });
+  });
+
+  test('AK-2 – søkefeltet er fokuserbart', async ({ page }) => {
+    await gåTilForside(page);
+    const felt = page.locator(SØKEFELT).first();
     await felt.click();
     await expect(felt).toBeFocused();
   });
 
-  // AK-3: Søk fra forsiden trigger oversiktssiden for tilskuddsordninger
+  // AK-3: Søk fra forsiden navigerer til oversiktssiden
   test('AK-3 – søk fra forsiden navigerer til oversiktssiden for utlysninger', async ({ page }) => {
-    await page.goto(`${base}/`, { timeout: IDLE_TIMEOUT });
-    await page.waitForLoadState('networkidle', { timeout: IDLE_TIMEOUT });
+    await gåTilForside(page);
     const felt = page.locator(SØKEFELT).first();
     await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
     await felt.fill('tilskudd');
@@ -69,11 +91,20 @@ test.describe('BH-2: Som søker vil jeg søke etter en tilskuddsordning (TILSK-4
     await expect(page).toHaveURL(/utlysing/);
   });
 
-  // AK-3: Søk gir respons uten feilside
   test('AK-3 – søk fra forsiden gir respons uten feilside', async ({ page }) => {
-    await page.goto(`${base}/`, { timeout: IDLE_TIMEOUT });
-    await page.waitForLoadState('networkidle', { timeout: IDLE_TIMEOUT });
+    await gåTilForside(page);
     const felt = page.locator(SØKEFELT).first();
+    await felt.fill('tilskudd');
+    await page.keyboard.press('Enter');
+    await page.waitForLoadState('domcontentloaded');
+    const body = await page.textContent('body');
+    expect(body).not.toMatch(/Internal Server Error|Uventet feil/);
+  });
+
+  // TILSK-481: Videre søk gjøres på oversiktssiden
+  test('TILSK-481 – søk på oversiktssiden gir treff uten feilside', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    const felt = page.locator('input[type="search"], input[placeholder*="øk"]').first();
     await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
     await felt.fill('tilskudd');
     await page.keyboard.press('Enter');
@@ -82,17 +113,8 @@ test.describe('BH-2: Som søker vil jeg søke etter en tilskuddsordning (TILSK-4
     expect(body).not.toMatch(/Internal Server Error|Uventet feil/);
   });
 
-  // Videre søk gjøres på oversiktssiden (TILSK-481)
-  test('AK-3 – søk på oversiktssiden gir treff uten feilside', async ({ page }) => {
-    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
-    const felt = page.locator(SØKEFELT).first();
-    await expect(felt).toBeVisible({ timeout: SIDE_TIMEOUT });
-    await felt.fill('tilskudd');
-    await page.keyboard.press('Enter');
-    await page.waitForLoadState('domcontentloaded');
-    const body = await page.textContent('body');
-    expect(body).not.toMatch(/Internal Server Error|Uventet feil/);
-  });
+  // AK-4: Footer-lenker (Personvernerklæring + Tilgjengelighetserklæring) er i Figma-designet
+  // men ikke implementert i TEST-miljøet ennå – testen legges til når de er på plass.
 
 });
 

@@ -20,6 +20,7 @@
   .sidenav-link{display:block;padding:.65rem 1.4rem;text-decoration:none;color:rgba(255,255,255,.65);border-left:3px solid transparent;transition:background .15s,color .15s}
   .sidenav-link:hover{background:rgba(255,255,255,.07);color:white}
   .sidenav-link.har-brudd{border-color:#f3dda2}
+  .sidenav-link.har-hoppet{border-color:#fcd34d}
   .sidenav-link.ok{border-color:#abd1b1}
   .sidenavn{display:block;font-size:.84rem;font-weight:500}
   .side-url{display:block;font-size:.68rem;opacity:.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.15rem}
@@ -68,6 +69,8 @@
 
   .badge{display:inline-block;padding:.15rem .6rem;border-radius:100px;font-size:.7rem;font-weight:600}
   .badge.critical{background:#fee2e2;color:#c53030}
+  .badge.mangler-data{background:#fef3c7;color:#92400e}
+  .hoppet-arsak{font-size:.78rem;color:#92400e;margin-top:.5rem;padding:.4rem .8rem;background:#fef9ec;border-left:3px solid #f59e0b;font-style:italic}
 
   .skjermbilde-galleri{margin-top:1.4rem}
   .skjermbilde-galleri h3{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#0a1355;margin-bottom:.9rem;padding-bottom:.4rem;border-bottom:1px solid #f4ecdf}
@@ -130,10 +133,10 @@
       </a>
     </li>
     <li>
-      <a href="#bh-BH-7" class="sidenav-link ok">
+      <a href="#bh-BH-7" class="sidenav-link har-hoppet">
         <span class="sidenavn">BH-7</span>
         <span class="side-url">Som søker ønsker jeg å se kontaktinformasjon om ordningen (TILSK-738)</span>
-        <span class="side-badge">OK</span>
+        <span class="side-badge">1 hoppet over</span>
       </a>
     </li>
     <li>
@@ -259,6 +262,7 @@
           <span class="brudd-teller">233ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
@@ -266,12 +270,14 @@
           <span class="brudd-teller">231ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>kan klikke seg inn på en utlysning og se detaljer</strong></span>
           <span class="brudd-teller">274ms</span>
         </div>
+        
         
       </div>
     </div>
@@ -293,6 +299,7 @@
           <span class="brudd-teller">238ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
@@ -300,12 +307,14 @@
           <span class="brudd-teller">198ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>søk med tom streng beholder utlysningslisten</strong></span>
           <span class="brudd-teller">208ms</span>
         </div>
+        
         
       </div>
     </div>
@@ -327,6 +336,7 @@
           <span class="brudd-teller">346ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
@@ -334,12 +344,14 @@
           <span class="brudd-teller">286ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>min side laster uten JavaScript-feil</strong></span>
           <span class="brudd-teller">928ms</span>
         </div>
+        
         
       </div>
     </div>
@@ -361,12 +373,14 @@
           <span class="brudd-teller">3137ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>F5-refresh på utlysningslisten beholder siden</strong></span>
           <span class="brudd-teller">287ms</span>
         </div>
+        
         
       </div>
     </div>
@@ -387,6 +401,7 @@
           <span>❌ <strong>skiplink til hovedinnhold finnes i DOM (WCAG 2.4.1)</strong></span>
           <span class="brudd-teller">5253ms</span>
         </div>
+        
         <div class="brudd-hjelp">Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeAttached[2m([22m[2m)[22m failed<br><br>Locator: locator('a[href=&quot;#main&quot;], a[href=&quot;#maincontent&quot;], a[href=&quot;#main-content&quot;], a[href=&quot;#innhold&quot;], a.skip-link, a[class*=&quot;skip&quot;]').first()<br>Expected: attached<br>Timeout: 5000ms<br>Error: element(s) not found<br><br>Call log:<br>[2m  - Expect &quot;toBeAttached&quot; with timeout 5000ms[22m<br>[2m  - waiting for locator('a[href=&quot;#main&quot;], a[href=&quot;#maincontent&quot;], a[href=&quot;#main-content&quot;], a[href=&quot;#innhold&quot;], a.skip-link, a[class*=&quot;skip&quot;]').first()[22m<br><br><br>  126 |       'a[href=&quot;#innhold&quot;], a.skip-link, a[class*=&quot;skip&quot;]'<br>  127 |     ).first();<br>&gt; 128 |     await expect(skipLenke).toBeAttached();<br>      |                             ^<br>  129 |   });<br>  130 |<br>  131 |   test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) =&gt; {<br>    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:128:29</div>
       </div>
       <div class="brudd-kort" style="border-left-color:#c53030;background:#fff5f5;">
@@ -394,6 +409,7 @@
           <span>❌ <strong>skiplink er første fokuserbare element ved Tab-navigasjon</strong></span>
           <span class="brudd-teller">1166ms</span>
         </div>
+        
         <div class="brudd-hjelp">Error: Første Tab-stopp bør være en skiplink til #main eller #innhold<br><br>[2mexpect([22m[31mreceived[39m[2m).[22mtoMatch[2m([22m[32mexpected[39m[2m)[22m<br><br>Expected pattern: [32m/#main|#innhold|#content|#skip/[39m<br>Received string:  [31m&quot;/&quot;[39m<br><br>  136 |     // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke<br>  137 |     const href = await page.locator(':focus').getAttribute('href').catch(() =&gt; '');<br>&gt; 138 |     expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);<br>      |                                                                                    ^<br>  139 |   });<br>  140 |<br>  141 |   test('søkeskjema er merket med role=&quot;search&quot; for skjermlesere', async ({ page }) =&gt; {<br>    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:138:84</div>
       </div>
       <div class="brudd-kort" style="border-left-color:#c53030;background:#fff5f5;">
@@ -401,6 +417,7 @@
           <span>❌ <strong>søkeskjema er merket med role=&quot;search&quot; for skjermlesere</strong></span>
           <span class="brudd-teller">15234ms</span>
         </div>
+        
         <div class="brudd-hjelp">Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed<br><br>Locator: locator('[role=&quot;search&quot;]').first()<br>Expected: visible<br>Timeout: 15000ms<br>Error: element(s) not found<br><br>Call log:<br>[2m  - Expect &quot;toBeVisible&quot; with timeout 15000ms[22m<br>[2m  - waiting for locator('[role=&quot;search&quot;]').first()[22m<br><br><br>  143 |     // Forventer: søkecontaineren er annotert med role=&quot;search&quot; (WCAG)<br>  144 |     const searchRegion = page.locator('[role=&quot;search&quot;]').first();<br>&gt; 145 |     await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });<br>      |                                ^<br>  146 |   });<br>  147 |<br>  148 | });<br>    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:145:32</div>
       </div>
     </div>
@@ -444,12 +461,14 @@
           <span class="brudd-teller">304ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>stikkord – søk på ett ord viser matchende utlysninger</strong></span>
           <span class="brudd-teller">249ms</span>
         </div>
+        
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
@@ -458,12 +477,14 @@
           <span class="brudd-teller">229ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>flere ord – søk på flere ord gir respons uten feilside</strong></span>
           <span class="brudd-teller">209ms</span>
         </div>
+        
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
@@ -472,12 +493,14 @@
           <span class="brudd-teller">216ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>tomt søkefelt – hel utlysningsliste vises igjen</strong></span>
           <span class="brudd-teller">239ms</span>
         </div>
+        
         
       </div>
     </div>
@@ -489,7 +512,7 @@
       <div>
         <h2>BH-7: Som søker ønsker jeg å se kontaktinformasjon om ordningen (TILSK-738)</h2>
       </div>
-      <div class="side-score-badges"><span class="badge" style="background:#ecfdf5;color:#064e3b;">Alle OK</span></div>
+      <div class="side-score-badges"><span class="badge mangler-data">1 hoppet over – manglende testdata</span></div>
     </div>
     <div class="wcag-seksjon">
       <h3>Akseptansekriterier (9 tester)</h3>
@@ -499,12 +522,14 @@
           <span class="brudd-teller">1734ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>AK-1.0 – kontaktinformasjonsseksjon finnes på en utlysningsside</strong></span>
           <span class="brudd-teller">836ms</span>
         </div>
+        
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
@@ -513,12 +538,14 @@
           <span class="brudd-teller">3893ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>AK-1.1 – maks tre kontaktinfokort vises totalt</strong></span>
           <span class="brudd-teller">836ms</span>
         </div>
+        
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
@@ -527,12 +554,14 @@
           <span class="brudd-teller">916ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>AK-1.3 – maks ett virksomhetskort vises</strong></span>
           <span class="brudd-teller">832ms</span>
         </div>
+        
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
@@ -541,6 +570,7 @@
           <span class="brudd-teller">826ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
@@ -548,12 +578,14 @@
           <span class="brudd-teller">837ms</span>
         </div>
         
+        
       </div>
-      <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
+      <div class="brudd-kort" style="border-left-color:#b45309;background:#fffbeb;">
         <div class="brudd-header">
-          <span>✅ <strong>AK-1.7 – personkort vises over virksomhetskort på siden</strong></span>
+          <span>⚠️ <strong>AK-1.7 – personkort vises over virksomhetskort på siden</strong></span>
           <span class="brudd-teller">5175ms</span>
         </div>
+        <div class="hoppet-arsak">Årsak: Ingen utlysning med både person- og virksomhetskort funnet i TEST-miljøet</div>
         
       </div>
     </div>
@@ -575,12 +607,14 @@
           <span class="brudd-teller">2081ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>AK-1.1 – tittel (h1) er synlig under breadcrumbs</strong></span>
           <span class="brudd-teller">1034ms</span>
         </div>
+        
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
@@ -589,12 +623,14 @@
           <span class="brudd-teller">932ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>AK-1.3 – forvalternavn vises</strong></span>
           <span class="brudd-teller">949ms</span>
         </div>
+        
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
@@ -603,12 +639,14 @@
           <span class="brudd-teller">933ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>AK-2.0 – søknadsfristkort er synlig</strong></span>
           <span class="brudd-teller">1022ms</span>
         </div>
+        
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
@@ -617,6 +655,7 @@
           <span class="brudd-teller">1188ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
@@ -624,12 +663,14 @@
           <span class="brudd-teller">1066ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>AK – utlysningssiden laster uten feilside</strong></span>
           <span class="brudd-teller">1035ms</span>
         </div>
+        
         
       </div>
     </div>
@@ -651,12 +692,14 @@
           <span class="brudd-teller">3847ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>AK-2 – organisasjonsnummerfeltet er synlig</strong></span>
           <span class="brudd-teller">3633ms</span>
         </div>
+        
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
@@ -665,12 +708,14 @@
           <span class="brudd-teller">3610ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>AK-3 – org-nummer valideres på format (feil antall siffer gir feil)</strong></span>
           <span class="brudd-teller">3651ms</span>
         </div>
+        
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
@@ -679,12 +724,14 @@
           <span class="brudd-teller">3737ms</span>
         </div>
         
+        
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span>✅ <strong>AK-5 – e-postfelt er synlig</strong></span>
           <span class="brudd-teller">3625ms</span>
         </div>
+        
         
       </div>
     </div>

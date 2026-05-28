@@ -67,17 +67,31 @@ function bhId(title) {
   return m ? m[0] : title;
 }
 
+function erHoppetOver(spec) {
+  return spec.tests?.some(t => t.status === 'skipped') ?? false;
+}
+
+function skipArsak(spec) {
+  return spec.tests?.[0]?.annotations?.find(a => a.type === 'skip')?.description ?? '';
+}
+
 function sidemenyLinks() {
   return suites.map(suite => {
-    const feilet = (suite.specs ?? []).filter(sp => !sp.ok).length;
-    const cls    = feilet > 0 ? 'har-brudd' : 'ok';
-    const id     = bhId(suite.title);
+    const specs    = suite.specs ?? [];
+    const feilet   = specs.filter(sp => !sp.ok).length;
+    const hoppet   = specs.filter(sp => erHoppetOver(sp)).length;
+    const cls      = feilet > 0 ? 'har-brudd' : hoppet > 0 ? 'har-hoppet' : 'ok';
+    const id       = bhId(suite.title);
     const beskrivelse = suite.title.replace(id + ': ', '');
+    const badgeTekst = feilet > 0
+      ? `${feilet} feilet${hoppet > 0 ? ` · ${hoppet} hoppet over` : ''}`
+      : hoppet > 0 ? `${hoppet} hoppet over`
+      : 'OK';
     return `    <li>
       <a href="#bh-${esc(id)}" class="sidenav-link ${cls}">
         <span class="sidenavn">${esc(id)}</span>
         <span class="side-url">${esc(beskrivelse)}</span>
-        <span class="side-badge">${feilet > 0 ? `${feilet} feilet` : 'OK'}</span>
+        <span class="side-badge">${esc(badgeTekst)}</span>
       </a>
     </li>`;
   }).join('\n');
@@ -86,27 +100,42 @@ function sidemenyLinks() {
 function bhSeksjoner() {
   return suites.map(suite => {
     const specs = suite.specs ?? [];
-    const antallFeilet = specs.filter(sp => !sp.ok).length;
+    const antallFeilet  = specs.filter(sp => !sp.ok).length;
+    const antallHoppet  = specs.filter(sp => erHoppetOver(sp)).length;
     const id = bhId(suite.title);
-    const statusBadge = antallFeilet > 0
-      ? `<span class="badge critical">${antallFeilet} feilet</span>`
-      : `<span class="badge" style="background:#ecfdf5;color:#064e3b;">Alle OK</span>`;
+    const statusBadge = [
+      antallFeilet > 0
+        ? `<span class="badge critical">${antallFeilet} feilet</span>`
+        : null,
+      antallHoppet > 0
+        ? `<span class="badge mangler-data">${antallHoppet} hoppet over – manglende testdata</span>`
+        : null,
+      antallFeilet === 0 && antallHoppet === 0
+        ? `<span class="badge" style="background:#ecfdf5;color:#064e3b;">Alle OK</span>`
+        : null,
+    ].filter(Boolean).join(' ');
 
     const specRader = specs.map(spec => {
-      const ok    = spec.ok;
-      const ikon  = ok ? '✅' : '❌';
-      const farge = ok ? '#064e3b' : '#c53030';
-      const bg    = ok ? '#ecfdf5' : '#fff5f5';
+      const hoppet = erHoppetOver(spec);
+      const ok     = spec.ok && !hoppet;
+      const ikon   = hoppet ? '⚠️' : ok ? '✅' : '❌';
+      const farge  = hoppet ? '#b45309' : ok ? '#064e3b' : '#c53030';
+      const bg     = hoppet ? '#fffbeb' : ok ? '#ecfdf5' : '#fff5f5';
       const errors = spec.tests?.flatMap(t => t.results?.flatMap(r => r.errors ?? []) ?? []) ?? [];
       const errHtml = errors.length
         ? `<div class="brudd-hjelp">${esc(errors.map(e => e.message ?? '').join('\n\n')).replace(/\n/g, '<br>')}</div>`
+        : '';
+      const arsak = hoppet ? skipArsak(spec) : '';
+      const arsakHtml = arsak
+        ? `<div class="hoppet-arsak">Årsak: ${esc(arsak)}</div>`
         : '';
       const varighet = spec.tests?.[0]?.results?.[0]?.duration ?? 0;
       return `      <div class="brudd-kort" style="border-left-color:${farge};background:${bg};">
         <div class="brudd-header">
           <span>${ikon} <strong>${esc(spec.title)}</strong></span>
-          <span class="brudd-teller">${varighet}ms</span>
+          <span class="brudd-teller">${varighet > 0 ? varighet + 'ms' : '–'}</span>
         </div>
+        ${arsakHtml}
         ${errHtml}
       </div>`;
     }).join('\n');
@@ -162,6 +191,7 @@ const html = `<!DOCTYPE html>
   .sidenav-link{display:block;padding:.65rem 1.4rem;text-decoration:none;color:rgba(255,255,255,.65);border-left:3px solid transparent;transition:background .15s,color .15s}
   .sidenav-link:hover{background:rgba(255,255,255,.07);color:white}
   .sidenav-link.har-brudd{border-color:#f3dda2}
+  .sidenav-link.har-hoppet{border-color:#fcd34d}
   .sidenav-link.ok{border-color:#abd1b1}
   .sidenavn{display:block;font-size:.84rem;font-weight:500}
   .side-url{display:block;font-size:.68rem;opacity:.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.15rem}
@@ -210,6 +240,8 @@ const html = `<!DOCTYPE html>
 
   .badge{display:inline-block;padding:.15rem .6rem;border-radius:100px;font-size:.7rem;font-weight:600}
   .badge.critical{background:#fee2e2;color:#c53030}
+  .badge.mangler-data{background:#fef3c7;color:#92400e}
+  .hoppet-arsak{font-size:.78rem;color:#92400e;margin-top:.5rem;padding:.4rem .8rem;background:#fef9ec;border-left:3px solid #f59e0b;font-style:italic}
 
   .skjermbilde-galleri{margin-top:1.4rem}
   .skjermbilde-galleri h3{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#0a1355;margin-bottom:.9rem;padding-bottom:.4rem;border-bottom:1px solid #f4ecdf}

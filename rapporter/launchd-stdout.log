@@ -1363,3 +1363,27 @@
  create mode 100644 rapporter/2026-05-21/uu-rapport.html
  create mode 100644 rapporter/2026-05-21/ytelse-rapport.html
  create mode 100644 rapporter/2026-05-21/ytelse-resultat.json
+[main 1b810e2] Daglig UU-rapport 2026-05-28 [skip ci]
+ 82 files changed, 13755 insertions(+), 565 deletions(-)
+ create mode 100644 docs/arkiv/2026-05-28/monkey-rapport-08-30.html
+ create mode 100644 docs/arkiv/2026-05-28/negativ-rapport-08-34.html
+ create mode 100644 docs/arkiv/2026-05-28/sikkerhet-rapport-08-33.html
+ create mode 100644 docs/arkiv/2026-05-28/skjermbilder-monkey/monkey-pre-submit-10.png
+ create mode 100644 docs/arkiv/2026-05-28/skjermbilder-monkey/monkey-pre-submit-6.png
+ create mode 100644 docs/arkiv/2026-05-28/skjermbilder-monkey/monkey-pre-submit-7.png
+ create mode 100644 docs/arkiv/2026-05-28/skjermbilder-monkey/monkey-pre-submit-8.png
+ create mode 100644 docs/arkiv/2026-05-28/skjermbilder-monkey/monkey-pre-submit-9.png
+ create mode 100644 docs/arkiv/2026-05-28/uu-rapport-08-30.html
+ create mode 100644 rapporter/2026-05-28/monkey-rapport-08-30.html
+ create mode 100644 rapporter/2026-05-28/monkey-resultat-08-30.json
+ create mode 100644 rapporter/2026-05-28/negativ-rapport-08-34.html
+ create mode 100644 rapporter/2026-05-28/negativ-resultat-08-34.json
+ create mode 100644 rapporter/2026-05-28/resultat-08-30.json
+ create mode 100644 rapporter/2026-05-28/sikkerhet-rapport-08-33.html
+ create mode 100644 rapporter/2026-05-28/sikkerhet-resultat-08-33.json
+ create mode 100644 rapporter/2026-05-28/skjermbilder-monkey/monkey-pre-submit-10.png
+ create mode 100644 rapporter/2026-05-28/skjermbilder-monkey/monkey-pre-submit-6.png
+ create mode 100644 rapporter/2026-05-28/skjermbilder-monkey/monkey-pre-submit-7.png
+ create mode 100644 rapporter/2026-05-28/skjermbilder-monkey/monkey-pre-submit-8.png
+ create mode 100644 rapporter/2026-05-28/skjermbilder-monkey/monkey-pre-submit-9.png
+ create mode 100644 rapporter/2026-05-28/uu-rapport-08-30.html

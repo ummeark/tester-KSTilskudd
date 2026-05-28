@@ -87,12 +87,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 212,
+                      "duration": 341,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:03:40.128Z",
+                      "startTime": "2026-05-28T08:15:13.555Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -121,12 +121,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 495,
+                      "duration": 352,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:03:40.400Z",
+                      "startTime": "2026-05-28T08:15:13.957Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 250,
+                      "duration": 328,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:03:40.900Z",
+                      "startTime": "2026-05-28T08:15:14.315Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -182,108 +182,6 @@
           "column": 6,
           "specs": [
             {
-              "title": "AK-4 – forsiden viser H1 \"Nasjonal portal for søknad om offentlige tilskudd\"",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 714,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-05-28T08:03:41.157Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2d51df8f2a7ee4965639-08c93764a903edf969cb",
-              "file": "brukerhistorie-tester.js",
-              "line": 46,
-              "column": 3
-            },
-            {
-              "title": "AK-4 – forsiden viser ingress om å finne tilskuddsordninger",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 725,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-05-28T08:03:41.876Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2d51df8f2a7ee4965639-6856423daaa7ffc9026d",
-              "file": "brukerhistorie-tester.js",
-              "line": 51,
-              "column": 3
-            },
-            {
-              "title": "AK-4 – forsiden har innholdsseksjon som forklarer hva portalen er",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 711,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-05-28T08:03:42.607Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2d51df8f2a7ee4965639-d137fa1279781c70c16e",
-              "file": "brukerhistorie-tester.js",
-              "line": 57,
-              "column": 3
-            },
-            {
               "title": "AK-2 – søkefelt med placeholder \"Søk etter tilskuddsordning\" er synlig",
               "ok": true,
               "tags": [],
@@ -299,12 +197,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 750,
+                      "duration": 861,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:03:43.323Z",
+                      "startTime": "2026-05-28T08:15:14.650Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -314,7 +212,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-619dca5a4b514626a087",
               "file": "brukerhistorie-tester.js",
-              "line": 64,
+              "line": 46,
               "column": 3
             },
             {
@@ -333,12 +231,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 699,
+                      "duration": 697,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:03:44.079Z",
+                      "startTime": "2026-05-28T08:15:15.516Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -348,7 +246,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-cded4639c98b17b347c1",
               "file": "brukerhistorie-tester.js",
-              "line": 70,
+              "line": 52,
               "column": 3
             },
             {
@@ -367,12 +265,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 905,
+                      "duration": 873,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:03:44.783Z",
+                      "startTime": "2026-05-28T08:15:16.219Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -382,7 +280,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-4e3ea8c4bf1906c019e0",
               "file": "brukerhistorie-tester.js",
-              "line": 76,
+              "line": 58,
               "column": 3
             },
             {
@@ -401,12 +299,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1914,
+                      "duration": 870,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:03:45.694Z",
+                      "startTime": "2026-05-28T08:15:17.098Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -416,7 +314,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-26c590d31d541042fe97",
               "file": "brukerhistorie-tester.js",
-              "line": 84,
+              "line": 66,
               "column": 3
             },
             {
@@ -435,12 +333,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2855,
+                      "duration": 1796,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:03:47.614Z",
+                      "startTime": "2026-05-28T08:15:17.972Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -450,7 +348,109 @@
               ],
               "id": "2d51df8f2a7ee4965639-b642958d3a87a8c1a172",
               "file": "brukerhistorie-tester.js",
-              "line": 94,
+              "line": 76,
+              "column": 3
+            },
+            {
+              "title": "AK-4 – forsiden viser H1 \"Nasjonal portal for søknad om offentlige tilskudd\"",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 987,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-28T08:15:19.773Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-08c93764a903edf969cb",
+              "file": "brukerhistorie-tester.js",
+              "line": 87,
+              "column": 3
+            },
+            {
+              "title": "AK-4 – forsiden viser ingress om å finne tilskuddsordninger",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 708,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-28T08:15:20.767Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-6856423daaa7ffc9026d",
+              "file": "brukerhistorie-tester.js",
+              "line": 92,
+              "column": 3
+            },
+            {
+              "title": "AK-4 – forsiden har innholdsseksjon som forklarer hva portalen er",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 897,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-28T08:15:21.481Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-d137fa1279781c70c16e",
+              "file": "brukerhistorie-tester.js",
+              "line": 98,
               "column": 3
             },
             {
@@ -469,12 +469,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 349,
+                      "duration": 313,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:03:50.473Z",
+                      "startTime": "2026-05-28T08:15:22.383Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -511,12 +511,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 307,
+                      "duration": 500,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:03:50.826Z",
+                      "startTime": "2026-05-28T08:15:22.701Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -545,12 +545,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 380,
+                      "duration": 357,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:03:51.137Z",
+                      "startTime": "2026-05-28T08:15:23.205Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -579,12 +579,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1138,
+                      "duration": 1023,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:03:51.522Z",
+                      "startTime": "2026-05-28T08:15:23.566Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -621,12 +621,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1429,
+                      "duration": 1265,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:03:52.666Z",
+                      "startTime": "2026-05-28T08:15:24.594Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -655,12 +655,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 377,
+                      "duration": 283,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:03:54.101Z",
+                      "startTime": "2026-05-28T08:15:25.865Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -697,7 +697,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 5270,
+                      "duration": 5412,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:182:29",
@@ -721,7 +721,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:03:54.482Z",
+                      "startTime": "2026-05-28T08:15:26.152Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -761,7 +761,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 334,
+                      "duration": 371,
                       "error": {
                         "message": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m",
                         "stack": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:192:84",
@@ -785,7 +785,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:00.044Z",
+                      "startTime": "2026-05-28T08:15:31.861Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -825,7 +825,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 15228,
+                      "duration": 15268,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:199:32",
@@ -849,7 +849,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:00.659Z",
+                      "startTime": "2026-05-28T08:15:32.519Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -897,12 +897,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 281,
+                      "duration": 288,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:16.251Z",
+                      "startTime": "2026-05-28T08:15:48.132Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -931,12 +931,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 213,
+                      "duration": 205,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:16.594Z",
+                      "startTime": "2026-05-28T08:15:48.484Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -965,12 +965,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 268,
+                      "duration": 224,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:16.813Z",
+                      "startTime": "2026-05-28T08:15:48.694Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -999,12 +999,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2375,
+                      "duration": 196,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:17.086Z",
+                      "startTime": "2026-05-28T08:15:48.923Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1033,12 +1033,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 214,
+                      "duration": 184,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:19.466Z",
+                      "startTime": "2026-05-28T08:15:49.123Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1067,12 +1067,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 202,
+                      "duration": 1334,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:19.684Z",
+                      "startTime": "2026-05-28T08:15:49.311Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1109,12 +1109,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2033,
+                      "duration": 1736,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:19.893Z",
+                      "startTime": "2026-05-28T08:15:50.649Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1143,12 +1143,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 886,
+                      "duration": 3081,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:21.934Z",
+                      "startTime": "2026-05-28T08:15:52.390Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1177,12 +1177,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 938,
+                      "duration": 871,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:22.826Z",
+                      "startTime": "2026-05-28T08:15:55.477Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1211,12 +1211,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1028,
+                      "duration": 844,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:23.771Z",
+                      "startTime": "2026-05-28T08:15:56.354Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1245,12 +1245,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 836,
+                      "duration": 854,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:24.810Z",
+                      "startTime": "2026-05-28T08:15:57.204Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1279,12 +1279,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 825,
+                      "duration": 946,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:25.652Z",
+                      "startTime": "2026-05-28T08:15:58.064Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1313,12 +1313,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 819,
+                      "duration": 850,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:26.482Z",
+                      "startTime": "2026-05-28T08:15:59.016Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1347,12 +1347,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 831,
+                      "duration": 910,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:27.306Z",
+                      "startTime": "2026-05-28T08:15:59.876Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1391,12 +1391,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "skipped",
-                      "duration": 5191,
+                      "duration": 4972,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:28.143Z",
+                      "startTime": "2026-05-28T08:16:00.791Z",
                       "annotations": [
                         {
                           "type": "skip",
@@ -1443,12 +1443,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2948,
+                      "duration": 1695,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:33.340Z",
+                      "startTime": "2026-05-28T08:16:05.768Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1477,12 +1477,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 864,
+                      "duration": 889,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:36.293Z",
+                      "startTime": "2026-05-28T08:16:07.469Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1511,12 +1511,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 840,
+                      "duration": 884,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:37.163Z",
+                      "startTime": "2026-05-28T08:16:08.363Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1545,12 +1545,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 843,
+                      "duration": 847,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:38.009Z",
+                      "startTime": "2026-05-28T08:16:09.253Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1579,12 +1579,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 822,
+                      "duration": 839,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:38.857Z",
+                      "startTime": "2026-05-28T08:16:10.105Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1613,12 +1613,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 909,
+                      "duration": 941,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:39.685Z",
+                      "startTime": "2026-05-28T08:16:10.949Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1647,12 +1647,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 949,
+                      "duration": 848,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:40.599Z",
+                      "startTime": "2026-05-28T08:16:11.895Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1681,12 +1681,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 844,
+                      "duration": 835,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:41.553Z",
+                      "startTime": "2026-05-28T08:16:12.747Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1715,12 +1715,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 878,
+                      "duration": 856,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:42.401Z",
+                      "startTime": "2026-05-28T08:16:13.587Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1762,7 +1762,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:43.285Z",
+                      "startTime": "2026-05-28T08:16:14.448Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1791,12 +1791,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3610,
+                      "duration": 3658,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:46.877Z",
+                      "startTime": "2026-05-28T08:16:18.040Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1825,12 +1825,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3626,
+                      "duration": 3623,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:50.492Z",
+                      "startTime": "2026-05-28T08:16:21.705Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1859,12 +1859,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3711,
+                      "duration": 3591,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:54.123Z",
+                      "startTime": "2026-05-28T08:16:25.333Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1893,12 +1893,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3613,
+                      "duration": 5748,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:04:57.839Z",
+                      "startTime": "2026-05-28T08:16:28.928Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1927,12 +1927,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5260,
+                      "duration": 3940,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T08:05:01.457Z",
+                      "startTime": "2026-05-28T08:16:34.681Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1952,8 +1952,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-28T08:03:38.652Z",
-    "duration": 88105.02,
+    "startTime": "2026-05-28T08:15:11.288Z",
+    "duration": 87367.286,
     "expected": 46,
     "skipped": 1,
     "unexpected": 3,

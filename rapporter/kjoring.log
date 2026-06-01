@@ -15847,3 +15847,505 @@ Rapport skrevet til docs/brukerhistorie-rapport.html og rapporter/2026-05-29/bru
 ✅ Arkiv generert → docs/arkiv.html
    Datoer: 39 | UU: 100 | Monkey: 84 | Sikkerhet: 83 | Negativ: 83
 ✅ Dashboard generert → docs/rapport.html
+[2026-05-29 10:12:48] ✅ Ferdig og pushet til GitHub
+=======================================
+[2026-06-01 08:30:04] Starter daglig UU-test
+[2026-06-01 08:30:04] Node: v24.12.0
+[2026-06-01 08:30:04] Kjører npm run rapport...
+
+> uu-tester@1.0.0 rapport
+> node uu-tester.js
+
+
+🔍 Starter UU-analyse av: https://tilskudd.fiks.test.ks.no/
+📅 Dato: 2026-06-01
+📄 Maks antall sider: 20
+
+
+🔐 Logger inn via ID-porten TestID (modus: fast)...
+  ✅ Innlogget. Landet på: https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+📄 [1/20] Analyserer: https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+  📸 Tar skjermdumper av 0 brudd...
+📄 [2/20] Analyserer: https://tilskudd.fiks.test.ks.no
+  📸 Tar skjermdumper av 0 brudd...
+📄 [3/20] Analyserer: https://tilskudd.fiks.test.ks.no/minside
+  📸 Tar skjermdumper av 0 brudd...
+📄 [4/20] Analyserer: https://tilskudd.fiks.test.ks.no/logout
+  📸 Tar skjermdumper av 0 brudd...
+📄 [5/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/a1b2c3d4-e5f6-7890-1234-567890abcdef
+  📸 Tar skjermdumper av 0 brudd...
+📄 [6/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/72076638-cb96-4e8d-866b-9b120fe00601
+  📸 Tar skjermdumper av 0 brudd...
+📄 [7/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/f79639d3-59df-498c-97d5-1b0499078ecf
+  📸 Tar skjermdumper av 0 brudd...
+📄 [8/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/d1aa30b0-88c6-4084-abfb-57751f0876a2
+  📸 Tar skjermdumper av 0 brudd...
+📄 [9/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/a986a003-ce01-4cfc-af76-24a247db9a17
+  📸 Tar skjermdumper av 0 brudd...
+📄 [10/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/28ad17b3-f3fd-4655-a404-57c9f5f9667e
+  📸 Tar skjermdumper av 0 brudd...
+📄 [11/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger
+  📸 Tar skjermdumper av 0 brudd...
+📄 [12/20] Analyserer: https://tilskudd.fiks.test.ks.no/om
+  📸 Tar skjermdumper av 1 brudd...
+📄 [13/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc
+  📸 Tar skjermdumper av 0 brudd...
+📄 [14/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/e42eab8a-1512-4dc2-bbf9-40eebcbabcd5
+  📸 Tar skjermdumper av 0 brudd...
+📄 [15/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/7082abd8-4f23-43e9-adce-c4762b848b81
+  📸 Tar skjermdumper av 0 brudd...
+📄 [16/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0
+  📸 Tar skjermdumper av 0 brudd...
+📄 [17/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6
+  📸 Tar skjermdumper av 0 brudd...
+📄 [18/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/b4d7c9a1-2f65-4e3b-8a91-0c7d6e5f4a33
+  📸 Tar skjermdumper av 0 brudd...
+📄 [19/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/opprett
+  📸 Tar skjermdumper av 0 brudd...
+
+⌨️  Kjører tastaturnavigasjonstest...
+  ⚠️ [2.4.7] Synlig fokus på interaktive elementer – 3 element(er) uten synlig fokus: A "Logg inn", A "Logg inn"
+  ✅ [2.4.3] Ingen tabindex > 0
+  ✅ [2.1.1] Interaktive elementer nåbare via Tab – 5 elementer nådd (6 i DOM)
+  ✅ [2.1.2] Ingen tastaturfelle
+  ⚠️ [2.4.1] Hopplenke til hovedinnhold – Første Tab: A "ks tilskudd"
+  ⚠️ [2.1.1] Enter aktiverer navigasjonslenke – Ingen navigasjonslenke aktivert i de første 15 Tab-stegene
+
+📱 Kjører Reflow-sjekk (WCAG 1.4.10)...
+  ✅ [1.4.10] Ingen horisontal rulling ved 320px (400 % zoom) – Ingen horisontal rulling ved 320px bredde
+  ✅ [1.4.10] Innhold ikke avskåret ved 320px
+
+📐 Kjører tekstmellomrom-sjekk (WCAG 1.4.12)...
+  ✅ [1.4.12] Ingen tekstklipping ved økt linjehøyde og bokstavmellomrom
+  ✅ [1.4.12] Ingen horisontal overflyt etter økt tekstmellomrom
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 RAPPORT – https://tilskudd.fiks.test.ks.no/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📄 Sider testet:     19
+♿ WCAG-brudd:       [33m1[0m   (kritiske: 0, alvorlige: 0)
+🔗 Døde lenker:      [31m6[0m
+🔘 Knapper testet:   17 ([32m0[0m uten label)
+🖼️  Bilder testet:    83 ([32m0[0m uten alt)
+📝 Skjemafelt:       2 ([32m0[0m uten label)
+⌨️  Tastatur:         3 bestått · [31m3[0m adv. · [32m0[0m feil
+📱 Reflow (1.4.10):  2 bestått · [32m0[0m adv. · [32m0[0m feil
+📐 Tekstmellomrom:   2 bestått · [32m0[0m adv. · [32m0[0m feil
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 HTML-rapport: /Users/ummearkhan/tester-KSTilskudd/rapporter/2026-06-01/uu-rapport.html
+
+[2026-06-01 08:30:40] Kjører npm run monkey...
+
+> uu-tester@1.0.0 monkey
+> node monkey-tester.js
+
+
+🐒 Starter monkey-testing av: https://tilskudd.fiks.test.ks.no/
+📅 Dato: 2026-06-01
+🔄 Iterasjoner: 60
+
+
+🔐 Logger inn via ID-porten TestID (modus: fast)...
+  ✅ Innlogget. Landet på: https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+  ⬅️  [1] Gikk tilbake (browser back)
+  📤 [3] Send skjema: "Søk"
+  🖱️  [4] Klikket: "Søk"
+  📤 [5] Send skjema: "Søk"
+  🖱️  [6] Klikket: "Søk"
+  ✏️  [7] Fylte "02p7sn3b411e jquf4yecvnm wpwy2j9p9f ian9" i search-felt
+  🖱️  [8] Klikket: "Søk"
+  🖱️  [9] Klikket: "Søk"
+  ✏️  [10] Fylte "sf3gj3stozk 0bpnka22v5p xz2i1gm2kfb n3x7" i search-felt
+  ✏️  [11] Fylte "<b>bold</b>" i search-felt
+  🖱️  [12] Klikket: "Søk"
+  📤 [13] Send skjema: "Søk"
+  ✏️  [14] Fylte "!@#$%&*()" i search-felt
+  🖱️  [15] Klikket: "(ingen tekst)"
+  🏠 [16] Reset til startside
+  🖱️  [17] Klikket: "Søk"
+  🏠 [18] Reset til startside
+  ⬅️  [19] Gikk tilbake (browser back)
+  🏠 [20] Reset til startside
+  ✏️  [21] Fylte "" i search-felt
+  ⬅️  [22] Gikk tilbake (browser back)
+  🔗 [23] Klikket lenke: "KS Tilskudd"
+  🏠 [24] Reset til startside
+  🖱️  [25] Klikket: "Søk"
+  🖱️  [26] Klikket: "Søk"
+  🖱️  [27] Klikket: "Søk"
+  ✏️  [28] Fylte "!@#$%&*()" i search-felt
+  ✏️  [29] Fylte "Test bruker" i search-felt
+  🖱️  [30] Klikket: "Søk"
+  🏠 [31] Reset til startside
+  ✏️  [32] Fylte "!@#$%&*()" i search-felt
+  🖱️  [33] Klikket: "(ingen tekst)"
+  🖱️  [34] Klikket: "Søk"
+  ✏️  [35] Fylte "99999999999999999999" i search-felt
+  ⬅️  [36] Gikk tilbake (browser back)
+  ⬅️  [37] Gikk tilbake (browser back)
+  🖱️  [38] Klikket: "(ingen tekst)"
+  🔗 [39] Klikket lenke: "Tilskuddsordninger"
+  ✏️  [40] Fylte "0" i search-felt
+  🖱️  [41] Klikket: "(ingen tekst)"
+  ⬅️  [42] Gikk tilbake (browser back)
+  🔗 [43] Klikket lenke: "Logg inn"
+  🔗 [44] Klikket lenke: "Test-prosjekt UAkUkjent organisasjonSøknadsfrist 31. august "
+  🖱️  [45] Klikket: "Legg til flere deltagereOrg.rep"
+  🖱️  [46] Klikket: "Test-prosjekt UAk"
+  ⚠️  Klikk feilet: locator.click: Timeout 4000ms exceeded.
+Call log:
+  - waiting for locator('butto
+  🏠 [47] Reset til startside
+  ⬅️  [48] Gikk tilbake (browser back)
+  ⬅️  [49] Gikk tilbake (browser back)
+  ⬅️  [51] Gikk tilbake (browser back)
+  🖱️  [52] Klikket: "(ingen tekst)"
+  🔗 [53] Klikket lenke: "Stimuleringsmidler til internasjonalt samarbeid i Østfold"
+  🏠 [54] Reset til startside
+  📤 [55] Send skjema: "Søk"
+  🏠 [56] Reset til startside
+  ✏️  [57] Fylte "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" i search-felt
+  🏠 [58] Reset til startside
+  ✏️  [59] Fylte "!@#$%&*()" i search-felt
+  📤 [60] Send skjema: "Søk"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🐒 MONKEY-RAPPORT – https://tilskudd.fiks.test.ks.no/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔄 Iterasjoner:      60
+📄 Sider besøkt:     8
+⚡ JS-feil:          0
+🖥️  Konsoll-feil:     6
+🌐 Nettverksfeil:    0
+💥 Kritiske funn:    0
+⏱️  Varighet:         9s
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 Monkey-rapport: /Users/ummearkhan/tester-KSTilskudd/rapporter/2026-06-01/monkey-rapport.html
+[2026-06-01 08:30:49] Kjører npm run sikkerhet...
+
+> uu-tester@1.0.0 sikkerhet
+> node sikkerhet-tester.js
+
+
+🔐 Starter sikkerhetstest av: https://tilskudd.fiks.test.ks.no/
+📅 Dato: 2026-06-01
+
+📋 Sjekker HTTP-sikkerhetshoder...
+  ✅ [OK] HSTS er satt
+  ✅ [OK] Content-Security-Policy er satt
+  ✅ [OK] X-Frame-Options er satt
+  ✅ [OK] X-Content-Type-Options er satt
+  🔵 [LAV] Manglende Referrer-Policy
+  🔵 [LAV] Manglende Permissions-Policy
+  🔵 [LAV] Manglende COOP
+  🔵 [LAV] Manglende CORP
+🕵️  Sjekker informasjonslekkasje i hoder...
+🔒 Sjekker HTTPS-håndhevelse...
+  ✅ [OK] HTTP omdirigerer til HTTPS
+📂 Sjekker sensitive stier...
+  🟠 [ALVORLIG] Sensitiv sti tilgjengelig: /api
+  🟠 [ALVORLIG] Sensitiv sti tilgjengelig: /robots.txt
+🍪 Sjekker cookie-sikkerhet...
+
+🔐 Logger inn via ID-porten TestID (modus: fast)...
+  ✅ Innlogget. Landet på: https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+  🟡 [MIDDELS] Cookie "ingress-csrf" har svake sikkerhetsattributter
+  🟠 [ALVORLIG] Cookie "dtCookie" har svake sikkerhetsattributter
+  🟡 [MIDDELS] Cookie "b01773c48f061e5a6fa15915170117e2" har svake sikkerhetsattributter
+  ✅ [OK] Cookie "BIGipServer~DIGILB02_TEST~pool_digdir_test.idporten.no_https" har korrekte sikkerhetsattributter
+  🟡 [MIDDELS] Cookie "0260dc82f58fc9f938d67c7fc5f66b20" har svake sikkerhetsattributter
+  ✅ [OK] Cookie "BIGipServer~DIGILB01~pool_digdir_idporten.no_https" har korrekte sikkerhetsattributter
+  ✅ [OK] Cookie "JSESSIONID" har korrekte sikkerhetsattributter
+  🟡 [MIDDELS] Cookie "0ba91516c140d36c0e0e98cf9b128957" har svake sikkerhetsattributter
+  ✅ [OK] Cookie "BIGipServer~DIGILB02_TEST~pool_digdir_test.idporten.no_https" har korrekte sikkerhetsattributter
+  ✅ [OK] Cookie "JSESSIONID" har korrekte sikkerhetsattributter
+  ✅ [OK] Cookie "IDPORTEN_AUTH" har korrekte sikkerhetsattributter
+  🟡 [MIDDELS] Cookie "session" har svake sikkerhetsattributter
+🔀 Sjekker mixed content...
+  ✅ [OK] Ingen mixed content funnet
+💉 Sjekker input-refleksjon...
+  ✅ [OK] Søkefelt ser ut til å rense input
+🌐 Sjekker CORS-konfigurasjon...
+  ✅ [OK] Ingen CORS-hoder – standard same-origin-policy gjelder
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔐 SIKKERHETSRAPPORT – https://tilskudd.fiks.test.ks.no/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔴 Kritiske:   0
+🟠 Alvorlige:  3
+🟡 Moderate:   5
+🔵 Lave:       4
+✅ Bestått:    14
+📊 Score:      37/100
+⏱️  Varighet:   4s
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 Sikkerhetsrapport: /Users/ummearkhan/tester-KSTilskudd/rapporter/2026-06-01/sikkerhet-rapport.html
+[2026-06-01 08:31:01] Kjører npm run negativ...
+
+> uu-tester@1.0.0 negativ
+> node negativ-tester.js
+
+
+🧪 Starter negativ testing av: https://tilskudd.fiks.test.ks.no/
+📅 Dato: 2026-06-01
+
+
+🔐 Logger inn via ID-porten TestID (modus: fast)...
+  ✅ Innlogget. Landet på: https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+
+📝 Kategori 1: Skjema-validering
+  ✅ Tom søkeinnsending
+  ✅ Søk med ekstremt lang tekst (2000 tegn)
+  ✅ Søk med spesialtegn
+  ✅ Søk med kun mellomrom
+  ✅ Søk med norske tegn (æøå)
+  ✅ SQL-lignende søketekst
+
+🔗 Kategori 2: URL-validering
+  ⚠️ Ukjent side
+  ⚠️ Ugyldig UUID i URL
+  ⚠️ Null-UUID
+  ✅ Path traversal-forsøk
+  ⚠️ Kodet path traversal
+  ✅ Ugyldig søknads-ID
+
+🔀 Kategori 3: Navigasjonsrekkefølge
+  ❌ Direkte tilgang til søknadsskjema uten forside
+  ✅ Browser tilbake fra søknadsskjema
+  ✅ Rask frem-og-tilbake-navigasjon (5x)
+  ✅ Dobbelt-klikk på handlingsknapp
+
+🌐 Kategori 4: Nettleserfunksjoner
+  ❌ Sideoppdatering (F5) under søknad
+  ✅ Siden uten JavaScript
+  ✅ Smal mobilvisning (320px bredde)
+  ✅ Stor skjerm (3840×2160)
+
+🔑 Kategori 5: Tilstand og sesjon
+  ✅ Last side etter sletting av alle cookies
+  ✅ Last side etter tømming av localStorage
+  ✅ Direkte tilgang til "Min side" uten innlogging
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧪 NEGATIV-TESTRAPPORT – https://tilskudd.fiks.test.ks.no/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Bestått:   17
+⚠️  Advarsler: 4
+❌ Feil:      2
+📊 Score:     50/100
+⏱️  Varighet:  38s
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 Negativ-rapport: /Users/ummearkhan/tester-KSTilskudd/rapporter/2026-06-01/negativ-rapport.html
+[2026-06-01 08:31:40] Kjører npm run ytelse...
+
+> uu-tester@1.0.0 ytelse
+> node ytelse-tester.js
+
+
+🚀 Starter ytelsestest av: https://tilskudd.fiks.test.ks.no/
+📅 Dato: 2026-06-01
+📄 Maks antall sider: 20
+
+
+🔐 Logger inn via ID-porten TestID (modus: fast)...
+  ✅ Innlogget. Landet på: https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+  📄 [1] https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+     Score: 100 | LCP: 168ms | FCP: 168ms | TTFB: 136ms | Last: 185ms | 2KB | 21 req
+  📄 [2] https://tilskudd.fiks.test.ks.no/
+     Score: 100 | LCP: 44ms | FCP: 44ms | TTFB: 22ms | Last: 57ms | 0KB | 12 req
+  📄 [3] https://tilskudd.fiks.test.ks.no/minside
+     Score: 100 | LCP: 244ms | FCP: 244ms | TTFB: 208ms | Last: 265ms | 2KB | 21 req
+  📄 [4] https://tilskudd.fiks.test.ks.no/logout
+     Score: 100 | LCP: 96ms | FCP: 96ms | TTFB: 21ms | Last: 111ms | 1KB | 9 req
+  📄 [5] https://tilskudd.fiks.test.ks.no/soknad/a1b2c3d4-e5f6-7890-1234-567890abcdef
+     Score: 100 | LCP: 152ms | FCP: 152ms | TTFB: 13ms | Last: 200ms | 0KB | 14 req
+  📄 [6] https://tilskudd.fiks.test.ks.no/soknad/72076638-cb96-4e8d-866b-9b120fe00601
+     Score: 100 | LCP: 88ms | FCP: 88ms | TTFB: 15ms | Last: 86ms | 0KB | 14 req
+  📄 [7] https://tilskudd.fiks.test.ks.no/soknad/f79639d3-59df-498c-97d5-1b0499078ecf
+     Score: 100 | LCP: 84ms | FCP: 84ms | TTFB: 12ms | Last: 83ms | 0KB | 14 req
+  📄 [8] https://tilskudd.fiks.test.ks.no/soknad/d1aa30b0-88c6-4084-abfb-57751f0876a2
+     Score: 100 | LCP: 100ms | FCP: 100ms | TTFB: 13ms | Last: 95ms | 0KB | 14 req
+  📄 [9] https://tilskudd.fiks.test.ks.no/soknad/a986a003-ce01-4cfc-af76-24a247db9a17
+     Score: 100 | LCP: 84ms | FCP: 84ms | TTFB: 13ms | Last: 79ms | 0KB | 14 req
+  📄 [10] https://tilskudd.fiks.test.ks.no/soknad/28ad17b3-f3fd-4655-a404-57c9f5f9667e
+     Score: 100 | LCP: 84ms | FCP: 84ms | TTFB: 13ms | Last: 80ms | 0KB | 14 req
+  📄 [11] https://tilskudd.fiks.test.ks.no/utlysinger
+     Score: 100 | LCP: 500ms | FCP: 96ms | TTFB: 56ms | Last: 110ms | 7KB | 18 req
+  📄 [12] https://tilskudd.fiks.test.ks.no/om
+     Score: 100 | LCP: 44ms | FCP: 44ms | TTFB: 21ms | Last: 38ms | 1KB | 11 req
+  📄 [13] https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc
+     Score: 100 | LCP: 220ms | FCP: 168ms | TTFB: 85ms | Last: 189ms | 15KB | 17 req
+  📄 [14] https://tilskudd.fiks.test.ks.no/utlysinger/e42eab8a-1512-4dc2-bbf9-40eebcbabcd5
+     Score: 100 | LCP: 168ms | FCP: 116ms | TTFB: 93ms | Last: 112ms | 0KB | 17 req
+  📄 [15] https://tilskudd.fiks.test.ks.no/utlysinger/7082abd8-4f23-43e9-adce-c4762b848b81
+     Score: 100 | LCP: 160ms | FCP: 108ms | TTFB: 86ms | Last: 105ms | 0KB | 17 req
+  📄 [16] https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0
+     Score: 100 | LCP: 188ms | FCP: 124ms | TTFB: 103ms | Last: 123ms | 0KB | 17 req
+  📄 [17] https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6
+     Score: 100 | LCP: 216ms | FCP: 164ms | TTFB: 141ms | Last: 163ms | 0KB | 17 req
+  📄 [18] https://tilskudd.fiks.test.ks.no/utlysinger/b4d7c9a1-2f65-4e3b-8a91-0c7d6e5f4a33
+     Score: 100 | LCP: 160ms | FCP: 112ms | TTFB: 91ms | Last: 112ms | 0KB | 17 req
+  📄 [19] https://tilskudd.fiks.test.ks.no/soknad/opprett
+     Score: 100 | LCP: 88ms | FCP: 88ms | TTFB: 16ms | Last: 84ms | 0KB | 14 req
+
+✅ Ferdig! Score: 100/100 | 19 sider analysert
+📄 JSON lagret → rapporter/2026-06-01/ytelse-resultat.json
+📊 Rapport lagret → rapporter/2026-06-01/ytelse-rapport.html
+[2026-06-01 08:31:56] Kjører npm run brukerhistorie...
+
+> uu-tester@1.0.0 brukerhistorie
+> playwright test --config brukerhistorie.playwright.config.js; node generer-brukerhistorie-rapport.js
+
+
+🔐 Logger inn via ID-porten TestID (modus: fast)...
+  ✅ Innlogget. Landet på: https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+
+Running 55 tests using 1 worker
+
+  ✓   1 brukerhistorie-tester.js:14:3 › BR.HIST-1: Som søker vil jeg se oversikt over tilskuddsordninger › kan navigere til utlysningslisten (242ms)
+  ✓   2 brukerhistorie-tester.js:19:3 › BR.HIST-1: Som søker vil jeg se oversikt over tilskuddsordninger › utlysningslisten inneholder minst én ordning (246ms)
+  ✓   3 brukerhistorie-tester.js:25:3 › BR.HIST-1: Som søker vil jeg se oversikt over tilskuddsordninger › kan klikke seg inn på en utlysning og se detaljer (316ms)
+  ✓   4 brukerhistorie-tester.js:39:3 › BR.HIST-4: Som søker vil jeg kunne navigere tilbake fra en utlysning › tilbake-navigasjon fra utlysning fungerer (1.1s)
+  ✓   5 brukerhistorie-tester.js:49:3 › BR.HIST-4: Som søker vil jeg kunne navigere tilbake fra en utlysning › F5-refresh på utlysningslisten beholder siden (288ms)
+  ✘   6 brukerhistorie-tester.js:62:3 › BR.HIST-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen › skiplink til hovedinnhold finnes i DOM (WCAG 2.4.1) (5.3s)
+  ✘   7 brukerhistorie-tester.js:74:3 › BR.HIST-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen › skiplink er første fokuserbare element ved Tab-navigasjon (312ms)
+  ✘   8 brukerhistorie-tester.js:84:3 › BR.HIST-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen › søkeskjema er merket med role="search" for skjermlesere (15.2s)
+  ✓   9 brukerhistorie-tester.js:104:3 › TILSK-481 / TILSK-793: Som søker vil jeg søke etter en tilskuddsordning › AK-2 – søkefelt med placeholder "Søk etter tilskuddsordning" er synlig (759ms)
+  ✓  10 brukerhistorie-tester.js:110:3 › TILSK-481 / TILSK-793: Som søker vil jeg søke etter en tilskuddsordning › AK-2 – Søk-knapp er synlig ved siden av søkefeltet (700ms)
+  ✓  11 brukerhistorie-tester.js:116:3 › TILSK-481 / TILSK-793: Som søker vil jeg søke etter en tilskuddsordning › AK-2 – søkefeltet er fokuserbart (767ms)
+  ✓  12 brukerhistorie-tester.js:124:3 › TILSK-481 / TILSK-793: Som søker vil jeg søke etter en tilskuddsordning › AK-3 – søk fra forsiden navigerer til oversiktssiden for utlysninger (719ms)
+  ✓  13 brukerhistorie-tester.js:134:3 › TILSK-481 / TILSK-793: Som søker vil jeg søke etter en tilskuddsordning › AK-3 – søk fra forsiden gir respons uten feilside (723ms)
+  ✓  14 brukerhistorie-tester.js:145:3 › TILSK-481 / TILSK-793: Som søker vil jeg søke etter en tilskuddsordning › AK-4 – forsiden viser H1 "Nasjonal portal for søknad om offentlige tilskudd" (695ms)
+  ✓  15 brukerhistorie-tester.js:150:3 › TILSK-481 / TILSK-793: Som søker vil jeg søke etter en tilskuddsordning › AK-4 – forsiden viser ingress om å finne tilskuddsordninger (737ms)
+  ✓  16 brukerhistorie-tester.js:156:3 › TILSK-481 / TILSK-793: Som søker vil jeg søke etter en tilskuddsordning › AK-4 – forsiden har innholdsseksjon som forklarer hva portalen er (757ms)
+  ✓  17 brukerhistorie-tester.js:163:3 › TILSK-481 / TILSK-793: Som søker vil jeg søke etter en tilskuddsordning › TILSK-481 – søk på oversiktssiden gir treff uten feilside (265ms)
+  ✓  18 brukerhistorie-tester.js:183:3 › TILSK-543: Som besøker ønsker jeg å finne riktig tilskuddsordning i portalen (uten innlogging) › AK-1.1 – utlysningslisten vises uten krav om innlogging (231ms)
+  ✓  19 brukerhistorie-tester.js:193:3 › TILSK-543: Som besøker ønsker jeg å finne riktig tilskuddsordning i portalen (uten innlogging) › AK-1.2 – søkefelt er synlig og tilgjengelig uten innlogging (229ms)
+  -  20 brukerhistorie-tester.js:202:3 › TILSK-543: Som besøker ønsker jeg å finne riktig tilskuddsordning i portalen (uten innlogging) › AK-3.1 – pagineringsknapp finnes hvis listen har flere sider
+  ✓  21 brukerhistorie-tester.js:216:3 › TILSK-543: Som besøker ønsker jeg å finne riktig tilskuddsordning i portalen (uten innlogging) › AK-4.1 – ingen treff: tydelig melding vises, ikke feilside (300ms)
+  ✓  22 brukerhistorie-tester.js:236:3 › TILSK-547: Som innlogget søker vil jeg se mine søknader › min side er tilgjengelig etter innlogging (337ms)
+  ✓  23 brukerhistorie-tester.js:241:3 › TILSK-547: Som innlogget søker vil jeg se mine søknader › min side viser ikke innloggingsskjema (brukeren er innlogget) (297ms)
+  ✓  24 brukerhistorie-tester.js:247:3 › TILSK-547: Som innlogget søker vil jeg se mine søknader › min side laster uten JavaScript-feil (925ms)
+  ✓  25 brukerhistorie-tester.js:329:3 › TILSK-738: Som søker ønsker jeg å se kontaktinformasjon om ordningen › AK-1.0 – utlysningssiden laster uten feilside (1.7s)
+  ✓  26 brukerhistorie-tester.js:336:3 › TILSK-738: Som søker ønsker jeg å se kontaktinformasjon om ordningen › AK-1.0 – kontaktinformasjonsseksjon finnes på en utlysningsside (880ms)
+  ✓  27 brukerhistorie-tester.js:344:3 › TILSK-738: Som søker ønsker jeg å se kontaktinformasjon om ordningen › AK-1.1 – minst ett kontaktinfokort vises (845ms)
+  ✓  28 brukerhistorie-tester.js:357:3 › TILSK-738: Som søker ønsker jeg å se kontaktinformasjon om ordningen › AK-1.1 – maks tre kontaktinfokort vises totalt (827ms)
+  ✓  29 brukerhistorie-tester.js:365:3 › TILSK-738: Som søker ønsker jeg å se kontaktinformasjon om ordningen › AK-1.2 – maks tre personkort vises (1.1s)
+  ✓  30 brukerhistorie-tester.js:373:3 › TILSK-738: Som søker ønsker jeg å se kontaktinformasjon om ordningen › AK-1.3 – maks ett virksomhetskort vises (1.0s)
+  ✓  31 brukerhistorie-tester.js:381:3 › TILSK-738: Som søker ønsker jeg å se kontaktinformasjon om ordningen › AK-1.4/1.5 – kontaktkort inneholder e-post eller telefonnummer (3.2s)
+  ✓  32 brukerhistorie-tester.js:390:3 › TILSK-738: Som søker ønsker jeg å se kontaktinformasjon om ordningen › AK-1.6 – obligatoriske felt: minst telefon eller e-post finnes i kontaktinfo (975ms)
+  -  33 brukerhistorie-tester.js:399:3 › TILSK-738: Som søker ønsker jeg å se kontaktinformasjon om ordningen › AK-1.7 – personkort vises over virksomhetskort på siden
+  ✓  34 brukerhistorie-tester.js:445:3 › TILSK-767: Organisasjonsvelger ved søknadsopprettelse › AK-1 – "Hvem søker du på vegne av?"-skjerm vises etter klikk på Søk om tilskudd (3.7s)
+  ✓  35 brukerhistorie-tester.js:453:3 › TILSK-767: Organisasjonsvelger ved søknadsopprettelse › AK-2 – organisasjonsnummerfeltet er synlig (3.7s)
+  ✓  36 brukerhistorie-tester.js:465:3 › TILSK-767: Organisasjonsvelger ved søknadsopprettelse › AK-3 – organisasjonsnummer er obligatorisk (tom felt blokkerer innsending) (3.7s)
+  ✓  37 brukerhistorie-tester.js:490:3 › TILSK-767: Organisasjonsvelger ved søknadsopprettelse › AK-3 – org-nummer valideres på format (feil antall siffer gir feil) (3.6s)
+  ✓  38 brukerhistorie-tester.js:512:3 › TILSK-767: Organisasjonsvelger ved søknadsopprettelse › AK-4 – søknadsnavn-felt er synlig (3.7s)
+  ✓  39 brukerhistorie-tester.js:527:3 › TILSK-767: Organisasjonsvelger ved søknadsopprettelse › AK-5 – e-postfelt er synlig (3.7s)
+  ✓  40 brukerhistorie-tester.js:562:3 › TILSK-785 / TILSK-795: Redesign av utlysningsside › AK-1.0 – breadcrumbs er synlig på utlysningssiden (1.7s)
+  ✓  41 brukerhistorie-tester.js:571:3 › TILSK-785 / TILSK-795: Redesign av utlysningsside › AK-1.1 – tittel (h1) er synlig under breadcrumbs (830ms)
+  ✓  42 brukerhistorie-tester.js:579:3 › TILSK-785 / TILSK-795: Redesign av utlysningsside › AK-1.2 – sist oppdatert dato vises (1.1s)
+  ✓  43 brukerhistorie-tester.js:586:3 › TILSK-785 / TILSK-795: Redesign av utlysningsside › AK-1.3 – forvalternavn vises (833ms)
+  ✓  44 brukerhistorie-tester.js:595:3 › TILSK-785 / TILSK-795: Redesign av utlysningsside › AK-1.4 – pengebeløp vises med tusenskille i kroner (om tilskuddsramme er satt) (818ms)
+  ✓  45 brukerhistorie-tester.js:606:3 › TILSK-785 / TILSK-795: Redesign av utlysningsside › AK-2.0 – søknadsfristkort er synlig (847ms)
+  ✓  46 brukerhistorie-tester.js:616:3 › TILSK-785 / TILSK-795: Redesign av utlysningsside › AK-3.0 – kontaktinfoseksjon er synlig (875ms)
+  ✓  47 brukerhistorie-tester.js:625:3 › TILSK-785 / TILSK-795: Redesign av utlysningsside › AK-4.0 – rikttekst-innholdsområde er synlig med tekst (828ms)
+  ✓  48 brukerhistorie-tester.js:632:3 › TILSK-785 / TILSK-795: Redesign av utlysningsside › AK – utlysningssiden laster uten feilside (1.4s)
+  ✓  49 brukerhistorie-tester.js:653:3 › TILSK-856: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord › AK-1 – stikkord: søk på ett ord gir resultater (ikke feilside) (210ms)
+  ✓  50 brukerhistorie-tester.js:659:3 › TILSK-856: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord › AK-1 – stikkord: søk på ett ord viser matchende utlysninger (194ms)
+  ✓  51 brukerhistorie-tester.js:667:3 › TILSK-856: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord › AK-2 – halvferdig ord: delstreng gir relevante treff (ikke feilside) (200ms)
+  ✓  52 brukerhistorie-tester.js:679:3 › TILSK-856: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord › AK-3 – flere ord: søk på «barn og unge» gir respons uten feilside (223ms)
+  ✓  53 brukerhistorie-tester.js:686:3 › TILSK-856: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord › AK-4 – ingen treff: nonsens-streng viser ingen-treff-melding, ikke feilside (207ms)
+  ✓  54 brukerhistorie-tester.js:693:3 › TILSK-856: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord › AK-5 – tomt søkefelt: hel utlysningsliste vises igjen (1.1s)
+  -  55 brukerhistorie-tester.js:701:3 › TILSK-856: Som søker vil jeg finne tilskuddsordninger med stikkord, halvferdige ord eller flere ord › AK-6 – feilstaving: feilstavet søkeord håndteres (f.eks. «mente du?»)
+
+
+  1) brukerhistorie-tester.js:62:3 › BR.HIST-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen › skiplink til hovedinnhold finnes i DOM (WCAG 2.4.1) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeAttached[2m([22m[2m)[22m failed
+
+    Locator: locator('a[href="#main"], a[href="#maincontent"], a[href="#main-content"], a[href="#innhold"], a.skip-link, a[class*="skip"]').first()
+    Expected: attached
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeAttached" with timeout 5000ms[22m
+    [2m  - waiting for locator('a[href="#main"], a[href="#maincontent"], a[href="#main-content"], a[href="#innhold"], a.skip-link, a[class*="skip"]').first()[22m
+
+
+      69 |       'a[href="#innhold"], a.skip-link, a[class*="skip"]'
+      70 |     ).first();
+    > 71 |     await expect(skipLenke).toBeAttached();
+         |                             ^
+      72 |   });
+      73 |
+      74 |   test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) => {
+        at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:71:29
+
+    Error Context: brukerhistorie-resultater/traces/brukerhistorie-tester.js-B-13c5d-ld-finnes-i-DOM-WCAG-2-4-1-/error-context.md
+
+  2) brukerhistorie-tester.js:74:3 › BR.HIST-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen › skiplink er første fokuserbare element ved Tab-navigasjon 
+
+    Error: Første Tab-stopp bør være en skiplink til #main eller #innhold
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoMatch[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected pattern: [32m/#main|#innhold|#content|#skip/[39m
+    Received string:  [31m"/"[39m
+
+      79 |     // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke
+      80 |     const href = await page.locator(':focus').getAttribute('href').catch(() => '');
+    > 81 |     expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);
+         |                                                                                    ^
+      82 |   });
+      83 |
+      84 |   test('søkeskjema er merket med role="search" for skjermlesere', async ({ page }) => {
+        at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:81:84
+
+    Error Context: brukerhistorie-resultater/traces/brukerhistorie-tester.js-B-39735--element-ved-Tab-navigasjon/error-context.md
+
+  3) brukerhistorie-tester.js:84:3 › BR.HIST-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen › søkeskjema er merket med role="search" for skjermlesere 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('[role="search"]').first()
+    Expected: visible
+    Timeout: 15000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 15000ms[22m
+    [2m  - waiting for locator('[role="search"]').first()[22m
+
+
+      86 |     // Forventer: søkecontaineren er annotert med role="search" (WCAG)
+      87 |     const searchRegion = page.locator('[role="search"]').first();
+    > 88 |     await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });
+         |                                ^
+      89 |   });
+      90 |
+      91 | });
+        at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:88:32
+
+    Error Context: brukerhistorie-resultater/traces/brukerhistorie-tester.js-B-7f1e5-ole-search-for-skjermlesere/error-context.md
+
+  3 failed
+    brukerhistorie-tester.js:62:3 › BR.HIST-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen › skiplink til hovedinnhold finnes i DOM (WCAG 2.4.1) 
+    brukerhistorie-tester.js:74:3 › BR.HIST-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen › skiplink er første fokuserbare element ved Tab-navigasjon 
+    brukerhistorie-tester.js:84:3 › BR.HIST-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen › søkeskjema er merket med role="search" for skjermlesere 
+  3 skipped
+  49 passed (1.5m)
+Rapport skrevet til docs/brukerhistorie-rapport.html og rapporter/2026-06-01/brukerhistorie-rapport.html
+[2026-06-01 08:33:26] Kjører npm run arkiv...
+
+> uu-tester@1.0.0 arkiv
+> node generer-arkiv.js
+
+✅ Siste rapporter og skjermdumper kopiert til docs/ (2026-06-01)
+✅ Arkiv generert → docs/arkiv.html
+   Datoer: 40 | UU: 101 | Monkey: 85 | Sikkerhet: 84 | Negativ: 84
+✅ Dashboard generert → docs/rapport.html

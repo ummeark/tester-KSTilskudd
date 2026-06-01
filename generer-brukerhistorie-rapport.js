@@ -29,7 +29,12 @@ const jiraMetadata = fs.existsSync(metadataPath)
 const allBhSuites = (data.suites ?? []).flatMap(s => s.suites ?? []);
 const bhMap = new Map();
 for (const suite of allBhSuites) bhMap.set(suite.title, suite);
-const suites = [...bhMap.values()];
+
+// Suites som ikke skal vises i rapporten (tester kjøres fortsatt)
+const SKJULTE_SUITES = ['BR.HIST-1', 'BR.HIST-4', 'BR.HIST-5'];
+const suites = [...bhMap.values()].filter(s =>
+  !SKJULTE_SUITES.some(p => s.title.startsWith(p))
+);
 
 // Dato
 const startTime = new Date(stats.startTime);
@@ -37,10 +42,12 @@ const dato = startTime.toISOString().slice(0, 10);
 const tid  = startTime.toLocaleTimeString('no-NO', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Oslo' });
 const datotid = `${dato} ${tid}`;
 
-// Totaler
-const totaltBestatt = stats.expected ?? 0;
-const totaltFeilet  = stats.unexpected ?? 0;
-const totaltTester  = totaltBestatt + totaltFeilet + (stats.skipped ?? 0);
+// Totaler beregnes fra synlige suites (skjulte suites telles ikke med)
+const alleSpecs = suites.flatMap(s => s.specs ?? []);
+const totaltBestatt = alleSpecs.filter(sp => sp.ok && !(sp.tests?.some(t => t.status === 'skipped'))).length;
+const totaltFeilet  = alleSpecs.filter(sp => !sp.ok).length;
+const totaltHoppet  = alleSpecs.filter(sp => sp.tests?.some(t => t.status === 'skipped')).length;
+const totaltTester  = totaltBestatt + totaltFeilet + totaltHoppet;
 const maxBh = Math.max(0, ...suites.map(s => { const m = s.title.match(/^BH-(\d+)/); return m ? parseInt(m[1]) : 0; }));
 
 // Score
@@ -356,7 +363,7 @@ ${sidemenyLinks()}
     <div class="kort ok">
       <div class="etikett">Brukerhistorier</div>
       <div class="tall">${suites.length}</div>
-      <div class="undertekst">BH-1 til BH-${maxBh}</div>
+      <div class="undertekst">Synlige i rapporten</div>
     </div>
     <div class="kort ok">
       <div class="etikett">Tester kjørt</div>
